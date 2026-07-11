@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumiksha Solanki | Premium Portfolio - Web Developer & Data Analyst</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Portfolio of Sumiksha Solanki - Senior Web Developer, Data Analyst, and Freelancer. Explore clean responsive websites, Power BI analytics dashboards, and custom web applications.">
+    <meta name="keywords" content="Sumiksha Solanki, Web Developer, Data Analyst, Freelancer, Power BI, SQL, MySQL, Python, PHP, HTML, CSS, JavaScript, Portfolio, Mumbai, India">
+    <meta name="author" content="Sumiksha Solanki">
+    <meta name="robots" content="index, follow">
+    
+    <!-- OpenGraph Social Metadata -->
+    <meta property="og:title" content="Sumiksha Solanki | Premium Portfolio">
+    <meta property="og:description" content="Explore modern, responsive web systems and interactive Power BI dashboards built by Sumiksha Solanki.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sumikshasolanki.github.io">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- External CSS link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Dynamic Particle Canvas Background -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Floating Navigation Bar -->
+    <header id="header">
+        <a href="#home" class="logo-container">
+            <div class="logo-icon">S</div>
+            <span class="logo-text">Sumiksha<span class="logo-dot">.</span></span>
+        </a>
+
+        <button class="menu-toggle" aria-label="Toggle Navigation Menu" id="menu-btn">
+            <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+
+        <ul class="nav-links" id="nav-menu">
+            <li><a href="#home" class="nav-link-item active">Home</a></li>
+            <li><a href="#about" class="nav-link-item">About</a></li>
+            <li><a href="#skills" class="nav-link-item">Skills</a></li>
+            <li><a href="#services" class="nav-link-item">Services</a></li>
+            <li><a href="#projects" class="nav-link-item">Projects</a></li>
+            <li><a href="#experience" class="nav-link-item">Experience</a></li>
+            <li><a href="#certificates" class="nav-link-item">Certificates</a></li>
+            <li><a href="#contact" class="nav-link-item">Contact</a></li>
+        </ul>
+    </header>
+
+    <!-- 1. Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-grid">
+            <div class="hero-text reveal reveal-up active">
+                <div class="welcome-badge">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Welcome to my portfolio
+                </div>
+                <h1>Hi, I'm <br><span class="gradient-text">Sumiksha Solanki</span></h1>
+                <h2>
+                    <span id="typing"></span><span class="typing-cursor"></span>
+                </h2>
+                <p>
+                    I design and build premium, fast, and SEO-friendly websites using modern frameworks. 
+                    I also develop high-performance database engines and Power BI reporting models to turn analytical data into commercial growth.
+                </p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn-primary">
+                        Get In Touch <i class="fa-solid fa-paper-plane"></i>
+                    </a>
+                    <a href="#projects" class="btn-secondary">
+                        View Projects <i class="fa-solid fa-arrow-down-long"></i>
+                    </a>
+                </div>
+                <div class="hero-socials">
+                    <span>Connect</span>
+                    <a href="https://www.linkedin.com/in/sumiksha-solanki-8b000b23a" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn Profile">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="mailto:sumikshasolnki@gmail.com" class="social-link" aria-label="Email Inbox">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                    <a href="https://github.com" target="_blank" rel="noopener" class="social-link" aria-label="GitHub Profile">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-graphic reveal reveal-up active">
+                <div class="graphic-wrapper">
+                    <!-- Glow ring background effect -->
+                    <div class="glow-ring"></div>
+                    
+                    <!-- Floating Widget 1: Power BI Metric -->
+                    <div class="floating-widget fw-1">
+                        <div class="widget-icon">
+                            <i class="fa-solid fa-chart-pie"></i>
+                        </div>
+                        <div class="widget-info">
+                            <span class="widget-title">Power BI</span>
+                            <span class="widget-value">Visualizations</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating Widget 2: DB Engine -->
+                    <div class="floating-widget fw-2">
+                        <div class="widget-icon">
+                            <i class="fa-solid fa-database"></i>
+                        </div>
+                        <div class="widget-info">
+                            <span class="widget-title">DB Engine</span>
+                            <span class="widget-value">MySQL / SQL</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating Widget 3: Live sparkline chart SVG -->
+                    <div class="floating-widget fw-3">
+                        <div class="widget-icon">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <svg class="chart-svg" aria-hidden="true">
+                            <path class="chart-path" d="M0,20 Q10,5 20,15 T40,5 T60,15" />
+                        </svg>
+                    </div>
+
+                    <!-- Avatar Card Container -->
+                    <div class="avatar-container">
+                        <div class="avatar-fallback">
+                            <span>SS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. About Me Section -->
+    <section id="about" class="reveal reveal-up">
+        <div class="section-header">
+            <span class="section-subtitle">Discovery</span>
+            <h2 class="section-title">About Me</h2>
+        </div>
+
+        <div class="about-grid">
+            <div class="about-text">
+                <p>
+                    I'm <strong>Sumiksha Solanki</strong>, a passionate Web Developer and Data Analyst from India. 
+                    I create modern, responsive, and user-friendly websites using <strong>HTML, CSS, JavaScript, PHP, Python, and Firebase</strong>. 
+                    I also analyze data using <strong>SQL, Excel, Power BI, and Python</strong> to help businesses make better decisions.
+                </p>
+                <p>
+                    I enjoy building business websites, portfolio websites, eCommerce stores, admin dashboards, and custom web solutions. 
+                    My goal is to deliver fast, attractive, and SEO-friendly websites that help businesses grow online.
+                </p>
+                
+                <!-- Stat counters -->
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <span class="stat-num" data-target="3">0</span>
+                        <span class="stat-label">Years Learning</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num" data-target="15">0</span>
+                        <span class="stat-label">Projects Built</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num" data-target="10">0</span>
+                        <span class="stat-label">Happy Clients</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-highlights">
+                <div class="highlight-card glass-panel">
+                    <i class="fa-solid fa-user-graduate highlight-icon"></i>
+                    <h3>Education Focus</h3>
+                    <p>Pursuing BCA under YCMOU, cultivating knowledge in database systems, programming, and web solutions.</p>
+                </div>
+                
+                <div class="highlight-card glass-panel">
+                    <i class="fa-solid fa-chart-line highlight-icon"></i>
+                    <h3>Data Intelligence</h3>
+                    <p>Fascinated by metrics, KPI tracking, database querying, data cleansing, and visual dashboard representations.</p>
+                </div>
+
+                <div class="highlight-card glass-panel">
+                    <i class="fa-solid fa-code highlight-icon"></i>
+                    <h3>Full Stack Development</h3>
+                    <p>Hands-on development constructing custom database frameworks using PHP, HTML, CSS, JavaScript, and MySQL.</p>
+                </div>
+
+                <div class="highlight-card glass-panel">
+                    <i class="fa-solid fa-shield-halved highlight-icon"></i>
+                    <h3>Virtual Experience</h3>
+                    <p>Completed practical simulated cases mimicking business analysts and technical operations at Deloitte.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Skills Section -->
+    <section id="skills" class="reveal reveal-up">
+        <div class="section-header">
+            <span class="section-subtitle">Toolbox</span>
+            <h2 class="section-title">Technical Skills</h2>
+        </div>
+
+        <div class="skills-container">
+            <!-- Category 1: Web Development -->
+            <div class="skill-category glass-panel">
+                <div class="category-title">
+                    <i class="fa-solid fa-globe"></i>
+                    <h3>Web Development</h3>
+                </div>
+                <div class="skills-list">
+                    <div class="skill-pill"><i class="fa-brands fa-html5"></i> HTML5</div>
+                    <div class="skill-pill"><i class="fa-brands fa-css3-alt"></i> CSS3</div>
+                    <div class="skill-pill"><i class="fa-brands fa-js"></i> JavaScript (ES6+)</div>
+                    <div class="skill-pill"><i class="fa-brands fa-bootstrap"></i> Bootstrap</div>
+                    <div class="skill-pill"><i class="fa-solid fa-wind"></i> Tailwind CSS</div>
+                    <div class="skill-pill"><i class="fa-solid fa-mobile-screen"></i> Responsive Web Design</div>
+                    <div class="skill-pill"><i class="fa-solid fa-pen-nib"></i> UI/UX Design</div>
+                    <div class="skill-pill"><i class="fa-brands fa-php"></i> PHP</div>
+                    <div class="skill-pill"><i class="fa-brands fa-python"></i> Python (Flask Basics)</div>
+                    <div class="skill-pill"><i class="fa-solid fa-fire"></i> Firebase</div>
+                    <div class="skill-pill"><i class="fa-solid fa-database"></i> MySQL</div>
+                    <div class="skill-pill"><i class="fa-solid fa-network-wired"></i> REST API</div>
+                    <div class="skill-pill"><i class="fa-brands fa-git-alt"></i> Git</div>
+                    <div class="skill-pill"><i class="fa-brands fa-github"></i> GitHub</div>
+                    <div class="skill-pill"><i class="fa-solid fa-magnifying-glass"></i> SEO Optimization</div>
+                </div>
+            </div>
+
+            <!-- Category 2: Professional Skills -->
+            <div class="skill-category glass-panel">
+                <div class="category-title">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <h3>Professional Skills</h3>
+                </div>
+                <div class="skills-list">
+                    <div class="skill-pill"><i class="fa-solid fa-lightbulb"></i> Problem Solving</div>
+                    <div class="skill-pill"><i class="fa-solid fa-brain"></i> Analytical Thinking</div>
+                    <div class="skill-pill"><i class="fa-solid fa-comments"></i> Communication</div>
+                    <div class="skill-pill"><i class="fa-solid fa-users"></i> Teamwork</div>
+                    <div class="skill-pill"><i class="fa-solid fa-clock"></i> Time Management</div>
+                    <div class="skill-pill"><i class="fa-solid fa-list-check"></i> Project Management</div>
+                    <div class="skill-pill"><i class="fa-solid fa-handshake"></i> Client Communication</div>
+                    <div class="skill-pill"><i class="fa-solid fa-chart-line"></i> Requirement Analysis</div>
+                </div>
+            </div>
+
+            <!-- Category 3: Tools & Technologies -->
+            <div class="skill-category glass-panel">
+                <div class="category-title">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                    <h3>Tools & Technologies</h3>
+                </div>
+                <div class="skills-list">
+                    <div class="skill-pill"><i class="fa-solid fa-code"></i> Visual Studio Code</div>
+                    <div class="skill-pill"><i class="fa-brands fa-github"></i> Git & GitHub</div>
+                    <div class="skill-pill"><i class="fa-solid fa-chart-pie"></i> Power BI Desktop</div>
+                    <div class="skill-pill"><i class="fa-solid fa-file-excel"></i> Microsoft Excel</div>
+                    <div class="skill-pill"><i class="fa-solid fa-database"></i> MySQL Workbench</div>
+                    <div class="skill-pill"><i class="fa-solid fa-fire"></i> Firebase Console</div>
+                    <div class="skill-pill"><i class="fa-solid fa-chart-line"></i> Google Analytics</div>
+                    <div class="skill-pill"><i class="fa-solid fa-palette"></i> Canva</div>
+                    <div class="skill-pill"><i class="fa-brands fa-figma"></i> Figma</div>
+                    <div class="skill-pill"><i class="fa-solid fa-briefcase"></i> Microsoft Office</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Services Section -->
+    <section id="services" class="reveal reveal-up">
+        <div class="section-header">
+            <span class="section-subtitle">Offerings</span>
+            <h2 class="section-title">My Services</h2>
+        </div>
+
+        <div class="service-filters">
+            <button class="s-filter-btn active" data-filter="all">All</button>
+            <button class="s-filter-btn" data-filter="web">Web Dev</button>
+            <button class="s-filter-btn" data-filter="data">Data Analytics</button>
+        </div>
+
+        <div class="services-grid">
+            <!-- Service 1 (Web) -->
+            <div class="service-card-container" data-category="web">
+                <div class="service-card glass-panel">
+                    <div class="service-icon"><i class="fa-solid fa-globe"></i></div>
+                    <h3>Custom Business Website Development</h3>
+                    <p>Tailored web applications built from scratch to establish a strong online identity and drive business growth.</p>
+                </div>
+            </div>
+            
+            <!-- Service 2 (Web) -->
+            <div class="service-card-container" data-category="web">
+                <div class="service-card glass-panel">
+                    <div class="service-icon"><i class="fa-solid fa-palette"></i></div>
+                    <h3>Portfolio Website Design</h3>
+                    <p>Visually stunning personal portfolios featuring modern glassmorphic designs, interactive timelines, and fluid animations.</p>
+                </div>
+            </div>
+
+            <!-- Service 3 (Web) -->
+            <div class="service-card-container" data-category="web">
+                <div class="service-card glass-panel">
+                    <div class="service-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+                    <h3>eCommerce Website Development</h3>
+                    <p>High-converting online shops integrated with shopping carts, search features, and interactive product grids.</p>
+                </div>
+            </div>
+
+            <!-- Service 4 (Web) -->
+            <div class="service-card-container" data-category="web">
+                <div class="service-card glass-panel">
+                    <div class="service-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                    <h3>Landing Page Design</h3>
+                    <p>Conversion-optimized single-page layouts designed to engage visitors and capture leads effectively.</p>
+                </div>
+            </div>
+
+            <!-- Service 5 (Web) -->
+            <div class="service-card-container" data-category="web">
+                <div class="service-card glass-panel">
+                    <div class="service-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <h3>Website Redesign</h3>
+                    <p>Transforming outdated layouts into modern, high-performance web systems with improved UX and modern styling.</p>
+                </div>
+            </div>
+
+            <!-- Service 6 (Web) -->
+            <div class="service-card-container" data-category="web">
+                <div class="service-card glass-panel">
+                    <div class="service-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                    <h3>Responsive Website Development</h3>
+                    <p>Pixel-perfect templates that scale smoothly across mobile phones, tablets, notebooks, and wide desktop monitors.</p>
+                </div>
+            </div>
+
+            <!-- Service 7 (Web) -->
+            <div class="service-card-container" data-category="web">
+                <div class="service-card glass-panel">
+                    <div class="service-icon"><i class="fa-solid fa-fire"></i></div>
+                    <h3>Firebase Integration</h3>
+                    <p>Real-time database hosting setup, secure user authentication systems, and cloud storage integrations.</p>
+                </div>
+            </div>
+
+            <!-- Service 8 (Web) -->
+            <div class="service-card-container" data-category="web">
+                <div class="service-card glass-panel">
+                    <div class="service-icon"><i class="fa-solid fa-gauge-high"></i></div>
+                    <h3>Admin Dashboard Development</h3>
+                    <p>Feature-rich admin panels with user management, analytics graphs, and interactive database controls.</p>
+                </div>
+            </div>
+
+            <!-- Service 9 (Data) -->
+            <div class="service-card-container" data-category="data">
+                <div class="service-card glass-panel">
+                    <div class="service-icon"><i class="fa-solid fa-database"></i></div>
+                    <h3>Database Design</h3>
+                    <p>Structuring robust relational schema models, ensuring data integrity, and establishing efficient tables.</p>
+                </div>
+            </div>
+
+            <!-- Service 10 (Data) -->
+            <div class="service-card-container" data-category="data">
+                <div class="service-card glass-panel">
+                    <div class="service-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <h3>SQL Query Optimization</h3>
+                    <p>Tuning slow database queries, applying correct indexes, and boosting backend execution speeds.</p>
+                </div>
+            </div>
+
+            <!-- Service 11 (Data) -->
+            <div class="service-card-container" data-category="data">
+                <div class="service-card glass-panel">
+                    <div class="service-icon"><i class="fa-solid fa-chart-pie"></i></div>
+                    <h3>Power BI Dashboard Development</h3>
+                    <p>Creating premium business intelligence dashboards featuring interactive cross-filtering and automated updates.</p>
+                </div>
+            </div>
+
+            <!-- Service 12 (Data) -->
+            <div class="service-card-container" data-category="data">
+                <div class="service-card glass-panel">
+                    <div class="service-icon"><i class="fa-solid fa-file-excel"></i></div>
+                    <h3>Excel Dashboard</h3>
+                    <p>Building automated spreadsheets, summary pivot charts, and KPI reporting tools using advanced Excel functions.</p>
+                </div>
+            </div>
+
+            <!-- Service 13 (Data) -->
+            <div class="service-card-container" data-category="data">
+                <div class="service-card glass-panel">
+                    <div class="service-icon"><i class="fa-solid fa-filter"></i></div>
+                    <h3>Data Cleaning</h3>
+                    <p>Filtering, formatting, and preparing unstructured dirty raw datasets to ensure high-fidelity insights.</p>
+                </div>
+            </div>
+
+            <!-- Service 14 (Data) -->
+            <div class="service-card-container" data-category="data">
+                <div class="service-card glass-panel">
+                    <div class="service-icon"><i class="fa-solid fa-chart-column"></i></div>
+                    <h3>Data Visualization</h3>
+                    <p>Translating complex statistical metrics into intuitive and engaging visual charts, graphs, and maps.</p>
+                </div>
+            </div>
+
+            <!-- Service 15 (Data) -->
+            <div class="service-card-container" data-category="data">
+                <div class="service-card glass-panel">
+                    <div class="service-icon"><i class="fa-solid fa-chart-area"></i></div>
+                    <h3>Business Intelligence Reports</h3>
+                    <p>Generating strategic visual analysis summaries to guide executive operations and commercial decisions.</p>
+                </div>
+            </div>
+
+            <!-- Service 16 (Data) -->
+            <div class="service-card-container" data-category="data">
+                <div class="service-card glass-panel">
+                    <div class="service-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                    <h3>Data Analysis</h3>
+                    <p>Applying analytical methodologies to discover trends, uncover opportunities, and solve operational bottlenecks.</p>
+                </div>
+            </div>
+
+            <!-- Service 17 (Web) -->
+            <div class="service-card-container" data-category="web">
+                <div class="service-card glass-panel">
+                    <div class="service-icon"><i class="fa-solid fa-toolbox"></i></div>
+                    <h3>Website Maintenance</h3>
+                    <p>Regular backend security patching, link integrity checking, content updates, and routine cloud backup runs.</p>
+                </div>
+            </div>
+
+            <!-- Service 18 (Web) -->
+            <div class="service-card-container" data-category="web">
+                <div class="service-card glass-panel">
+                    <div class="service-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <h3>SEO Optimization</h3>
+                    <p>Optimizing structural semantic tags, page speed scores, and metadata configurations for higher indexing ranks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Projects Section -->
+    <section id="projects" class="reveal reveal-up">
+        <div class="section-header">
+            <span class="section-subtitle">Portfolio</span>
+            <h2 class="section-title">Selected Projects</h2>
+        </div>
+
+        <div class="project-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="web">Web Dev</button>
+            <button class="filter-btn" data-filter="data">Data Analysis</button>
+        </div>
+
+        <div class="projects-grid">
+            <!-- Project 1 (Web) -->
+            <div class="project-card-container" data-category="web">
+                <div class="project-card glass-panel">
+                    <div class="project-image">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <div class="project-overlay">
+                            <a href="#" class="project-btn" aria-label="Project Details"><i class="fa-solid fa-link"></i></a>
+                            <a href="https://github.com" target="_blank" rel="noopener" class="project-btn" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <h3>College ERP Management</h3>
+                        <p>A web-based ERP system that tracks records, structures student registrations, and implements administration modules. Developed using PHP, HTML/CSS, and MySQL database.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">PHP</span>
+                            <span class="project-tag">MySQL</span>
+                            <span class="project-tag">HTML5/CSS3</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 (Data) -->
+            <div class="project-card-container" data-category="data">
+                <div class="project-card glass-panel">
+                    <div class="project-image">
+                        <i class="fa-solid fa-chart-column"></i>
+                        <div class="project-overlay">
+                            <a href="#" class="project-btn" aria-label="Project Details"><i class="fa-solid fa-link"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <h3>Deloitte Analytics Dashboard</h3>
+                        <p>Simulation mimicking analytics operations at Deloitte. Cleaned unstructured source datasets, formulated visual analysis metrics, built dashboards, and crafted insights.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Power BI</span>
+                            <span class="project-tag">Data Cleaning</span>
+                            <span class="project-tag">Excel</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 (Web) -->
+            <div class="project-card-container" data-category="web">
+                <div class="project-card glass-panel">
+                    <div class="project-image">
+                        <i class="fa-solid fa-laptop-code"></i>
+                        <div class="project-overlay">
+                            <a href="#" class="project-btn" aria-label="Project Details"><i class="fa-solid fa-link"></i></a>
+                            <a href="https://github.com" target="_blank" rel="noopener" class="project-btn" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <h3>eCommerce Store Platform</h3>
+                        <p>Fully functional eCommerce catalog featuring products, user login states, shopping carts, and dynamic dashboard built with Bootstrap, Javascript and Firebase backend.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Firebase</span>
+                            <span class="project-tag">Bootstrap</span>
+                            <span class="project-tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 (Data) -->
+            <div class="project-card-container" data-category="data">
+                <div class="project-card glass-panel">
+                    <div class="project-image">
+                        <i class="fa-solid fa-magnifying-glass-chart"></i>
+                        <div class="project-overlay">
+                            <a href="#" class="project-btn" aria-label="Project Details"><i class="fa-solid fa-link"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <h3>Sales Tracking Report</h3>
+                        <p>Designed sales performance reports in Power BI, connecting to Excel tables and SQL databases. Filter reports dynamically by region, salesperson and product category.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Power BI</span>
+                            <span class="project-tag">SQL</span>
+                            <span class="project-tag">Data Modeling</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5 (Web) -->
+            <div class="project-card-container" data-category="web">
+                <div class="project-card glass-panel">
+                    <div class="project-image">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <div class="project-overlay">
+                            <a href="#" class="project-btn" aria-label="Project Details"><i class="fa-solid fa-link"></i></a>
+                            <a href="https://github.com" target="_blank" rel="noopener" class="project-btn" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <h3>Admin Operations Dashboard</h3>
+                        <p>PHP system visualizing backend records. Built custom charts mapping sales figures, database loads, and active user traffic for business managers.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">PHP</span>
+                            <span class="project-tag">MySQL</span>
+                            <span class="project-tag">ChartsJS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 6 (Data) -->
+            <div class="project-card-container" data-category="data">
+                <div class="project-card glass-panel">
+                    <div class="project-image">
+                        <i class="fa-solid fa-database"></i>
+                        <div class="project-overlay">
+                            <a href="#" class="project-btn" aria-label="Project Details"><i class="fa-solid fa-link"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <h3>Customer Profiling & SQL Querying</h3>
+                        <p>Applied Python libraries for data cleaning and executed SQL query statements to segment customer purchase behaviors into targeted advertising campaigns.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">SQL Queries</span>
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Data Science</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Experience Section -->
+    <section id="experience" class="reveal reveal-up">
+        <div class="section-header">
+            <span class="section-subtitle">Journey</span>
+            <h2 class="section-title">Work Experience</h2>
+        </div>
+
+        <div class="timeline">
+            <!-- Timeline Item 1 -->
+            <div class="timeline-item left">
+                <div class="timeline-content glass-panel">
+                    <div class="timeline-card-header">
+                        <div>
+                            <h3 class="timeline-role">Freelance Web Developer</h3>
+                            <span class="timeline-company">Self-Employed</span>
+                        </div>
+                        <span class="timeline-date">2024 - Present</span>
+                    </div>
+                    <p>Build custom business portfolios, eCommerce sites, and responsive landing pages. Maximize site speeds and incorporate SEO configurations to double client search rankings.</p>
+                </div>
+            </div>
+
+            <!-- Timeline Item 2 -->
+            <div class="timeline-item right">
+                <div class="timeline-content glass-panel">
+                    <div class="timeline-card-header">
+                        <div>
+                            <h3 class="timeline-role">Data Analyst Virtual Experience</h3>
+                            <span class="timeline-company">Deloitte / Forage</span>
+                        </div>
+                        <span class="timeline-date">2024</span>
+                    </div>
+                    <p>Cleaned complex analytical datasets. Engineered interactive Power BI dashboard reports and summarized visual metrics to highlight critical operational KPIs for management reviews.</p>
+                </div>
+            </div>
+
+            <!-- Timeline Item 3 -->
+            <div class="timeline-item left">
+                <div class="timeline-content glass-panel">
+                    <div class="timeline-card-header">
+                        <div>
+                            <h3 class="timeline-role">Technology Consultant Virtual Experience</h3>
+                            <span class="timeline-company">Deloitte / Forage</span>
+                        </div>
+                        <span class="timeline-date">2023</span>
+                    </div>
+                    <p>Simulated software systems analysis, database design, query logic scripts, and mapped technological integration structures matching enterprise needs.</p>
+                </div>
+            </div>
+
+            <!-- Timeline Item 4 -->
+            <div class="timeline-item right">
+                <div class="timeline-content glass-panel">
+                    <div class="timeline-card-header">
+                        <div>
+                            <h3 class="timeline-role">Cybersecurity Analyst Virtual Experience</h3>
+                            <span class="timeline-company">Deloitte / Forage</span>
+                        </div>
+                        <span class="timeline-date">2023</span>
+                    </div>
+                    <p>Reviewed security controls compliance models. Conducted network audit simulation runs, cataloged risks, and proposed safety response steps.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Certificates Section -->
+    <section id="certificates" class="reveal reveal-up">
+        <div class="section-header">
+            <span class="section-subtitle">Credentials</span>
+            <h2 class="section-title">Certifications</h2>
+        </div>
+
+        <div class="cert-grid">
+            <!-- Cert 1 -->
+            <div class="cert-card glass-panel">
+                <div class="cert-badge"><i class="fa-solid fa-chart-pie"></i></div>
+                <div class="cert-details">
+                    <h3>Data Analytics Experience</h3>
+                    <p>Deloitte Virtual Program - Forage</p>
+                </div>
+                <a href="https://www.theforage.com/" target="_blank" rel="noopener" class="cert-link">Verify Credentials <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+
+            <!-- Cert 2 -->
+            <div class="cert-card glass-panel">
+                <div class="cert-badge"><i class="fa-solid fa-code"></i></div>
+                <div class="cert-details">
+                    <h3>Technology Consulting Experience</h3>
+                    <p>Deloitte Virtual Program - Forage</p>
+                </div>
+                <a href="https://www.theforage.com/" target="_blank" rel="noopener" class="cert-link">Verify Credentials <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+
+            <!-- Cert 3 -->
+            <div class="cert-card glass-panel">
+                <div class="cert-badge"><i class="fa-solid fa-shield-halved"></i></div>
+                <div class="cert-details">
+                    <h3>Cybersecurity Program</h3>
+                    <p>Deloitte Virtual Program - Forage</p>
+                </div>
+                <a href="https://www.theforage.com/" target="_blank" rel="noopener" class="cert-link">Verify Credentials <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- 9. Contact Section -->
+    <section id="contact" class="reveal reveal-up">
+        <div class="section-header">
+            <span class="section-subtitle">Reach Out</span>
+            <h2 class="section-title">Let's Connect</h2>
+        </div>
+
+        <div class="contact-grid">
+            <!-- Direct Channels Left -->
+            <div class="contact-info">
+                <div class="contact-method glass-panel">
+                    <div class="method-icon"><i class="fa-solid fa-envelope"></i></div>
+                    <div class="method-details">
+                        <span class="method-label">Email Me</span>
+                        <div class="method-value">sumikshasolnki@gmail.com</div>
+                    </div>
+                    <div class="tooltip-container" id="email-copy-tip">
+                        <button class="method-action" onclick="copyToClipboard('sumikshasolnki@gmail.com', 'email-copy-tip')" aria-label="Copy Email">
+                            <i class="fa-regular fa-copy"></i>
+                        </button>
+                        <span class="tooltip-box">Copied!</span>
+                    </div>
+                </div>
+
+                <div class="contact-method glass-panel">
+                    <div class="method-icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <div class="method-details">
+                        <span class="method-label">Location</span>
+                        <div class="method-value">Mumbai, Maharashtra, India</div>
+                    </div>
+                    <div class="tooltip-container" id="loc-copy-tip">
+                        <button class="method-action" onclick="copyToClipboard('Mumbai, Maharashtra, India', 'loc-copy-tip')" aria-label="Copy Location">
+                            <i class="fa-regular fa-copy"></i>
+                        </button>
+                        <span class="tooltip-box">Copied!</span>
+                    </div>
+                </div>
+
+                <div class="contact-method glass-panel">
+                    <div class="method-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+                    <div class="method-details">
+                        <span class="method-label">LinkedIn</span>
+                        <div class="method-value">Sumiksha Solanki</div>
+                    </div>
+                    <a href="https://www.linkedin.com/in/sumiksha-solanki-8b000b23a" target="_blank" rel="noopener" class="method-action" aria-label="Visit LinkedIn Profile">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Contact Form Right -->
+            <form class="contact-form glass-panel">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="john@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" placeholder="Hi Sumiksha, I'd like to collaborate on building a new website..." required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">
+                    Send Message <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- 10. Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <a href="#home" class="logo-container">
+                <div class="logo-icon">S</div>
+                <span class="logo-text">Sumiksha<span class="logo-dot">.</span></span>
+            </a>
+
+            <ul class="footer-nav">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <div class="footer-socials">
+                <a href="https://www.linkedin.com/in/sumiksha-solanki-8b000b23a" target="_blank" rel="noopener" class="footer-social-link" aria-label="LinkedIn Profile">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+                <a href="mailto:sumikshasolnki@gmail.com" class="footer-social-link" aria-label="Email Address">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+                <a href="https://github.com" target="_blank" rel="noopener" class="footer-social-link" aria-label="GitHub Profile">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
+
+            <p class="footer-copyright">
+                &copy; 2026 Sumiksha Solanki. All Rights Reserved. Designed with <i class="fa-solid fa-heart"></i>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Back to top button trigger -->
+    <button class="btn-top" id="back-to-top" aria-label="Back to Top">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
+
+    <!-- External Script reference -->
+    <script src="script.js"></script>
+</body>
+</html>
