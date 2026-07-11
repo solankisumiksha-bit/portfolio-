@@ -4,6 +4,9 @@
 */
 
 document.addEventListener("DOMContentLoaded", () => {
+    // 0. Theme Toggle Switcher Init
+    initThemeToggle();
+
     // 1. Particle Canvas Background
     initParticles();
 
@@ -16,11 +19,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // 4. Project Category Filtering
     initProjectFilter();
 
-    // 5. Services Category Filtering
-    initServiceFilter();
-
     // 6. Scroll Reveal Observer
     initScrollReveal();
+
+    // 6.5. Skill Bar Animations
+    initSkillAnimations();
 
     // 7. Navbar & Back to Top Toggle
     initScrollEffects();
@@ -66,19 +69,24 @@ function initParticles() {
     });
 
     class Particle {
-        constructor(x, y, directionX, directionY, size, color) {
+        constructor(x, y, directionX, directionY, size, isAltColor) {
             this.x = x;
             this.y = y;
             this.directionX = directionX;
             this.directionY = directionY;
             this.size = size;
-            this.color = color;
+            this.isAltColor = isAltColor;
         }
 
         draw() {
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-            ctx.fillStyle = this.color;
+            const isLight = document.body.classList.contains("light-theme");
+            if (isLight) {
+                ctx.fillStyle = this.isAltColor ? "rgba(139, 92, 246, 0.25)" : "rgba(59, 130, 246, 0.25)";
+            } else {
+                ctx.fillStyle = this.isAltColor ? "rgba(192, 132, 252, 0.25)" : "rgba(96, 165, 250, 0.25)";
+            }
             ctx.fill();
         }
 
@@ -131,10 +139,10 @@ function initParticles() {
             let directionX = (Math.random() - 0.5) * 0.4;
             let directionY = (Math.random() - 0.5) * 0.4;
             
-            // Alternating colors
-            let color = i % 2 === 0 ? "rgba(96, 165, 250, 0.25)" : "rgba(192, 132, 252, 0.25)";
+            // Alternating color state
+            let isAltColor = i % 2 === 0;
 
-            particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
+            particlesArray.push(new Particle(x, y, directionX, directionY, size, isAltColor));
         }
     }
 
@@ -280,38 +288,7 @@ function initProjectFilter() {
     });
 }
 
-// Services Category Filtering
-function initServiceFilter() {
-    const filterButtons = document.querySelectorAll(".s-filter-btn");
-    const serviceCards = document.querySelectorAll(".service-card-container");
-    if (filterButtons.length === 0) return;
 
-    filterButtons.forEach(btn => {
-        btn.addEventListener("click", () => {
-            // Toggle active state
-            filterButtons.forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
-
-            const filterValue = btn.getAttribute("data-filter");
-
-            serviceCards.forEach(card => {
-                if (filterValue === "all" || card.getAttribute("data-category") === filterValue) {
-                    card.style.display = "block";
-                    setTimeout(() => {
-                        card.style.opacity = "1";
-                        card.style.transform = "scale(1)";
-                    }, 50);
-                } else {
-                    card.style.opacity = "0";
-                    card.style.transform = "scale(0.8)";
-                    setTimeout(() => {
-                        card.style.display = "none";
-                    }, 300);
-                }
-            });
-        });
-    });
-}
 
 // Scroll Reveal Observer
 function initScrollReveal() {
@@ -460,3 +437,83 @@ function copyToClipboard(text, tooltipId) {
         console.error('Failed to copy text: ', err);
     });
 }
+
+// Theme Toggle Switcher Logic
+function initThemeToggle() {
+    const themeBtn = document.getElementById("theme-toggle");
+    if (!themeBtn) return;
+    
+    // Check saved preference or system preference
+    const savedTheme = localStorage.getItem("portfolio-theme");
+    const systemPrefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+    
+    // Set initial state
+    if (savedTheme === "light" || (!savedTheme && systemPrefersLight)) {
+        document.body.classList.add("light-theme");
+        updateToggleIcon(true);
+    } else {
+        document.body.classList.remove("light-theme");
+        updateToggleIcon(false);
+    }
+    
+    // Toggle on click
+    themeBtn.addEventListener("click", () => {
+        const isCurrentlyLight = document.body.classList.toggle("light-theme");
+        localStorage.setItem("portfolio-theme", isCurrentlyLight ? "light" : "dark");
+        updateToggleIcon(isCurrentlyLight);
+    });
+    
+    function updateToggleIcon(isLight) {
+        const icon = themeBtn.querySelector("i");
+        if (icon) {
+            if (isLight) {
+                icon.className = "fa-solid fa-moon"; // Show moon in light theme to toggle back to dark
+            } else {
+                icon.className = "fa-solid fa-sun";  // Show sun in dark theme to toggle back to light
+            }
+        }
+    }
+}
+
+// Skill Tab Switching + Ring Animation
+function initSkillAnimations() {
+    const tabBtns  = document.querySelectorAll(".skill-tab-btn");
+    const panels   = document.querySelectorAll(".skill-panel");
+
+    function animateRings(panel) {
+        const rings = panel.querySelectorAll(".ring-fill");
+        rings.forEach(ring => {
+            const pct = parseInt(ring.getAttribute("data-percent") || "0", 10);
+            const circumference = 213.6; // 2 * PI * 34 ≈ 213.6
+            const offset = circumference - (pct / 100) * circumference;
+            // Reset first for re-entry animation
+            ring.style.strokeDashoffset = circumference;
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    ring.style.strokeDashoffset = offset;
+                });
+            });
+        });
+    }
+
+    // Animate the initially active panel
+    const activePanel = document.querySelector(".skill-panel.active");
+    if (activePanel) animateRings(activePanel);
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            tabBtns.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+
+            const target = btn.getAttribute("data-tab");
+            panels.forEach(panel => {
+                panel.classList.remove("active");
+                if (panel.getAttribute("data-panel") === target) {
+                    panel.classList.add("active");
+                    animateRings(panel);
+                }
+            });
+        });
+    });
+}
+
