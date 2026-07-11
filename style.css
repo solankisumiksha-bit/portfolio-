@@ -39,6 +39,130 @@
     --radius-lg: 24px;
 }
 
+/* Light Theme Overrides */
+body.light-theme {
+    --bg-dark: #f8fafc;
+    --bg-deep: #f1f5f9;
+    --bg-card: rgba(255, 255, 255, 0.55);
+    --bg-card-hover: rgba(255, 255, 255, 0.85);
+    --bg-nav: rgba(248, 250, 252, 0.8);
+    
+    --border-light: rgba(15, 23, 42, 0.08);
+    --border-hover: rgba(139, 92, 246, 0.5);
+    --text-primary: #0f172a;
+    --text-secondary: #334155;
+    --text-muted: #64748b;
+    
+    --glow-blue: rgba(59, 130, 246, 0.1);
+    --glow-purple: rgba(139, 92, 246, 0.1);
+    --glow-pink: rgba(217, 70, 239, 0.08);
+    
+    --gradient-text: linear-gradient(135deg, #1d4ed8 0%, #7c3aed 100%);
+    
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.09) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(217, 70, 239, 0.05) 0%, transparent 50%);
+}
+
+/* Theme Switcher Toggle */
+.theme-toggle-btn {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth);
+    margin-left: auto;
+    margin-right: 15px;
+    z-index: 1001;
+}
+
+.theme-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: scale(1.1) rotate(15deg);
+}
+
+body.light-theme .theme-toggle-btn:hover {
+    background: rgba(15, 23, 42, 0.06);
+}
+
+/* Light Theme Component Overrides */
+body.light-theme header.scrolled {
+    background: rgba(248, 250, 252, 0.95);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+body.light-theme .avatar-fallback {
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+}
+body.light-theme .floating-widget {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(15, 23, 42, 0.08);
+}
+body.light-theme .widget-value {
+    color: #0f172a;
+}
+body.light-theme .form-group input,
+body.light-theme .form-group textarea {
+    background: rgba(15, 23, 42, 0.03);
+    color: #0f172a;
+}
+body.light-theme .form-group input:focus,
+body.light-theme .form-group textarea:focus {
+    background: rgba(255, 255, 255, 1);
+    border-color: #8b5cf6;
+}
+body.light-theme .social-link,
+body.light-theme .footer-social-link {
+    background: rgba(15, 23, 42, 0.04);
+    color: #475569;
+}
+body.light-theme .social-link:hover,
+body.light-theme .footer-social-link:hover {
+    color: #ffffff;
+}
+body.light-theme .skill-pill {
+    background: rgba(15, 23, 42, 0.03);
+}
+body.light-theme .skill-pill:hover {
+    background: rgba(139, 92, 246, 0.08);
+}
+body.light-theme footer {
+    background: #f1f5f9;
+}
+body.light-theme .timeline-card-header {
+    border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+}
+body.light-theme .timeline-role {
+    color: #0f172a;
+}
+body.light-theme .stat-num {
+    background: var(--gradient-text);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+body.light-theme .project-overlay {
+    background: rgba(248, 250, 252, 0.85);
+}
+body.light-theme .project-btn {
+    background: #0f172a;
+    color: #ffffff;
+}
+body.light-theme .project-btn:hover {
+    color: #ffffff;
+}
+body.light-theme .nav-links {
+    background: rgba(248, 250, 252, 0.98);
+}
+
+
 /* Base Styles */
 * {
     margin: 0;
@@ -681,75 +805,306 @@ section {
     line-height: 1.6;
 }
 
-/* Skills Section */
-.skills-container {
+/* Core Pillars / Expertise Section */
+.expertise-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-top: 20px;
 }
 
-.skill-category {
-    padding: 30px;
+.expertise-card {
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
-.category-title {
+.pillar-glow {
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    filter: blur(50px);
+    opacity: 0.15;
+    transition: var(--transition-smooth);
+    pointer-events: none;
+}
+
+.web-pillar .pillar-glow {
+    background: #3b82f6;
+}
+
+.data-pillar .pillar-glow {
+    background: #8b5cf6;
+}
+
+.expertise-card:hover .pillar-glow {
+    opacity: 0.3;
+    transform: scale(1.3);
+}
+
+.pillar-header {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
     margin-bottom: 25px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    padding-bottom: 15px;
 }
 
-.category-title i {
+.pillar-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: #ffffff;
+    flex-shrink: 0;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.web-pillar .pillar-icon {
+    background: var(--gradient-blue);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+}
+
+.data-pillar .pillar-icon {
+    background: var(--gradient-purple);
+    box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+}
+
+.pillar-title-block {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.pillar-tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.web-pillar .pillar-tag {
+    color: #60a5fa;
+}
+
+.data-pillar .pillar-tag {
+    color: #c084fc;
+}
+
+.pillar-title-block h3 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+body.light-theme .pillar-title-block h3 {
+    color: #0f172a;
+}
+
+.pillar-desc {
+    color: var(--text-secondary);
+    font-size: 1.02rem;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.pillar-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 35px;
+    flex-grow: 1;
+}
+
+.pillar-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.pillar-features li i {
+    font-size: 1.1rem;
+    margin-top: 2px;
+}
+
+.web-pillar .pillar-features li i {
+    color: #60a5fa;
+}
+
+.data-pillar .pillar-features li i {
+    color: #c084fc;
+}
+
+.pillar-footer {
+    display: flex;
+    gap: 30px;
+    border-top: 1px solid var(--border-light);
+    padding-top: 25px;
+}
+
+.pillar-metric {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.m-val {
     font-size: 1.5rem;
-    background: var(--gradient-primary);
+    font-weight: 800;
+    background: var(--gradient-text);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-.category-title h3 {
-    font-size: 1.3rem;
-    font-weight: 700;
+.m-lbl {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.skills-list {
+/* Skills Section — Tabbed Ring Card Layout */
+.skill-tabs {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 12px;
+    margin-bottom: 50px;
 }
 
-.skill-pill {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--border-light);
-    padding: 10px 18px;
-    border-radius: 30px;
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    font-weight: 500;
+.skill-tab-btn {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
+    padding: 12px 28px;
+    border: 1px solid var(--border-light);
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
     transition: var(--transition-smooth);
 }
 
-.skill-pill i {
-    font-size: 1.1rem;
-    color: #60a5fa;
+.skill-tab-btn:hover {
+    border-color: var(--border-hover);
+    color: var(--text-primary);
+    transform: translateY(-2px);
+}
+
+.skill-tab-btn.active {
+    background: var(--gradient-primary);
+    border-color: transparent;
+    color: #fff;
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.35);
+}
+
+.skill-panel {
+    display: none;
+    animation: fadeSlideIn 0.35s ease;
+}
+
+.skill-panel.active {
+    display: block;
+}
+
+@keyframes fadeSlideIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.skill-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 24px;
+}
+
+.skill-card-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 28px 16px 22px;
+    border-radius: var(--radius-md);
+    text-align: center;
     transition: var(--transition-smooth);
+    cursor: default;
 }
 
-.skill-pill:hover {
-    background: rgba(139, 92, 246, 0.1);
-    border-color: rgba(139, 92, 246, 0.3);
-    color: #ffffff;
-    transform: scale(1.05) translateY(-2px);
-    box-shadow: 0 5px 15px rgba(139, 92, 246, 0.15);
+.skill-card-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 40px rgba(139, 92, 246, 0.18);
+    border-color: var(--border-hover);
 }
 
-.skill-pill:hover i {
-    transform: scale(1.2) rotate(8deg);
-    color: #a855f7;
+/* SVG Ring */
+.skill-ring-wrap {
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.skill-ring {
+    width: 80px;
+    height: 80px;
+    transform: rotate(-90deg);
+}
+
+.ring-bg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.06);
+    stroke-width: 7;
+}
+
+body.light-theme .ring-bg {
+    stroke: rgba(15, 23, 42, 0.08);
+}
+
+.ring-fill {
+    fill: none;
+    stroke: url(#ringGrad);
+    stroke-width: 7;
+    stroke-linecap: round;
+    stroke-dasharray: 213.6;
+    stroke-dashoffset: 213.6;
+    transition: stroke-dashoffset 1.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.ring-pct {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.skill-card-icon {
+    font-size: 1.8rem;
+}
+
+.skill-card-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    line-height: 1.3;
 }
 
 /* Services Section */
@@ -1543,6 +1898,11 @@ footer {
         gap: 50px;
     }
 
+    .expertise-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
     .skills-container {
         grid-template-columns: 1fr;
         gap: 25px;
@@ -1633,6 +1993,35 @@ footer {
         grid-template-columns: 1fr;
     }
 
+    .about-stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+
+    .stat-item {
+        padding: 14px 8px;
+    }
+
+    .stat-num {
+        font-size: 1.8rem;
+    }
+
+    /* Projects & Services: single column on tablet */
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    /* Timeline card header wraps gracefully */
+    .timeline-card-header {
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+    }
+
     .contact-form {
         padding: 24px;
     }
@@ -1640,5 +2029,322 @@ footer {
     .btn-top {
         bottom: 20px;
         right: 20px;
+    }
+
+    /* Footer nav wraps better */
+    .footer-nav {
+        gap: 16px;
+    }
+}
+
+/* ─── Small Phone Specific (≤480px) ─── */
+@media (max-width: 480px) {
+    section {
+        padding: 80px 4% 50px;
+    }
+
+    /* Header */
+    header {
+        top: 12px;
+        padding: 8px 16px;
+        width: 94%;
+    }
+
+    .logo-text {
+        font-size: 1.1rem;
+    }
+
+    .logo-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+    }
+
+    /* Hero Section */
+    .hero {
+        padding-top: 120px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .hero h2 {
+        font-size: 1.15rem;
+        min-height: 36px;
+    }
+
+    .hero p {
+        font-size: 0.92rem;
+    }
+
+    .welcome-badge {
+        font-size: 0.75rem;
+        padding: 7px 14px;
+        margin-bottom: 18px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 12px 22px;
+        font-size: 0.88rem;
+    }
+
+    .hero-cta {
+        gap: 12px;
+        margin-bottom: 28px;
+    }
+
+    /* Hero Graphic — scale down for small phones */
+    .graphic-wrapper {
+        width: 280px;
+        height: 280px;
+    }
+
+    .avatar-container {
+        width: 190px;
+        height: 190px;
+    }
+
+    .avatar-fallback span {
+        font-size: 3.5rem;
+    }
+
+    /* Floating widgets: reposition so they don't overflow */
+    .fw-1 {
+        top: 5px;
+        left: -5px;
+        padding: 8px 12px;
+        gap: 8px;
+    }
+
+    .fw-2 {
+        bottom: 20px;
+        right: -5px;
+        padding: 8px 12px;
+        gap: 8px;
+    }
+
+    .fw-3 {
+        bottom: 5px;
+        left: 5px;
+        padding: 8px 12px;
+        gap: 8px;
+    }
+
+    .widget-icon {
+        width: 28px;
+        height: 28px;
+        font-size: 0.85rem;
+    }
+
+    .widget-title {
+        font-size: 0.6rem;
+    }
+
+    .widget-value {
+        font-size: 0.75rem;
+    }
+
+    /* Section Titles */
+    .section-title {
+        font-size: 1.85rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.75rem;
+    }
+
+    .section-header {
+        margin-bottom: 40px;
+    }
+
+    /* About Stats — stack to 2 columns on very small screens */
+    .about-stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .stat-item {
+        padding: 12px 6px;
+    }
+
+    .stat-num {
+        font-size: 1.5rem;
+    }
+
+    .stat-label {
+        font-size: 0.7rem;
+        letter-spacing: 0.5px;
+    }
+
+    /* About highlights */
+    .highlight-card {
+        padding: 20px;
+    }
+
+    /* Skills */
+    .skill-category {
+        padding: 22px;
+    }
+
+    .skill-pill {
+        padding: 8px 14px;
+        font-size: 0.82rem;
+        gap: 8px;
+    }
+
+    /* Services */
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card {
+        padding: 22px;
+    }
+
+    .service-filters,
+    .project-filters {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .s-filter-btn,
+    .filter-btn {
+        padding: 8px 18px;
+        font-size: 0.82rem;
+    }
+
+    /* Projects */
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-image {
+        height: 160px;
+    }
+
+    .project-image i {
+        font-size: 3rem;
+    }
+
+    .project-details {
+        padding: 18px;
+    }
+
+    .project-details h3 {
+        font-size: 1.1rem;
+    }
+
+    /* Experience / Timeline */
+    .timeline-item {
+        padding-left: 45px;
+        padding-right: 0;
+    }
+
+    .timeline-content {
+        padding: 18px;
+    }
+
+    .timeline-role {
+        font-size: 1rem;
+    }
+
+    .timeline-card-header {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    /* Certificates */
+    .cert-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cert-card {
+        padding: 20px;
+    }
+
+    /* Contact */
+    .contact-method {
+        padding: 16px 18px;
+        gap: 14px;
+    }
+
+    .method-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+
+    .method-value {
+        font-size: 0.85rem;
+        word-break: break-all;
+    }
+
+    .contact-form {
+        padding: 20px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 12px 14px;
+        font-size: 0.9rem;
+    }
+
+    .btn-submit {
+        padding: 13px 24px;
+        font-size: 0.9rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Core Pillars / Expertise Mobile */
+    .expertise-card {
+        padding: 24px;
+    }
+    .pillar-title-block h3 {
+        font-size: 1.35rem;
+    }
+    .pillar-desc {
+        font-size: 0.92rem;
+        margin-bottom: 20px;
+    }
+    .pillar-features {
+        gap: 12px;
+        margin-bottom: 25px;
+    }
+    .pillar-features li {
+        font-size: 0.88rem;
+    }
+    .pillar-footer {
+        gap: 20px;
+        padding-top: 20px;
+    }
+    .m-val {
+        font-size: 1.25rem;
+    }
+
+    /* Footer */
+    footer {
+        padding: 40px 5% 24px;
+    }
+
+    .footer-nav {
+        gap: 12px;
+    }
+
+    .footer-nav a {
+        font-size: 0.82rem;
+    }
+
+    /* Back to top */
+    .btn-top {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+        bottom: 16px;
+        right: 16px;
     }
 }
