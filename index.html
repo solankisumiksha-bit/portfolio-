@@ -28,12 +28,27 @@
     <!-- Dynamic Particle Canvas Background -->
     <canvas id="particles-canvas"></canvas>
 
+    <!-- SVG Gradient Defs (for skill rings) -->
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#3b82f6"/>
+                <stop offset="50%" stop-color="#8b5cf6"/>
+                <stop offset="100%" stop-color="#d946ef"/>
+            </linearGradient>
+        </defs>
+    </svg>
+
     <!-- Floating Navigation Bar -->
     <header id="header">
         <a href="#home" class="logo-container">
             <div class="logo-icon">S</div>
             <span class="logo-text">Sumiksha<span class="logo-dot">.</span></span>
         </a>
+
+        <button class="theme-toggle-btn" aria-label="Toggle Dark/Light Mode" id="theme-toggle">
+            <i class="fa-solid fa-sun"></i>
+        </button>
 
         <button class="menu-toggle" aria-label="Toggle Navigation Menu" id="menu-btn">
             <i class="fa-solid fa-bars-staggered"></i>
@@ -43,7 +58,6 @@
             <li><a href="#home" class="nav-link-item active">Home</a></li>
             <li><a href="#about" class="nav-link-item">About</a></li>
             <li><a href="#skills" class="nav-link-item">Skills</a></li>
-            <li><a href="#services" class="nav-link-item">Services</a></li>
             <li><a href="#projects" class="nav-link-item">Projects</a></li>
             <li><a href="#experience" class="nav-link-item">Experience</a></li>
             <li><a href="#certificates" class="nav-link-item">Certificates</a></li>
@@ -200,256 +214,335 @@
         </div>
     </section>
 
-    <!-- 3. Skills Section -->
+    <!-- 2.5 Core Pillars / Expertise Focus Section -->
+    <section id="expertise" class="reveal reveal-up">
+        <div class="section-header">
+            <span class="section-subtitle">Specializations</span>
+            <h2 class="section-title">Core Expertise</h2>
+        </div>
+
+        <div class="expertise-grid">
+            <!-- Pillar 1: Web Development -->
+            <div class="expertise-card glass-panel web-pillar">
+                <div class="pillar-glow"></div>
+                <div class="pillar-header">
+                    <div class="pillar-icon"><i class="fa-solid fa-code"></i></div>
+                    <div class="pillar-title-block">
+                        <span class="pillar-tag">CREATIVE & SECURE</span>
+                        <h3>Web Development</h3>
+                    </div>
+                </div>
+                <p class="pillar-desc">
+                    Designing and deploying high-performance, responsive web applications with semantic SEO structure and elegant user experiences.
+                </p>
+                <ul class="pillar-features">
+                    <li><i class="fa-solid fa-circle-check"></i> Custom Frontend Engineering (ES6+, Tailwind)</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Relational Database Systems & Backend Logic (PHP, MySQL)</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Real-time Serverless Architectures (Firebase Integrations)</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Speed & SEO Audits (Semantic Markup, Lazy Loading)</li>
+                </ul>
+                <div class="pillar-footer">
+                    <div class="pillar-metric">
+                        <span class="m-val">100%</span>
+                        <span class="m-lbl">Mobile Responsive</span>
+                    </div>
+                    <div class="pillar-metric">
+                        <span class="m-val">&lt; 1.5s</span>
+                        <span class="m-lbl">Avg. Load Time</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pillar 2: Data Analytics -->
+            <div class="expertise-card glass-panel data-pillar">
+                <div class="pillar-glow"></div>
+                <div class="pillar-header">
+                    <div class="pillar-icon"><i class="fa-solid fa-chart-column"></i></div>
+                    <div class="pillar-title-block">
+                        <span class="pillar-tag">INSIGHTS-DRIVEN</span>
+                        <h3>Data Analytics</h3>
+                    </div>
+                </div>
+                <p class="pillar-desc">
+                    Transforming raw structured and unstructured data into interactive business dashboards, optimized queries, and predictive insights.
+                </p>
+                <ul class="pillar-features">
+                    <li><i class="fa-solid fa-circle-check"></i> Interactive Power BI Visualization Systems</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Query Tuning & Database Optimization (SQL Indexes)</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Advanced Spreadsheet Automation & Modeling (Excel Pivot)</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Data Cleaning Pipelines & Analytics (Python libraries)</li>
+                </ul>
+                <div class="pillar-footer">
+                    <div class="pillar-metric">
+                        <span class="m-val">15+</span>
+                        <span class="m-lbl">Data Dashboards</span>
+                    </div>
+                    <div class="pillar-metric">
+                        <span class="m-val">10x</span>
+                        <span class="m-lbl">Faster Query Execution</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Technical Skills Section -->
     <section id="skills" class="reveal reveal-up">
         <div class="section-header">
-            <span class="section-subtitle">Toolbox</span>
-            <h2 class="section-title">Technical Skills</h2>
+            <span class="section-subtitle">Expertise</span>
+            <h2 class="section-title">My Skills</h2>
         </div>
 
-        <div class="skills-container">
-            <!-- Category 1: Web Development -->
-            <div class="skill-category glass-panel">
-                <div class="category-title">
-                    <i class="fa-solid fa-globe"></i>
-                    <h3>Web Development</h3>
-                </div>
-                <div class="skills-list">
-                    <div class="skill-pill"><i class="fa-brands fa-html5"></i> HTML5</div>
-                    <div class="skill-pill"><i class="fa-brands fa-css3-alt"></i> CSS3</div>
-                    <div class="skill-pill"><i class="fa-brands fa-js"></i> JavaScript (ES6+)</div>
-                    <div class="skill-pill"><i class="fa-brands fa-bootstrap"></i> Bootstrap</div>
-                    <div class="skill-pill"><i class="fa-solid fa-wind"></i> Tailwind CSS</div>
-                    <div class="skill-pill"><i class="fa-solid fa-mobile-screen"></i> Responsive Web Design</div>
-                    <div class="skill-pill"><i class="fa-solid fa-pen-nib"></i> UI/UX Design</div>
-                    <div class="skill-pill"><i class="fa-brands fa-php"></i> PHP</div>
-                    <div class="skill-pill"><i class="fa-brands fa-python"></i> Python (Flask Basics)</div>
-                    <div class="skill-pill"><i class="fa-solid fa-fire"></i> Firebase</div>
-                    <div class="skill-pill"><i class="fa-solid fa-database"></i> MySQL</div>
-                    <div class="skill-pill"><i class="fa-solid fa-network-wired"></i> REST API</div>
-                    <div class="skill-pill"><i class="fa-brands fa-git-alt"></i> Git</div>
-                    <div class="skill-pill"><i class="fa-brands fa-github"></i> GitHub</div>
-                    <div class="skill-pill"><i class="fa-solid fa-magnifying-glass"></i> SEO Optimization</div>
+        <!-- Skill Tab Buttons -->
+        <div class="skill-tabs" id="skill-tabs">
+            <button class="skill-tab-btn active" data-tab="web">
+                <i class="fa-solid fa-globe"></i> Web Development
+            </button>
+            <button class="skill-tab-btn" data-tab="data">
+                <i class="fa-solid fa-chart-pie"></i> Data Analytics
+            </button>
+            <button class="skill-tab-btn" data-tab="tools">
+                <i class="fa-solid fa-screwdriver-wrench"></i> Tools
+            </button>
+            <button class="skill-tab-btn" data-tab="soft">
+                <i class="fa-solid fa-brain"></i> Soft Skills
+            </button>
+        </div>
+
+        <!-- Tab Panels -->
+        <div class="skill-panels">
+
+
+            <!-- Web Development Panel -->
+            <div class="skill-panel active" data-panel="web">
+                <div class="skill-cards-grid">
+                    <div class="skill-card-item glass-panel">
+                        <div class="skill-ring-wrap">
+                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="95"/></svg>
+                            <span class="ring-pct">95%</span>
+                        </div>
+                        <i class="fa-brands fa-html5 skill-card-icon" style="color:#e34f26"></i>
+                        <span class="skill-card-name">HTML5</span>
+                    </div>
+                    <div class="skill-card-item glass-panel">
+                        <div class="skill-ring-wrap">
+                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="90"/></svg>
+                            <span class="ring-pct">90%</span>
+                        </div>
+                        <i class="fa-brands fa-css3-alt skill-card-icon" style="color:#1572b6"></i>
+                        <span class="skill-card-name">CSS3</span>
+                    </div>
+                    <div class="skill-card-item glass-panel">
+                        <div class="skill-ring-wrap">
+                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="85"/></svg>
+                            <span class="ring-pct">85%</span>
+                        </div>
+                        <i class="fa-brands fa-js skill-card-icon" style="color:#f7df1e"></i>
+                        <span class="skill-card-name">JavaScript</span>
+                    </div>
+                    <div class="skill-card-item glass-panel">
+                        <div class="skill-ring-wrap">
+                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="80"/></svg>
+                            <span class="ring-pct">80%</span>
+                        </div>
+                        <i class="fa-brands fa-php skill-card-icon" style="color:#8892be"></i>
+                        <span class="skill-card-name">PHP</span>
+                    </div>
+                    <div class="skill-card-item glass-panel">
+                        <div class="skill-ring-wrap">
+                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="85"/></svg>
+                            <span class="ring-pct">85%</span>
+                        </div>
+                        <i class="fa-solid fa-wind skill-card-icon" style="color:#38bdf8"></i>
+                        <span class="skill-card-name">Tailwind &amp; Bootstrap</span>
+                    </div>
+                    <div class="skill-card-item glass-panel">
+                        <div class="skill-ring-wrap">
+                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="80"/></svg>
+                            <span class="ring-pct">80%</span>
+                        </div>
+                        <i class="fa-solid fa-fire skill-card-icon" style="color:#ffca28"></i>
+                        <span class="skill-card-name">SQL &amp; Firebase</span>
+                    </div>
+                    <div class="skill-card-item glass-panel">
+                        <div class="skill-ring-wrap">
+                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="90"/></svg>
+                            <span class="ring-pct">90%</span>
+                        </div>
+                        <i class="fa-solid fa-magnifying-glass skill-card-icon" style="color:#a78bfa"></i>
+                        <span class="skill-card-name">SEO &amp; UI/UX</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Category 2: Professional Skills -->
-            <div class="skill-category glass-panel">
-                <div class="category-title">
-                    <i class="fa-solid fa-briefcase"></i>
-                    <h3>Professional Skills</h3>
-                </div>
-                <div class="skills-list">
-                    <div class="skill-pill"><i class="fa-solid fa-lightbulb"></i> Problem Solving</div>
-                    <div class="skill-pill"><i class="fa-solid fa-brain"></i> Analytical Thinking</div>
-                    <div class="skill-pill"><i class="fa-solid fa-comments"></i> Communication</div>
-                    <div class="skill-pill"><i class="fa-solid fa-users"></i> Teamwork</div>
-                    <div class="skill-pill"><i class="fa-solid fa-clock"></i> Time Management</div>
-                    <div class="skill-pill"><i class="fa-solid fa-list-check"></i> Project Management</div>
-                    <div class="skill-pill"><i class="fa-solid fa-handshake"></i> Client Communication</div>
-                    <div class="skill-pill"><i class="fa-solid fa-chart-line"></i> Requirement Analysis</div>
+            <!-- Data Analytics Panel -->
+            <div class="skill-panel" data-panel="data">
+                <div class="skill-cards-grid">
+                    <div class="skill-card-item glass-panel">
+                        <div class="skill-ring-wrap">
+                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="90"/></svg>
+                            <span class="ring-pct">90%</span>
+                        </div>
+                        <i class="fa-solid fa-chart-pie skill-card-icon" style="color:#f59e0b"></i>
+                        <span class="skill-card-name">Power BI</span>
+                    </div>
+                    <div class="skill-card-item glass-panel">
+                        <div class="skill-ring-wrap">
+                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="85"/></svg>
+                            <span class="ring-pct">85%</span>
+                        </div>
+                        <i class="fa-solid fa-table skill-card-icon" style="color:#22c55e"></i>
+                        <span class="skill-card-name">Microsoft Excel</span>
+                    </div>
+                    <div class="skill-card-item glass-panel">
+                        <div class="skill-ring-wrap">
+                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="80"/></svg>
+                            <span class="ring-pct">80%</span>
+                        </div>
+                        <i class="fa-solid fa-database skill-card-icon" style="color:#60a5fa"></i>
+                        <span class="skill-card-name">SQL Queries</span>
+                    </div>
+                    <div class="skill-card-item glass-panel">
+                        <div class="skill-ring-wrap">
+                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="75"/></svg>
+                            <span class="ring-pct">75%</span>
+                        </div>
+                        <i class="fa-brands fa-python skill-card-icon" style="color:#3b82f6"></i>
+                        <span class="skill-card-name">Python (Pandas)</span>
+                    </div>
+                    <div class="skill-card-item glass-panel">
+                        <div class="skill-ring-wrap">
+                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="85"/></svg>
+                            <span class="ring-pct">85%</span>
+                        </div>
+                        <i class="fa-solid fa-filter skill-card-icon" style="color:#e879f9"></i>
+                        <span class="skill-card-name">Data Cleaning</span>
+                    </div>
+                    <div class="skill-card-item glass-panel">
+                        <div class="skill-ring-wrap">
+                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="80"/></svg>
+                            <span class="ring-pct">80%</span>
+                        </div>
+                        <i class="fa-solid fa-chart-area skill-card-icon" style="color:#fb923c"></i>
+                        <span class="skill-card-name">Data Visualization</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Category 3: Tools & Technologies -->
-            <div class="skill-category glass-panel">
-                <div class="category-title">
-                    <i class="fa-solid fa-screwdriver-wrench"></i>
-                    <h3>Tools & Technologies</h3>
-                </div>
-                <div class="skills-list">
-                    <div class="skill-pill"><i class="fa-solid fa-code"></i> Visual Studio Code</div>
-                    <div class="skill-pill"><i class="fa-brands fa-github"></i> Git & GitHub</div>
-                    <div class="skill-pill"><i class="fa-solid fa-chart-pie"></i> Power BI Desktop</div>
-                    <div class="skill-pill"><i class="fa-solid fa-file-excel"></i> Microsoft Excel</div>
-                    <div class="skill-pill"><i class="fa-solid fa-database"></i> MySQL Workbench</div>
-                    <div class="skill-pill"><i class="fa-solid fa-fire"></i> Firebase Console</div>
-                    <div class="skill-pill"><i class="fa-solid fa-chart-line"></i> Google Analytics</div>
-                    <div class="skill-pill"><i class="fa-solid fa-palette"></i> Canva</div>
-                    <div class="skill-pill"><i class="fa-brands fa-figma"></i> Figma</div>
-                    <div class="skill-pill"><i class="fa-solid fa-briefcase"></i> Microsoft Office</div>
+            <!-- Tools Panel -->
+            <div class="skill-panel" data-panel="tools">
+                <div class="skill-cards-grid">
+                    <div class="skill-card-item glass-panel">
+                        <div class="skill-ring-wrap">
+                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="90"/></svg>
+                            <span class="ring-pct">90%</span>
+                        </div>
+                        <i class="fa-solid fa-code skill-card-icon" style="color:#007acc"></i>
+                        <span class="skill-card-name">VS Code</span>
+                    </div>
+                    <div class="skill-card-item glass-panel">
+                        <div class="skill-ring-wrap">
+                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="85"/></svg>
+                            <span class="ring-pct">85%</span>
+                        </div>
+                        <i class="fa-brands fa-git-alt skill-card-icon" style="color:#f05032"></i>
+                        <span class="skill-card-name">Git &amp; GitHub</span>
+                    </div>
+                    <div class="skill-card-item glass-panel">
+                        <div class="skill-ring-wrap">
+                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="80"/></svg>
+                            <span class="ring-pct">80%</span>
+                        </div>
+                        <i class="fa-solid fa-database skill-card-icon" style="color:#00758f"></i>
+                        <span class="skill-card-name">MySQL Workbench</span>
+                    </div>
+                    <div class="skill-card-item glass-panel">
+                        <div class="skill-ring-wrap">
+                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="90"/></svg>
+                            <span class="ring-pct">90%</span>
+                        </div>
+                        <i class="fa-solid fa-chart-pie skill-card-icon" style="color:#f59e0b"></i>
+                        <span class="skill-card-name">Power BI Desktop</span>
+                    </div>
+                    <div class="skill-card-item glass-panel">
+                        <div class="skill-ring-wrap">
+                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="75"/></svg>
+                            <span class="ring-pct">75%</span>
+                        </div>
+                        <i class="fa-brands fa-figma skill-card-icon" style="color:#a259ff"></i>
+                        <span class="skill-card-name">Figma &amp; Canva</span>
+                    </div>
+                    <div class="skill-card-item glass-panel">
+                        <div class="skill-ring-wrap">
+                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="85"/></svg>
+                            <span class="ring-pct">85%</span>
+                        </div>
+                        <i class="fa-brands fa-chrome skill-card-icon" style="color:#4caf50"></i>
+                        <span class="skill-card-name">Chrome DevTools</span>
+                    </div>
                 </div>
             </div>
+
+            <!-- Soft Skills Panel -->
+            <div class="skill-panel" data-panel="soft">
+                <div class="skill-cards-grid">
+                    <div class="skill-card-item glass-panel">
+                        <div class="skill-ring-wrap">
+                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="95"/></svg>
+                            <span class="ring-pct">95%</span>
+                        </div>
+                        <i class="fa-solid fa-lightbulb skill-card-icon" style="color:#facc15"></i>
+                        <span class="skill-card-name">Problem Solving</span>
+                    </div>
+                    <div class="skill-card-item glass-panel">
+                        <div class="skill-ring-wrap">
+                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="90"/></svg>
+                            <span class="ring-pct">90%</span>
+                        </div>
+                        <i class="fa-solid fa-brain skill-card-icon" style="color:#c084fc"></i>
+                        <span class="skill-card-name">Analytical Thinking</span>
+                    </div>
+                    <div class="skill-card-item glass-panel">
+                        <div class="skill-ring-wrap">
+                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="85"/></svg>
+                            <span class="ring-pct">85%</span>
+                        </div>
+                        <i class="fa-solid fa-comments skill-card-icon" style="color:#34d399"></i>
+                        <span class="skill-card-name">Communication</span>
+                    </div>
+                    <div class="skill-card-item glass-panel">
+                        <div class="skill-ring-wrap">
+                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="90"/></svg>
+                            <span class="ring-pct">90%</span>
+                        </div>
+                        <i class="fa-solid fa-users skill-card-icon" style="color:#60a5fa"></i>
+                        <span class="skill-card-name">Teamwork</span>
+                    </div>
+                    <div class="skill-card-item glass-panel">
+                        <div class="skill-ring-wrap">
+                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="80"/></svg>
+                            <span class="ring-pct">80%</span>
+                        </div>
+                        <i class="fa-solid fa-clock skill-card-icon" style="color:#fb923c"></i>
+                        <span class="skill-card-name">Time Management</span>
+                    </div>
+                    <div class="skill-card-item glass-panel">
+                        <div class="skill-ring-wrap">
+                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="85"/></svg>
+                            <span class="ring-pct">85%</span>
+                        </div>
+                        <i class="fa-solid fa-list-check skill-card-icon" style="color:#f472b6"></i>
+                        <span class="skill-card-name">Project Management</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- 4. Services Section -->
-    <section id="services" class="reveal reveal-up">
-        <div class="section-header">
-            <span class="section-subtitle">Offerings</span>
-            <h2 class="section-title">My Services</h2>
-        </div>
 
-        <div class="service-filters">
-            <button class="s-filter-btn active" data-filter="all">All</button>
-            <button class="s-filter-btn" data-filter="web">Web Dev</button>
-            <button class="s-filter-btn" data-filter="data">Data Analytics</button>
-        </div>
 
-        <div class="services-grid">
-            <!-- Service 1 (Web) -->
-            <div class="service-card-container" data-category="web">
-                <div class="service-card glass-panel">
-                    <div class="service-icon"><i class="fa-solid fa-globe"></i></div>
-                    <h3>Custom Business Website Development</h3>
-                    <p>Tailored web applications built from scratch to establish a strong online identity and drive business growth.</p>
-                </div>
-            </div>
-            
-            <!-- Service 2 (Web) -->
-            <div class="service-card-container" data-category="web">
-                <div class="service-card glass-panel">
-                    <div class="service-icon"><i class="fa-solid fa-palette"></i></div>
-                    <h3>Portfolio Website Design</h3>
-                    <p>Visually stunning personal portfolios featuring modern glassmorphic designs, interactive timelines, and fluid animations.</p>
-                </div>
-            </div>
 
-            <!-- Service 3 (Web) -->
-            <div class="service-card-container" data-category="web">
-                <div class="service-card glass-panel">
-                    <div class="service-icon"><i class="fa-solid fa-cart-shopping"></i></div>
-                    <h3>eCommerce Website Development</h3>
-                    <p>High-converting online shops integrated with shopping carts, search features, and interactive product grids.</p>
-                </div>
-            </div>
-
-            <!-- Service 4 (Web) -->
-            <div class="service-card-container" data-category="web">
-                <div class="service-card glass-panel">
-                    <div class="service-icon"><i class="fa-solid fa-laptop-code"></i></div>
-                    <h3>Landing Page Design</h3>
-                    <p>Conversion-optimized single-page layouts designed to engage visitors and capture leads effectively.</p>
-                </div>
-            </div>
-
-            <!-- Service 5 (Web) -->
-            <div class="service-card-container" data-category="web">
-                <div class="service-card glass-panel">
-                    <div class="service-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-                    <h3>Website Redesign</h3>
-                    <p>Transforming outdated layouts into modern, high-performance web systems with improved UX and modern styling.</p>
-                </div>
-            </div>
-
-            <!-- Service 6 (Web) -->
-            <div class="service-card-container" data-category="web">
-                <div class="service-card glass-panel">
-                    <div class="service-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
-                    <h3>Responsive Website Development</h3>
-                    <p>Pixel-perfect templates that scale smoothly across mobile phones, tablets, notebooks, and wide desktop monitors.</p>
-                </div>
-            </div>
-
-            <!-- Service 7 (Web) -->
-            <div class="service-card-container" data-category="web">
-                <div class="service-card glass-panel">
-                    <div class="service-icon"><i class="fa-solid fa-fire"></i></div>
-                    <h3>Firebase Integration</h3>
-                    <p>Real-time database hosting setup, secure user authentication systems, and cloud storage integrations.</p>
-                </div>
-            </div>
-
-            <!-- Service 8 (Web) -->
-            <div class="service-card-container" data-category="web">
-                <div class="service-card glass-panel">
-                    <div class="service-icon"><i class="fa-solid fa-gauge-high"></i></div>
-                    <h3>Admin Dashboard Development</h3>
-                    <p>Feature-rich admin panels with user management, analytics graphs, and interactive database controls.</p>
-                </div>
-            </div>
-
-            <!-- Service 9 (Data) -->
-            <div class="service-card-container" data-category="data">
-                <div class="service-card glass-panel">
-                    <div class="service-icon"><i class="fa-solid fa-database"></i></div>
-                    <h3>Database Design</h3>
-                    <p>Structuring robust relational schema models, ensuring data integrity, and establishing efficient tables.</p>
-                </div>
-            </div>
-
-            <!-- Service 10 (Data) -->
-            <div class="service-card-container" data-category="data">
-                <div class="service-card glass-panel">
-                    <div class="service-icon"><i class="fa-solid fa-bolt"></i></div>
-                    <h3>SQL Query Optimization</h3>
-                    <p>Tuning slow database queries, applying correct indexes, and boosting backend execution speeds.</p>
-                </div>
-            </div>
-
-            <!-- Service 11 (Data) -->
-            <div class="service-card-container" data-category="data">
-                <div class="service-card glass-panel">
-                    <div class="service-icon"><i class="fa-solid fa-chart-pie"></i></div>
-                    <h3>Power BI Dashboard Development</h3>
-                    <p>Creating premium business intelligence dashboards featuring interactive cross-filtering and automated updates.</p>
-                </div>
-            </div>
-
-            <!-- Service 12 (Data) -->
-            <div class="service-card-container" data-category="data">
-                <div class="service-card glass-panel">
-                    <div class="service-icon"><i class="fa-solid fa-file-excel"></i></div>
-                    <h3>Excel Dashboard</h3>
-                    <p>Building automated spreadsheets, summary pivot charts, and KPI reporting tools using advanced Excel functions.</p>
-                </div>
-            </div>
-
-            <!-- Service 13 (Data) -->
-            <div class="service-card-container" data-category="data">
-                <div class="service-card glass-panel">
-                    <div class="service-icon"><i class="fa-solid fa-filter"></i></div>
-                    <h3>Data Cleaning</h3>
-                    <p>Filtering, formatting, and preparing unstructured dirty raw datasets to ensure high-fidelity insights.</p>
-                </div>
-            </div>
-
-            <!-- Service 14 (Data) -->
-            <div class="service-card-container" data-category="data">
-                <div class="service-card glass-panel">
-                    <div class="service-icon"><i class="fa-solid fa-chart-column"></i></div>
-                    <h3>Data Visualization</h3>
-                    <p>Translating complex statistical metrics into intuitive and engaging visual charts, graphs, and maps.</p>
-                </div>
-            </div>
-
-            <!-- Service 15 (Data) -->
-            <div class="service-card-container" data-category="data">
-                <div class="service-card glass-panel">
-                    <div class="service-icon"><i class="fa-solid fa-chart-area"></i></div>
-                    <h3>Business Intelligence Reports</h3>
-                    <p>Generating strategic visual analysis summaries to guide executive operations and commercial decisions.</p>
-                </div>
-            </div>
-
-            <!-- Service 16 (Data) -->
-            <div class="service-card-container" data-category="data">
-                <div class="service-card glass-panel">
-                    <div class="service-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
-                    <h3>Data Analysis</h3>
-                    <p>Applying analytical methodologies to discover trends, uncover opportunities, and solve operational bottlenecks.</p>
-                </div>
-            </div>
-
-            <!-- Service 17 (Web) -->
-            <div class="service-card-container" data-category="web">
-                <div class="service-card glass-panel">
-                    <div class="service-icon"><i class="fa-solid fa-toolbox"></i></div>
-                    <h3>Website Maintenance</h3>
-                    <p>Regular backend security patching, link integrity checking, content updates, and routine cloud backup runs.</p>
-                </div>
-            </div>
-
-            <!-- Service 18 (Web) -->
-            <div class="service-card-container" data-category="web">
-                <div class="service-card glass-panel">
-                    <div class="service-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
-                    <h3>SEO Optimization</h3>
-                    <p>Optimizing structural semantic tags, page speed scores, and metadata configurations for higher indexing ranks.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- 5. Projects Section -->
     <section id="projects" class="reveal reveal-up">
@@ -787,7 +880,6 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
-                <li><a href="#services">Services</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#certificates">Certificates</a></li>
