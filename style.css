@@ -754,7 +754,7 @@ section {
     font-weight: 800;
     color: #ffffff;
     background: var(--gradient-text);
-    -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     display: block;
     margin-bottom: 5px;
@@ -787,7 +787,7 @@ section {
     font-size: 2rem;
     margin-bottom: 18px;
     background: var(--gradient-primary);
-    -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
 }
@@ -1231,7 +1231,7 @@ body.light-theme .ring-bg {
 .project-image i {
     font-size: 4rem;
     background: var(--gradient-text);
-    -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     opacity: 0.4;
     transition: var(--transition-smooth);
