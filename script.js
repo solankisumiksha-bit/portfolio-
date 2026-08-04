@@ -3,7 +3,7 @@
    Interactive Javascript Logic
 */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => { 
     // 0. Theme Toggle Switcher Init
     initThemeToggle();
 
