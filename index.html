@@ -1,806 +1,726 @@
-<!DOCTYPE html>
-<html lang="en">
+/* 
+   Sumiksha Solanki Portfolio Redesign
+   Interactive Javascript Logic
+*/
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sumiksha Solanki | Premium Portfolio - Web Developer & Data Analyst</title>
+document.addEventListener("DOMContentLoaded", () => {
+    // 0. Theme Toggle Switcher Init
+    initThemeToggle();
 
-    <!-- SEO Meta Tags -->
-    <meta name="description"
-        content="Portfolio of Sumiksha Solanki - Senior Web Developer, Data Analyst, and Freelancer. Explore clean responsive websites, Power BI analytics dashboards, and custom web applications.">
-    <meta name="keywords"
-        content="Sumiksha Solanki, Web Developer, Data Analyst, Freelancer, Power BI, SQL, MySQL, Python, PHP, HTML, CSS, JavaScript, Portfolio, Mumbai, India">
-    <meta name="author" content="Sumiksha Solanki">
-    <meta name="robots" content="index, follow">
+    // 1. Particle Canvas Background
+    initParticles();
 
-    <!-- OpenGraph Social Metadata -->
-    <meta property="og:title" content="Sumiksha Solanki | Premium Portfolio">
-    <meta property="og:description"
-        content="Explore modern, responsive web systems and interactive Power BI dashboards built by Sumiksha Solanki.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://sumikshasolanki.github.io">
+    // 2. Typing Effect Configuration
+    initTyping();
 
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    // 3. Count Up Stats Animation
+    initCountUp();
 
-    <!-- External CSS link -->
-    <link rel="stylesheet" href="style.css">
-</head>
+    // 4. Project Category Filtering
+    initProjectFilter();
 
-<body>
+    // 6. Scroll Reveal Observer
+    initScrollReveal();
 
-    <!-- Dynamic Particle Canvas Background -->
-    <canvas id="particles-canvas"></canvas>
+    // 6.5. Skill Bar Animations
+    initSkillAnimations();
 
-    <!-- SVG Gradient Defs (for skill rings) -->
-    <svg width="0" height="0" style="position:absolute">
-        <defs>
-            <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#3b82f6" />
-                <stop offset="50%" stop-color="#8b5cf6" />
-                <stop offset="100%" stop-color="#d946ef" />
-            </linearGradient>
-        </defs>
-    </svg>
+    // 7. Navbar & Back to Top Toggle
+    initScrollEffects();
 
-    <!-- Floating Navigation Bar -->
-    <header id="header">
-        <a href="#home" class="logo-container">
-            <div class="logo-icon">S</div>
-            <span class="logo-text">Sumiksha<span class="logo-dot">.</span></span>
-        </a>
+    // 8. Mobile Menu Toggle
+    initMobileMenu();
 
-        <button class="theme-toggle-btn" aria-label="Toggle Dark/Light Mode" id="theme-toggle">
-            <i class="fa-solid fa-sun"></i>
-        </button>
+    // 9. Contact Form Simulation
+    initContactForm();
 
-        <button class="menu-toggle" aria-label="Toggle Navigation Menu" id="menu-btn">
-            <i class="fa-solid fa-bars-staggered"></i>
-        </button>
+    // 10. Render admin-managed sections (Projects, Experience, Certificates)
+    initAdminContent();
+});
 
-        <ul class="nav-links" id="nav-menu">
-            <li><a href="#home" class="nav-link-item active">Home</a></li>
-            <li><a href="#about" class="nav-link-item">About</a></li>
-            <li><a href="#skills" class="nav-link-item">Skills</a></li>
-            <li><a href="#projects" class="nav-link-item" id="nav-projects" style="display:none">Projects</a></li>
-            <li><a href="#experience" class="nav-link-item" id="nav-experience" style="display:none">Experience</a></li>
-            <li><a href="#certificates" class="nav-link-item" id="nav-certificates" style="display:none">Certificates</a></li>
-            <li><a href="#contact" class="nav-link-item">Contact</a></li>
-        </ul>
-    </header>
+// Canvas Particles Network
+function initParticles() {
+    const canvas = document.getElementById("particles-canvas");
+    if (!canvas) return;
 
-    <!-- 1. Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-grid">
-            <div class="hero-text reveal reveal-up active">
-                <div class="welcome-badge">
-                    <i class="fa-solid fa-wand-magic-sparkles"></i> Welcome to my portfolio
+    const ctx = canvas.getContext("2d");
+    let particlesArray = [];
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
+
+    // Re-adjust canvas size on resize
+    window.addEventListener("resize", () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+    });
+
+    // Mouse Interaction
+    const mouse = {
+        x: null,
+        y: null,
+        radius: 120
+    };
+
+    window.addEventListener("mousemove", (event) => {
+        mouse.x = event.x;
+        mouse.y = event.y;
+    });
+
+    window.addEventListener("mouseout", () => {
+        mouse.x = null;
+        mouse.y = null;
+    });
+
+    class Particle {
+        constructor(x, y, directionX, directionY, size, isAltColor) {
+            this.x = x;
+            this.y = y;
+            this.directionX = directionX;
+            this.directionY = directionY;
+            this.size = size;
+            this.isAltColor = isAltColor;
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+            const isLight = document.body.classList.contains("light-theme");
+            if (isLight) {
+                ctx.fillStyle = this.isAltColor ? "rgba(139, 92, 246, 0.25)" : "rgba(59, 130, 246, 0.25)";
+            } else {
+                ctx.fillStyle = this.isAltColor ? "rgba(192, 132, 252, 0.25)" : "rgba(96, 165, 250, 0.25)";
+            }
+            ctx.fill();
+        }
+
+        update() {
+            // Bounce on borders
+            if (this.x > width || this.x < 0) {
+                this.directionX = -this.directionX;
+            }
+            if (this.y > height || this.y < 0) {
+                this.directionY = -this.directionY;
+            }
+
+            // Mouse interact (repel effect)
+            if (mouse.x != null && mouse.y != null) {
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+                if (distance < mouse.radius + this.size) {
+                    if (mouse.x < this.x && this.x < width - this.size * 10) {
+                        this.x += 2;
+                    }
+                    if (mouse.x > this.x && this.x > this.size * 10) {
+                        this.x -= 2;
+                    }
+                    if (mouse.y < this.y && this.y < height - this.size * 10) {
+                        this.y += 2;
+                    }
+                    if (mouse.y > this.y && this.y > this.size * 10) {
+                        this.y -= 2;
+                    }
+                }
+            }
+
+            this.x += this.directionX;
+            this.y += this.directionY;
+            this.draw();
+        }
+    }
+
+    function init() {
+        particlesArray = [];
+        // Calculate dynamic amount of particles based on screen size
+        let numberOfParticles = (width * height) / 14000;
+        numberOfParticles = Math.min(numberOfParticles, 85); // Cap to preserve performance
+
+        for (let i = 0; i < numberOfParticles; i++) {
+            let size = Math.random() * 2 + 1;
+            let x = Math.random() * (width - size * 2) + size;
+            let y = Math.random() * (height - size * 2) + size;
+            let directionX = (Math.random() - 0.5) * 0.4;
+            let directionY = (Math.random() - 0.5) * 0.4;
+
+            // Alternating color state
+            let isAltColor = i % 2 === 0;
+
+            particlesArray.push(new Particle(x, y, directionX, directionY, size, isAltColor));
+        }
+    }
+
+    // Connect particles
+    function connect() {
+        let opacityValue = 1;
+        for (let a = 0; a < particlesArray.length; a++) {
+            for (let b = a; b < particlesArray.length; b++) {
+                let dx = particlesArray[a].x - particlesArray[b].x;
+                let dy = particlesArray[a].y - particlesArray[b].y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < 110) {
+                    opacityValue = 1 - distance / 110;
+                    ctx.strokeStyle = `rgba(139, 92, 246, ${opacityValue * 0.12})`;
+                    ctx.lineWidth = 0.8;
+                    ctx.beginPath();
+                    ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                    ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                    ctx.stroke();
+                }
+            }
+        }
+    }
+
+    function animate() {
+        requestAnimationFrame(animate);
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < particlesArray.length; i++) {
+            particlesArray[i].update();
+        }
+        connect();
+    }
+
+    init();
+    animate();
+}
+
+// Typing Effect
+function initTyping() {
+    const roles = [
+        "Creative Web Developer",
+        "Frontend Developer",
+        "Data Analyst",
+        "Freelance Website Designer"
+    ];
+
+    let roleIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+    const typingContainer = document.getElementById("typing");
+    if (!typingContainer) return;
+
+    function typeEffect() {
+        const currentRole = roles[roleIndex];
+
+        if (!deleting) {
+            typingContainer.textContent = currentRole.substring(0, charIndex++);
+        } else {
+            typingContainer.textContent = currentRole.substring(0, charIndex--);
+        }
+
+        if (!deleting && charIndex === currentRole.length + 1) {
+            deleting = true;
+            setTimeout(typeEffect, 1800); // Hold role
+            return;
+        }
+
+        if (deleting && charIndex === 0) {
+            deleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+        }
+
+        setTimeout(typeEffect, deleting ? 30 : 60);
+    }
+
+    setTimeout(typeEffect, 500);
+}
+
+// Stats Count Up Animation
+function initCountUp() {
+    const stats = document.querySelectorAll(".stat-num");
+    if (stats.length === 0) return;
+
+    const countUpObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = entry.target;
+                const limit = parseInt(target.getAttribute("data-target"));
+                let count = 0;
+                const duration = 2000; // 2 seconds
+                const increment = Math.ceil(limit / (duration / 16)); // ~60fps
+
+                const counterInterval = setInterval(() => {
+                    count += increment;
+                    if (count >= limit) {
+                        target.textContent = limit + "+";
+                        clearInterval(counterInterval);
+                    } else {
+                        target.textContent = count + "+";
+                    }
+                }, 16);
+
+                observer.unobserve(target); // Only animate once
+            }
+        });
+    }, { threshold: 0.5 });
+
+    stats.forEach(stat => countUpObserver.observe(stat));
+}
+
+// Project filter
+function initProjectFilter() {
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const projectCards = document.querySelectorAll(".project-card-container");
+    if (filterButtons.length === 0) return;
+
+    filterButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            // Toggle active state
+            filterButtons.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+
+            const filterValue = btn.getAttribute("data-filter");
+
+            projectCards.forEach(card => {
+                if (filterValue === "all" || card.getAttribute("data-category") === filterValue) {
+                    card.style.display = "block";
+                    setTimeout(() => {
+                        card.style.opacity = "1";
+                        card.style.transform = "scale(1)";
+                    }, 50);
+                } else {
+                    card.style.opacity = "0";
+                    card.style.transform = "scale(0.8)";
+                    setTimeout(() => {
+                        card.style.display = "none";
+                    }, 300);
+                }
+            });
+        });
+    });
+}
+
+
+
+// Scroll Reveal Observer
+function initScrollReveal() {
+    const revealElements = document.querySelectorAll(".reveal");
+    if (revealElements.length === 0) return;
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+}
+
+// Navbar Scroll Scrolled Style & Back to Top Toggle
+function initScrollEffects() {
+    const header = document.getElementById("header");
+    const backToTopBtn = document.getElementById("back-to-top");
+    const navItems = document.querySelectorAll(".nav-link-item");
+    const sections = document.querySelectorAll("section");
+
+    window.addEventListener("scroll", () => {
+        // Sticky Header class toggling
+        if (window.scrollY > 40) {
+            header.classList.add("scrolled");
+        } else {
+            header.classList.remove("scrolled");
+        }
+
+        // Back to top button visibility
+        if (window.scrollY > 500) {
+            backToTopBtn.classList.add("visible");
+        } else {
+            backToTopBtn.classList.remove("visible");
+        }
+
+        // Scrollspy highlight navigation links
+        let scrollPosition = window.scrollY + 160;
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute("id");
+
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                navItems.forEach(item => {
+                    item.classList.remove("active");
+                    if (item.getAttribute("href") === `#${sectionId}`) {
+                        item.classList.add("active");
+                    }
+                });
+            }
+        });
+    });
+
+    backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+}
+
+// Mobile Navbar Drawer Toggle
+function initMobileMenu() {
+    const menuBtn = document.getElementById("menu-btn");
+    const navMenu = document.getElementById("nav-menu");
+    if (!menuBtn || !navMenu) return;
+
+    menuBtn.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+        const icon = menuBtn.querySelector("i");
+        if (navMenu.classList.contains("active")) {
+            icon.classList.remove("fa-bars-staggered");
+            icon.classList.add("fa-xmark");
+        } else {
+            icon.classList.remove("fa-xmark");
+            icon.classList.add("fa-bars-staggered");
+        }
+    });
+
+    // Close on click link
+    const navLinks = document.querySelectorAll(".nav-link-item, .btn-nav");
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            navMenu.classList.remove("active");
+            const icon = menuBtn.querySelector("i");
+            if (icon) {
+                icon.classList.remove("fa-xmark");
+                icon.classList.add("fa-bars-staggered");
+            }
+        });
+    });
+}
+
+// Contact Form Simulation
+function initContactForm() {
+    const form = document.querySelector(".contact-form");
+    if (!form) return;
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        // Dynamic loading submit simulation
+        const submitBtn = form.querySelector(".btn-submit");
+        const originalText = submitBtn.innerHTML;
+
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `Sending... <i class="fa-solid fa-circle-notch fa-spin"></i>`;
+
+        setTimeout(() => {
+            submitBtn.innerHTML = `Success! <i class="fa-solid fa-circle-check"></i>`;
+            submitBtn.style.background = "linear-gradient(135deg, #10b981 0%, #059669 100%)";
+            submitBtn.style.boxShadow = "0 4px 15px rgba(16, 185, 129, 0.4)";
+
+            alert("Thank you! Your message was submitted successfully (demonstration only). Please email directly at sumikshasolnki@gmail.com for freelance inquiries!");
+
+            form.reset();
+
+            setTimeout(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+                submitBtn.style.background = "";
+                submitBtn.style.boxShadow = "";
+            }, 3000);
+        }, 1800);
+    });
+}
+
+// Clipboard copying utility
+function copyToClipboard(text, tooltipId) {
+    navigator.clipboard.writeText(text).then(() => {
+        const container = document.getElementById(tooltipId);
+        if (container) {
+            container.classList.add("copied");
+            setTimeout(() => {
+                container.classList.remove("copied");
+            }, 2000);
+        }
+    }).catch(err => {
+        console.error('Failed to copy text: ', err);
+    });
+}
+
+// Theme Toggle Switcher Logic
+function initThemeToggle() {
+    const themeBtn = document.getElementById("theme-toggle");
+    if (!themeBtn) return;
+
+    // Check saved preference or system preference
+    const savedTheme = localStorage.getItem("portfolio-theme");
+    const systemPrefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+
+    // Set initial state
+    if (savedTheme === "light" || (!savedTheme && systemPrefersLight)) {
+        document.body.classList.add("light-theme");
+        updateToggleIcon(true);
+    } else {
+        document.body.classList.remove("light-theme");
+        updateToggleIcon(false);
+    }
+
+    // Toggle on click
+    themeBtn.addEventListener("click", () => {
+        const isCurrentlyLight = document.body.classList.toggle("light-theme");
+        localStorage.setItem("portfolio-theme", isCurrentlyLight ? "light" : "dark");
+        updateToggleIcon(isCurrentlyLight);
+    });
+
+    function updateToggleIcon(isLight) {
+        const icon = themeBtn.querySelector("i");
+        if (icon) {
+            if (isLight) {
+                icon.className = "fa-solid fa-moon"; // Show moon in light theme to toggle back to dark
+            } else {
+                icon.className = "fa-solid fa-sun";  // Show sun in dark theme to toggle back to light
+            }
+        }
+    }
+}
+
+// Skill Tab Switching + Ring Animation
+function initSkillAnimations() {
+    const tabBtns = document.querySelectorAll(".skill-tab-btn");
+    const panels = document.querySelectorAll(".skill-panel");
+
+    function animateRings(panel) {
+        const rings = panel.querySelectorAll(".ring-fill");
+        rings.forEach(ring => {
+            const pct = parseInt(ring.getAttribute("data-percent") || "0", 10);
+            const circumference = 213.6; // 2 * PI * 34 ≈ 213.6
+            const offset = circumference - (pct / 100) * circumference;
+            // Reset first for re-entry animation
+            ring.style.strokeDashoffset = circumference;
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    ring.style.strokeDashoffset = offset;
+                });
+            });
+        });
+    }
+
+    // Animate the initially active panel
+    const activePanel = document.querySelector(".skill-panel.active");
+    if (activePanel) animateRings(activePanel);
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            tabBtns.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+
+            const target = btn.getAttribute("data-tab");
+            panels.forEach(panel => {
+                panel.classList.remove("active");
+                if (panel.getAttribute("data-panel") === target) {
+                    panel.classList.add("active");
+                    animateRings(panel);
+                }
+            });
+        });
+    });
+}
+
+/* ============================================================
+   ADMIN-DRIVEN DYNAMIC CONTENT RENDERER
+   Reads data from localStorage (set by admin.html) and
+   renders Projects, Experience, and Certificates on the
+   public portfolio page.
+   ============================================================ */
+
+function initAdminContent() {
+    renderProjects();
+    renderExperience();
+    renderCertificates();
+    renderSkills();
+    renderProfilePhoto();
+}
+
+function renderProfilePhoto() {
+    const photoUrl = localStorage.getItem('portfolio_profile_photo');
+    const container = document.querySelector('.avatar-container');
+    if (!container) return;
+
+    if (photoUrl) {
+        container.innerHTML = `<img src="${escHtml(photoUrl)}" alt="Sumiksha Solanki" class="avatar-img">`;
+    }
+}
+
+function renderProjects() {
+    const projects = JSON.parse(localStorage.getItem('portfolio_projects') || '[]');
+    const grid = document.getElementById('public-projects-grid');
+    const section = document.getElementById('projects');
+    const navLink = document.getElementById('nav-projects');
+    if (!grid || !section) return;
+
+    if (projects.length === 0) return; // stay hidden
+
+    section.style.display = '';
+    if (navLink) navLink.parentElement.style.display = '';
+
+    const iconMap = { web: 'fa-laptop-code', data: 'fa-chart-column', other: 'fa-code' };
+    grid.innerHTML = projects.map(p => `
+        <div class="project-card-container" data-category="${p.category || 'web'}">
+            <div class="project-card glass-panel">
+                <div class="project-image">
+                    <i class="fa-solid ${iconMap[p.category] || 'fa-laptop-code'}"></i>
+                    <div class="project-overlay">
+                        ${p.liveUrl ? `<a href="${p.liveUrl}" target="_blank" rel="noopener" class="project-btn" aria-label="Live Demo" title="Live Demo"><i class="fa-solid fa-link"></i></a>` : ''}
+                        ${p.githubUrl ? `<a href="${p.githubUrl}" target="_blank" rel="noopener" class="project-btn" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github"></i></a>` : ''}
+                        ${p.caseStudyUrl ? `<a href="${p.caseStudyUrl}" target="_blank" rel="noopener" class="project-btn" aria-label="Case Study" title="Case Study"><i class="fa-solid fa-book-open"></i></a>` : ''}
+                    </div>
                 </div>
-                <h1>Hi, I'm <br><span class="gradient-text">Sumiksha Solanki</span></h1>
-                <h2>
-                    <span id="typing"></span><span class="typing-cursor"></span>
-                </h2>
-                <p>
-                    I design and build premium, fast, and SEO-friendly websites using modern frameworks.
-                    I also develop high-performance database engines and Power BI reporting models to turn analytical
-                    data into commercial growth.
-                </p>
-                <div class="hero-cta">
-                    <a href="#contact" class="btn-primary">
-                        Get In Touch <i class="fa-solid fa-paper-plane"></i>
-                    </a>
-                    <a href="#projects" class="btn-secondary">
-                        View Projects <i class="fa-solid fa-arrow-down-long"></i>
-                    </a>
-                </div>
-                <div class="hero-socials">
-                    <span>Connect</span>
-                    <a href="https://www.linkedin.com/in/sumiksha-solanki-8b000b23a" target="_blank" rel="noopener"
-                        class="social-link" aria-label="LinkedIn Profile">
-                        <i class="fa-brands fa-linkedin-in"></i>
-                    </a>
-                    <a href="mailto:sumikshasolnki@gmail.com" class="social-link" aria-label="Email Inbox">
-                        <i class="fa-solid fa-envelope"></i>
-                    </a>
-                    <a href="https://github.com" target="_blank" rel="noopener" class="social-link"
-                        aria-label="GitHub Profile">
-                        <i class="fa-brands fa-github"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="hero-graphic reveal reveal-up active">
-                <div class="graphic-wrapper">
-                    <!-- Glow ring background effect -->
-                    <div class="glow-ring"></div>
-
-                    <!-- Floating Widget 1: Power BI Metric -->
-                    <div class="floating-widget fw-1">
-                        <div class="widget-icon">
-                            <i class="fa-solid fa-chart-pie"></i>
-                        </div>
-                        <div class="widget-info">
-                            <span class="widget-title">Power BI</span>
-                            <span class="widget-value">Visualizations</span>
-                        </div>
+                <div class="project-details">
+                    <h3>${escHtml(p.title)}</h3>
+                    <p>${escHtml(p.description)}</p>
+                    <div class="project-tags">
+                        ${(p.tags || '').split(',').map(t => t.trim()).filter(Boolean).map(t => `<span class="project-tag">${escHtml(t)}</span>`).join('')}
                     </div>
-
-                    <!-- Floating Widget 2: DB Engine -->
-                    <div class="floating-widget fw-2">
-                        <div class="widget-icon">
-                            <i class="fa-solid fa-database"></i>
-                        </div>
-                        <div class="widget-info">
-                            <span class="widget-title">DB Engine</span>
-                            <span class="widget-value">MySQL / SQL</span>
-                        </div>
-                    </div>
-
-                    <!-- Floating Widget 3: Live sparkline chart SVG -->
-                    <div class="floating-widget fw-3">
-                        <div class="widget-icon">
-                            <i class="fa-solid fa-bolt"></i>
-                        </div>
-                        <svg class="chart-svg" aria-hidden="true">
-                            <path class="chart-path" d="M0,20 Q10,5 20,15 T40,5 T60,15" />
-                        </svg>
-                    </div>
-
-                    <!-- Avatar Card Container -->
-                    <div class="avatar-container">
-                        <div class="avatar-fallback">
-                            <span>SS</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 2. About Me Section -->
-    <section id="about" class="reveal reveal-up">
-        <div class="section-header">
-            <span class="section-subtitle">Discovery</span>
-            <h2 class="section-title">About Me</h2>
-        </div>
-
-        <div class="about-grid">
-            <div class="about-text">
-                <p>
-                    I'm <strong>Sumiksha Solanki</strong>, a passionate Web Developer and Data Analyst from India.
-                    I create modern, responsive, and user-friendly websites using <strong>HTML, CSS, JavaScript, PHP,
-                        Python, and Firebase</strong>.
-                    I also analyze data using <strong>SQL, Excel, Power BI, and Python</strong> to help businesses make
-                    better decisions.
-                </p>
-                <p>
-                    I enjoy building business websites, portfolio websites, eCommerce stores, admin dashboards, and
-                    custom web solutions.
-                    My goal is to deliver fast, attractive, and SEO-friendly websites that help businesses grow online.
-                </p>
-
-                <!-- Stat counters -->
-                <div class="about-stats">
-                    <div class="stat-item">
-                        <span class="stat-num" data-target="3">0</span>
-                        <span class="stat-label">Years Learning</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-num" data-target="15">0</span>
-                        <span class="stat-label">Projects Built</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-num" data-target="10">0</span>
-                        <span class="stat-label">Happy Clients</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="about-highlights">
-                <div class="highlight-card glass-panel">
-                    <i class="fa-solid fa-user-graduate highlight-icon"></i>
-                    <h3>Education Focus</h3>
-                    <p>Pursuing BCA under YCMOU, cultivating knowledge in database systems, programming, and web
-                        solutions.</p>
-                </div>
-
-                <div class="highlight-card glass-panel">
-                    <i class="fa-solid fa-chart-line highlight-icon"></i>
-                    <h3>Data Intelligence</h3>
-                    <p>Fascinated by metrics, KPI tracking, database querying, data cleansing, and visual dashboard
-                        representations.</p>
-                </div>
-
-                <div class="highlight-card glass-panel">
-                    <i class="fa-solid fa-code highlight-icon"></i>
-                    <h3>Full Stack Development</h3>
-                    <p>Hands-on development constructing custom database frameworks using PHP, HTML, CSS, JavaScript,
-                        and MySQL.</p>
-                </div>
-
-                <div class="highlight-card glass-panel">
-                    <i class="fa-solid fa-shield-halved highlight-icon"></i>
-                    <h3>Virtual Experience</h3>
-                    <p>Completed practical simulated cases mimicking business analysts and technical operations at
-                        Deloitte.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 2.5 Core Pillars / Expertise Focus Section -->
-    <section id="expertise" class="reveal reveal-up">
-        <div class="section-header">
-            <span class="section-subtitle">Specializations</span>
-            <h2 class="section-title">Core Expertise</h2>
-        </div>
-
-        <div class="expertise-grid">
-            <!-- Pillar 1: Web Development -->
-            <div class="expertise-card glass-panel web-pillar">
-                <div class="pillar-glow"></div>
-                <div class="pillar-header">
-                    <div class="pillar-icon"><i class="fa-solid fa-code"></i></div>
-                    <div class="pillar-title-block">
-                        <span class="pillar-tag">CREATIVE & SECURE</span>
-                        <h3>Web Development</h3>
-                    </div>
-                </div>
-                <p class="pillar-desc">
-                    Designing and deploying high-performance, responsive web applications with semantic SEO structure
-                    and elegant user experiences.
-                </p>
-                <ul class="pillar-features">
-                    <li><i class="fa-solid fa-circle-check"></i> Custom Frontend Engineering (ES6+, Tailwind)</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Relational Database Systems & Backend Logic (PHP,
-                        MySQL)</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Real-time Serverless Architectures (Firebase
-                        Integrations)</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Speed & SEO Audits (Semantic Markup, Lazy Loading)</li>
-                </ul>
-                <div class="pillar-footer">
-                    <div class="pillar-metric">
-                        <span class="m-val">100%</span>
-                        <span class="m-lbl">Mobile Responsive</span>
-                    </div>
-                    <div class="pillar-metric">
-                        <span class="m-val">&lt; 1.5s</span>
-                        <span class="m-lbl">Avg. Load Time</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Pillar 2: Data Analytics -->
-            <div class="expertise-card glass-panel data-pillar">
-                <div class="pillar-glow"></div>
-                <div class="pillar-header">
-                    <div class="pillar-icon"><i class="fa-solid fa-chart-column"></i></div>
-                    <div class="pillar-title-block">
-                        <span class="pillar-tag">INSIGHTS-DRIVEN</span>
-                        <h3>Data Analytics</h3>
-                    </div>
-                </div>
-                <p class="pillar-desc">
-                    Transforming raw structured and unstructured data into interactive business dashboards, optimized
-                    queries, and predictive insights.
-                </p>
-                <ul class="pillar-features">
-                    <li><i class="fa-solid fa-circle-check"></i> Interactive Power BI Visualization Systems</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Query Tuning & Database Optimization (SQL Indexes)</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Advanced Spreadsheet Automation & Modeling (Excel
-                        Pivot)</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Data Cleaning Pipelines & Analytics (Python libraries)
-                    </li>
-                </ul>
-                <div class="pillar-footer">
-                    <div class="pillar-metric">
-                        <span class="m-val">15+</span>
-                        <span class="m-lbl">Data Dashboards</span>
-                    </div>
-                    <div class="pillar-metric">
-                        <span class="m-val">10x</span>
-                        <span class="m-lbl">Faster Query Execution</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 3. Technical Skills Section -->
-    <section id="skills" class="reveal reveal-up">
-        <div class="section-header">
-            <span class="section-subtitle">Expertise</span>
-            <h2 class="section-title">My Skills</h2>
-        </div>
-
-        <!-- Skill Tab Buttons -->
-        <div class="skill-tabs" id="skill-tabs">
-            <button class="skill-tab-btn active" data-tab="web">
-                <i class="fa-solid fa-globe"></i> Web Development
-            </button>
-            <button class="skill-tab-btn" data-tab="data">
-                <i class="fa-solid fa-chart-pie"></i> Data Analytics
-            </button>
-            <button class="skill-tab-btn" data-tab="tools">
-                <i class="fa-solid fa-screwdriver-wrench"></i> Tools
-            </button>
-            <button class="skill-tab-btn" data-tab="soft">
-                <i class="fa-solid fa-brain"></i> Soft Skills
-            </button>
-        </div>
-
-        <!-- Tab Panels -->
-        <div class="skill-panels">
-
-
-            <!-- Web Development Panel -->
-            <div class="skill-panel active" data-panel="web">
-                <div class="skill-cards-grid">
-                    <div class="skill-card-item glass-panel">
-                        <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80">
-                                <circle class="ring-bg" cx="40" cy="40" r="34" />
-                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="95" />
-                            </svg>
-                            <span class="ring-pct">95%</span>
-                        </div>
-                        <i class="fa-brands fa-html5 skill-card-icon" style="color:#e34f26"></i>
-                        <span class="skill-card-name">HTML5</span>
-                    </div>
-                    <div class="skill-card-item glass-panel">
-                        <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80">
-                                <circle class="ring-bg" cx="40" cy="40" r="34" />
-                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="90" />
-                            </svg>
-                            <span class="ring-pct">90%</span>
-                        </div>
-                        <i class="fa-brands fa-css3-alt skill-card-icon" style="color:#1572b6"></i>
-                        <span class="skill-card-name">CSS3</span>
-                    </div>
-                    <div class="skill-card-item glass-panel">
-                        <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80">
-                                <circle class="ring-bg" cx="40" cy="40" r="34" />
-                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="85" />
-                            </svg>
-                            <span class="ring-pct">85%</span>
-                        </div>
-                        <i class="fa-brands fa-js skill-card-icon" style="color:#f7df1e"></i>
-                        <span class="skill-card-name">JavaScript</span>
-                    </div>
-                    <div class="skill-card-item glass-panel">
-                        <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80">
-                                <circle class="ring-bg" cx="40" cy="40" r="34" />
-                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="80" />
-                            </svg>
-                            <span class="ring-pct">80%</span>
-                        </div>
-                        <i class="fa-brands fa-php skill-card-icon" style="color:#8892be"></i>
-                        <span class="skill-card-name">PHP</span>
-                    </div>
-                    <div class="skill-card-item glass-panel">
-                        <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80">
-                                <circle class="ring-bg" cx="40" cy="40" r="34" />
-                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="85" />
-                            </svg>
-                            <span class="ring-pct">85%</span>
-                        </div>
-                        <i class="fa-solid fa-wind skill-card-icon" style="color:#38bdf8"></i>
-                        <span class="skill-card-name">Tailwind &amp; Bootstrap</span>
-                    </div>
-                    <div class="skill-card-item glass-panel">
-                        <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80">
-                                <circle class="ring-bg" cx="40" cy="40" r="34" />
-                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="80" />
-                            </svg>
-                            <span class="ring-pct">80%</span>
-                        </div>
-                        <i class="fa-solid fa-fire skill-card-icon" style="color:#ffca28"></i>
-                        <span class="skill-card-name">SQL &amp; Firebase</span>
-                    </div>
-                    <div class="skill-card-item glass-panel">
-                        <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80">
-                                <circle class="ring-bg" cx="40" cy="40" r="34" />
-                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="90" />
-                            </svg>
-                            <span class="ring-pct">90%</span>
-                        </div>
-                        <i class="fa-solid fa-magnifying-glass skill-card-icon" style="color:#a78bfa"></i>
-                        <span class="skill-card-name">SEO &amp; UI/UX</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Data Analytics Panel -->
-            <div class="skill-panel" data-panel="data">
-                <div class="skill-cards-grid">
-                    <div class="skill-card-item glass-panel">
-                        <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80">
-                                <circle class="ring-bg" cx="40" cy="40" r="34" />
-                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="90" />
-                            </svg>
-                            <span class="ring-pct">90%</span>
-                        </div>
-                        <i class="fa-solid fa-chart-pie skill-card-icon" style="color:#f59e0b"></i>
-                        <span class="skill-card-name">Power BI</span>
-                    </div>
-                    <div class="skill-card-item glass-panel">
-                        <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80">
-                                <circle class="ring-bg" cx="40" cy="40" r="34" />
-                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="85" />
-                            </svg>
-                            <span class="ring-pct">85%</span>
-                        </div>
-                        <i class="fa-solid fa-table skill-card-icon" style="color:#22c55e"></i>
-                        <span class="skill-card-name">Microsoft Excel</span>
-                    </div>
-                    <div class="skill-card-item glass-panel">
-                        <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80">
-                                <circle class="ring-bg" cx="40" cy="40" r="34" />
-                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="80" />
-                            </svg>
-                            <span class="ring-pct">80%</span>
-                        </div>
-                        <i class="fa-solid fa-database skill-card-icon" style="color:#60a5fa"></i>
-                        <span class="skill-card-name">SQL Queries</span>
-                    </div>
-                    <div class="skill-card-item glass-panel">
-                        <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80">
-                                <circle class="ring-bg" cx="40" cy="40" r="34" />
-                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="75" />
-                            </svg>
-                            <span class="ring-pct">75%</span>
-                        </div>
-                        <i class="fa-brands fa-python skill-card-icon" style="color:#3b82f6"></i>
-                        <span class="skill-card-name">Python (Pandas)</span>
-                    </div>
-                    <div class="skill-card-item glass-panel">
-                        <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80">
-                                <circle class="ring-bg" cx="40" cy="40" r="34" />
-                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="85" />
-                            </svg>
-                            <span class="ring-pct">85%</span>
-                        </div>
-                        <i class="fa-solid fa-filter skill-card-icon" style="color:#e879f9"></i>
-                        <span class="skill-card-name">Data Cleaning</span>
-                    </div>
-                    <div class="skill-card-item glass-panel">
-                        <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80">
-                                <circle class="ring-bg" cx="40" cy="40" r="34" />
-                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="80" />
-                            </svg>
-                            <span class="ring-pct">80%</span>
-                        </div>
-                        <i class="fa-solid fa-chart-area skill-card-icon" style="color:#fb923c"></i>
-                        <span class="skill-card-name">Data Visualization</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tools Panel -->
-            <div class="skill-panel" data-panel="tools">
-                <div class="skill-cards-grid">
-                    <div class="skill-card-item glass-panel">
-                        <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80">
-                                <circle class="ring-bg" cx="40" cy="40" r="34" />
-                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="90" />
-                            </svg>
-                            <span class="ring-pct">90%</span>
-                        </div>
-                        <i class="fa-solid fa-code skill-card-icon" style="color:#007acc"></i>
-                        <span class="skill-card-name">VS Code</span>
-                    </div>
-                    <div class="skill-card-item glass-panel">
-                        <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80">
-                                <circle class="ring-bg" cx="40" cy="40" r="34" />
-                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="85" />
-                            </svg>
-                            <span class="ring-pct">85%</span>
-                        </div>
-                        <i class="fa-brands fa-git-alt skill-card-icon" style="color:#f05032"></i>
-                        <span class="skill-card-name">Git &amp; GitHub</span>
-                    </div>
-                    <div class="skill-card-item glass-panel">
-                        <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80">
-                                <circle class="ring-bg" cx="40" cy="40" r="34" />
-                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="80" />
-                            </svg>
-                            <span class="ring-pct">80%</span>
-                        </div>
-                        <i class="fa-solid fa-database skill-card-icon" style="color:#00758f"></i>
-                        <span class="skill-card-name">MySQL Workbench</span>
-                    </div>
-                    <div class="skill-card-item glass-panel">
-                        <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80">
-                                <circle class="ring-bg" cx="40" cy="40" r="34" />
-                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="90" />
-                            </svg>
-                            <span class="ring-pct">90%</span>
-                        </div>
-                        <i class="fa-solid fa-chart-pie skill-card-icon" style="color:#f59e0b"></i>
-                        <span class="skill-card-name">Power BI Desktop</span>
-                    </div>
-                    <div class="skill-card-item glass-panel">
-                        <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80">
-                                <circle class="ring-bg" cx="40" cy="40" r="34" />
-                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="75" />
-                            </svg>
-                            <span class="ring-pct">75%</span>
-                        </div>
-                        <i class="fa-brands fa-figma skill-card-icon" style="color:#a259ff"></i>
-                        <span class="skill-card-name">Figma &amp; Canva</span>
-                    </div>
-                    <div class="skill-card-item glass-panel">
-                        <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80">
-                                <circle class="ring-bg" cx="40" cy="40" r="34" />
-                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="85" />
-                            </svg>
-                            <span class="ring-pct">85%</span>
-                        </div>
-                        <i class="fa-brands fa-chrome skill-card-icon" style="color:#4caf50"></i>
-                        <span class="skill-card-name">Chrome DevTools</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Soft Skills Panel -->
-            <div class="skill-panel" data-panel="soft">
-                <div class="skill-cards-grid">
-                    <div class="skill-card-item glass-panel">
-                        <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80">
-                                <circle class="ring-bg" cx="40" cy="40" r="34" />
-                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="95" />
-                            </svg>
-                            <span class="ring-pct">95%</span>
-                        </div>
-                        <i class="fa-solid fa-lightbulb skill-card-icon" style="color:#facc15"></i>
-                        <span class="skill-card-name">Problem Solving</span>
-                    </div>
-                    <div class="skill-card-item glass-panel">
-                        <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80">
-                                <circle class="ring-bg" cx="40" cy="40" r="34" />
-                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="90" />
-                            </svg>
-                            <span class="ring-pct">90%</span>
-                        </div>
-                        <i class="fa-solid fa-brain skill-card-icon" style="color:#c084fc"></i>
-                        <span class="skill-card-name">Analytical Thinking</span>
-                    </div>
-                    <div class="skill-card-item glass-panel">
-                        <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80">
-                                <circle class="ring-bg" cx="40" cy="40" r="34" />
-                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="85" />
-                            </svg>
-                            <span class="ring-pct">85%</span>
-                        </div>
-                        <i class="fa-solid fa-comments skill-card-icon" style="color:#34d399"></i>
-                        <span class="skill-card-name">Communication</span>
-                    </div>
-                    <div class="skill-card-item glass-panel">
-                        <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80">
-                                <circle class="ring-bg" cx="40" cy="40" r="34" />
-                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="90" />
-                            </svg>
-                            <span class="ring-pct">90%</span>
-                        </div>
-                        <i class="fa-solid fa-users skill-card-icon" style="color:#60a5fa"></i>
-                        <span class="skill-card-name">Teamwork</span>
-                    </div>
-                    <div class="skill-card-item glass-panel">
-                        <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80">
-                                <circle class="ring-bg" cx="40" cy="40" r="34" />
-                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="80" />
-                            </svg>
-                            <span class="ring-pct">80%</span>
-                        </div>
-                        <i class="fa-solid fa-clock skill-card-icon" style="color:#fb923c"></i>
-                        <span class="skill-card-name">Time Management</span>
-                    </div>
-                    <div class="skill-card-item glass-panel">
-                        <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80">
-                                <circle class="ring-bg" cx="40" cy="40" r="34" />
-                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="85" />
-                            </svg>
-                            <span class="ring-pct">85%</span>
-                        </div>
-                        <i class="fa-solid fa-list-check skill-card-icon" style="color:#f472b6"></i>
-                        <span class="skill-card-name">Project Management</span>
-                    </div>
+                    ${p.caseStudyUrl ? `<div style="margin-top:12px;"><a href="${p.caseStudyUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;color:#c084fc;font-size:0.83rem;font-weight:600;text-decoration:none;"><i class="fa-solid fa-book-open"></i> View Case Study <i class="fa-solid fa-arrow-right" style="font-size:0.75rem"></i></a></div>` : ''}
                 </div>
             </div>
-
         </div>
-    </section>
+    `).join('');
 
+    // Re-init filter buttons
+    const filterBtns = document.querySelectorAll('#project-filter-btns .filter-btn');
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const filter = btn.getAttribute('data-filter');
+            document.querySelectorAll('.project-card-container').forEach(card => {
+                card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none';
+            });
+        });
+    });
+}
 
-    <!-- 5. Projects Section (Admin-Managed) -->
-    <section id="projects" class="reveal reveal-up" style="display:none">
-        <div class="section-header">
-            <span class="section-subtitle">Portfolio</span>
-            <h2 class="section-title">Projects</h2>
-        </div>
+function renderExperience() {
+    const experiences = JSON.parse(localStorage.getItem('portfolio_experience') || '[]');
+    const timeline = document.getElementById('public-experience-timeline');
+    const section = document.getElementById('experience');
+    const navLink = document.getElementById('nav-experience');
+    if (!timeline || !section) return;
+    if (experiences.length === 0) return;
 
-        <div class="project-filters" id="project-filter-btns">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="web">Web Dev</button>
-            <button class="filter-btn" data-filter="data">Data Analysis</button>
-        </div>
+    section.style.display = '';
+    if (navLink) navLink.parentElement.style.display = '';
 
-        <div class="projects-grid" id="public-projects-grid">
-            <!-- Projects rendered dynamically from admin dashboard -->
-        </div>
-    </section>
-
-    <!-- 6. Experience Section (Admin-Managed) -->
-    <section id="experience" class="reveal reveal-up" style="display:none">
-        <div class="section-header">
-            <span class="section-subtitle">Journey</span>
-            <h2 class="section-title">Work Experience</h2>
-        </div>
-
-        <div class="timeline" id="public-experience-timeline">
-            <!-- Experience rendered dynamically from admin dashboard -->
-        </div>
-    </section>
-
-    <!-- 7. Certificates Section -->
-    <section id="certificates" class="reveal reveal-up">
-        <div class="section-header">
-            <span class="section-subtitle">Credentials</span>
-            <h2 class="section-title">Certifications</h2>
-        </div>
-
-        <div class="cert-grid" id="public-cert-grid">
-            <!-- Certificates rendered dynamically from admin dashboard -->
-        </div>
-    </section>
-
-
-
-    <!-- 9. Contact Section -->
-    <section id="contact" class="reveal reveal-up">
-        <div class="section-header">
-            <span class="section-subtitle">Reach Out</span>
-            <h2 class="section-title">Let's Connect</h2>
-        </div>
-
-        <div class="contact-grid">
-            <!-- Direct Channels Left -->
-            <div class="contact-info">
-                <div class="contact-method glass-panel">
-                    <div class="method-icon"><i class="fa-solid fa-envelope"></i></div>
-                    <div class="method-details">
-                        <span class="method-label">Email Me</span>
-                        <div class="method-value">sumikshasolnki@gmail.com</div>
+    timeline.innerHTML = experiences.map((exp, i) => `
+        <div class="timeline-item ${i % 2 === 0 ? 'left' : 'right'}">
+            <div class="timeline-content glass-panel">
+                <div class="timeline-card-header">
+                    <div>
+                        <h3 class="timeline-role">${escHtml(exp.role)}</h3>
+                        <span class="timeline-company">${escHtml(exp.company)}</span>
                     </div>
-                    <div class="tooltip-container" id="email-copy-tip">
-                        <button class="method-action"
-                            onclick="copyToClipboard('sumikshasolnki@gmail.com', 'email-copy-tip')"
-                            aria-label="Copy Email">
-                            <i class="fa-regular fa-copy"></i>
-                        </button>
-                        <span class="tooltip-box">Copied!</span>
-                    </div>
+                    <span class="timeline-date">${escHtml(exp.period)}</span>
                 </div>
-
-                <div class="contact-method glass-panel">
-                    <div class="method-icon"><i class="fa-solid fa-location-dot"></i></div>
-                    <div class="method-details">
-                        <span class="method-label">Location</span>
-                        <div class="method-value">Mumbai, Maharashtra, India</div>
-                    </div>
-                    <div class="tooltip-container" id="loc-copy-tip">
-                        <button class="method-action"
-                            onclick="copyToClipboard('Mumbai, Maharashtra, India', 'loc-copy-tip')"
-                            aria-label="Copy Location">
-                            <i class="fa-regular fa-copy"></i>
-                        </button>
-                        <span class="tooltip-box">Copied!</span>
-                    </div>
-                </div>
-
-                <div class="contact-method glass-panel">
-                    <div class="method-icon"><i class="fa-brands fa-linkedin-in"></i></div>
-                    <div class="method-details">
-                        <span class="method-label">LinkedIn</span>
-                        <div class="method-value">Sumiksha Solanki</div>
-                    </div>
-                    <a href="https://www.linkedin.com/in/sumiksha-solanki-8b000b23a" target="_blank" rel="noopener"
-                        class="method-action" aria-label="Visit LinkedIn Profile">
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
-                </div>
+                <p>${escHtml(exp.description)}</p>
             </div>
-
-            <!-- Contact Form Right -->
-            <form class="contact-form glass-panel">
-                <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" placeholder="John Doe" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" placeholder="john@example.com" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message"
-                        placeholder="Hi Sumiksha, I'd like to collaborate on building a new website..."
-                        required></textarea>
-                </div>
-                <button type="submit" class="btn-submit">
-                    Send Message <i class="fa-solid fa-paper-plane"></i>
-                </button>
-            </form>
         </div>
-    </section>
+    `).join('');
+}
 
-    <!-- 10. Footer Section -->
-    <footer>
-        <div class="footer-content">
-            <a href="#home" class="logo-container">
-                <div class="logo-icon">S</div>
-                <span class="logo-text">Sumiksha<span class="logo-dot">.</span></span>
-            </a>
+function renderCertificates() {
+    const certs = JSON.parse(localStorage.getItem('portfolio_certificates') || '[]');
+    const grid = document.getElementById('public-cert-grid');
+    const section = document.getElementById('certificates');
+    const navLink = document.getElementById('nav-certificates');
+    if (!grid || !section) return;
+    if (certs.length === 0) return;
 
-            <ul class="footer-nav">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+    section.style.display = '';
+    if (navLink) navLink.parentElement.style.display = '';
 
-            <div class="footer-socials">
-                <a href="https://www.linkedin.com/in/sumiksha-solanki-8b000b23a" target="_blank" rel="noopener"
-                    class="footer-social-link" aria-label="LinkedIn Profile">
-                    <i class="fa-brands fa-linkedin-in"></i>
-                </a>
-                <a href="mailto:sumikshasolnki@gmail.com" class="footer-social-link" aria-label="Email Address">
-                    <i class="fa-solid fa-envelope"></i>
-                </a>
-                <a href="https://github.com" target="_blank" rel="noopener" class="footer-social-link"
-                    aria-label="GitHub Profile">
-                    <i class="fa-brands fa-github"></i>
-                </a>
+    const iconMap = ['fa-chart-pie', 'fa-code', 'fa-shield-halved', 'fa-award', 'fa-graduation-cap', 'fa-star'];
+    grid.innerHTML = certs.map((cert, i) => `
+        <div class="cert-card glass-panel">
+            ${cert.imgUrl ? `
+                <div class="cert-img-wrapper" onclick="openCertImageModal('${escHtml(cert.imgUrl)}', '${escHtml(cert.title)}')">
+                    <img src="${escHtml(cert.imgUrl)}" alt="${escHtml(cert.title)}" class="cert-img-preview">
+                    <div class="cert-img-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i> View Certificate</div>
+                </div>
+            ` : `
+                <div class="cert-badge"><i class="fa-solid ${iconMap[i % iconMap.length]}"></i></div>
+            `}
+            <div class="cert-details">
+                <h3>${escHtml(cert.title)}</h3>
+                <p>${escHtml(cert.issuer)}</p>
+                ${cert.year ? `<small style="color:var(--text-muted);font-size:0.78rem">${escHtml(cert.year)}</small>` : ''}
             </div>
-
-            <p class="footer-copyright">
-                &copy; 2026 Sumiksha Solanki. All Rights Reserved. Designed with <i class="fa-solid fa-heart"></i>
-            </p>
+            ${cert.verifyUrl ? `<a href="${cert.verifyUrl}" target="_blank" rel="noopener" class="cert-link">Verify Credentials <i class="fa-solid fa-arrow-up-right-from-square"></i></a>` : ''}
         </div>
-    </footer>
+    `).join('');
+}
 
-    <!-- Back to top button trigger -->
-    <button class="btn-top" id="back-to-top" aria-label="Back to Top">
-        <i class="fa-solid fa-chevron-up"></i>
-    </button>
+function openCertImageModal(src, title) {
+    let modal = document.getElementById('cert-lightbox-modal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'cert-lightbox-modal';
+        modal.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:99999;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(8px);cursor:pointer;';
+        modal.onclick = () => modal.style.display = 'none';
+        document.body.appendChild(modal);
+    }
+    modal.innerHTML = `
+        <div style="position:relative;max-width:90vw;max-height:90vh;" onclick="event.stopPropagation()">
+            <button onclick="document.getElementById('cert-lightbox-modal').style.display='none'" style="position:absolute;top:-40px;right:0;background:none;border:none;color:#fff;font-size:1.8rem;cursor:pointer;">&times;</button>
+            <img src="${src}" alt="${title}" style="max-width:100%;max-height:85vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.8);border:1px solid rgba(255,255,255,0.15);display:block;margin:0 auto;">
+            <p style="text-align:center;color:#e2e8f0;margin-top:12px;font-size:1rem;font-weight:600;">${title}</p>
+        </div>
+    `;
+    modal.style.display = 'flex';
+}
 
-    <!-- External Script reference -->
-    <script src="script.js"></script>
-</body>
+function renderSkills() {
+    const skillsSaved = localStorage.getItem('portfolio_skills');
+    if (!skillsSaved) return; // Keep static HTML if untouched
 
-</html>
+    const skills = JSON.parse(skillsSaved);
+    const categories = ['web', 'data', 'tools', 'soft'];
+
+    categories.forEach(cat => {
+        const panel = document.querySelector(`.skill-panel[data-panel="${cat}"]`);
+        if (!panel) return;
+        const grid = panel.querySelector('.skill-cards-grid');
+        if (!grid) return;
+
+        const catSkills = skills.filter(s => s.category === cat);
+        if (catSkills.length === 0) {
+            grid.innerHTML = '<p style="color:var(--text-muted);grid-column:1/-1;text-align:center;padding:20px;">No skills added in this category yet.</p>';
+            return;
+        }
+
+        grid.innerHTML = catSkills.map(s => `
+            <div class="skill-card-item glass-panel">
+                <div class="skill-ring-wrap">
+                    <svg class="skill-ring" viewBox="0 0 80 80">
+                        <circle class="ring-bg" cx="40" cy="40" r="34" />
+                        <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="${s.percent}" />
+                    </svg>
+                    <span class="ring-pct">${s.percent}%</span>
+                </div>
+                <i class="${escHtml(s.icon || 'fa-solid fa-star')} skill-card-icon" style="color:${escHtml(s.color || '#6366f1')}"></i>
+                <span class="skill-card-name">${escHtml(s.name)}</span>
+            </div>
+        `).join('');
+    });
+
+    // Animate rings for currently active skill panel
+    const activePanel = document.querySelector(".skill-panel.active");
+    if (activePanel && typeof initSkillAnimations === 'function') {
+        const rings = activePanel.querySelectorAll(".ring-fill");
+        rings.forEach(ring => {
+            const pct = parseInt(ring.getAttribute("data-percent") || "0", 10);
+            const circumference = 213.6;
+            const offset = circumference - (pct / 100) * circumference;
+            ring.style.strokeDashoffset = offset;
+        });
+    }
+}
+
+function escHtml(str) {
+    if (!str) return '';
+    return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
