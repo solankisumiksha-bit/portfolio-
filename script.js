@@ -1,4 +1,4 @@
-/* 
+ /* 
    Sumiksha Solanki Portfolio Redesign
    Interactive Javascript Logic
 */
