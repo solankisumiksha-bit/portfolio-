@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sumiksha Solanki | Premium Portfolio - Web Developer & Data Analyst</title>
-    
+
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Portfolio of Sumiksha Solanki - Senior Web Developer, Data Analyst, and Freelancer. Explore clean responsive websites, Power BI analytics dashboards, and custom web applications.">
-    <meta name="keywords" content="Sumiksha Solanki, Web Developer, Data Analyst, Freelancer, Power BI, SQL, MySQL, Python, PHP, HTML, CSS, JavaScript, Portfolio, Mumbai, India">
+    <meta name="description"
+        content="Portfolio of Sumiksha Solanki - Senior Web Developer, Data Analyst, and Freelancer. Explore clean responsive websites, Power BI analytics dashboards, and custom web applications.">
+    <meta name="keywords"
+        content="Sumiksha Solanki, Web Developer, Data Analyst, Freelancer, Power BI, SQL, MySQL, Python, PHP, HTML, CSS, JavaScript, Portfolio, Mumbai, India">
     <meta name="author" content="Sumiksha Solanki">
     <meta name="robots" content="index, follow">
-    
+
     <!-- OpenGraph Social Metadata -->
     <meta property="og:title" content="Sumiksha Solanki | Premium Portfolio">
-    <meta property="og:description" content="Explore modern, responsive web systems and interactive Power BI dashboards built by Sumiksha Solanki.">
+    <meta property="og:description"
+        content="Explore modern, responsive web systems and interactive Power BI dashboards built by Sumiksha Solanki.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sumikshasolanki.github.io">
-    
+
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
     <!-- External CSS link -->
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <!-- Dynamic Particle Canvas Background -->
@@ -32,9 +37,9 @@
     <svg width="0" height="0" style="position:absolute">
         <defs>
             <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#3b82f6"/>
-                <stop offset="50%" stop-color="#8b5cf6"/>
-                <stop offset="100%" stop-color="#d946ef"/>
+                <stop offset="0%" stop-color="#3b82f6" />
+                <stop offset="50%" stop-color="#8b5cf6" />
+                <stop offset="100%" stop-color="#d946ef" />
             </linearGradient>
         </defs>
     </svg>
@@ -58,9 +63,9 @@
             <li><a href="#home" class="nav-link-item active">Home</a></li>
             <li><a href="#about" class="nav-link-item">About</a></li>
             <li><a href="#skills" class="nav-link-item">Skills</a></li>
-            <li><a href="#projects" class="nav-link-item">Projects</a></li>
-            <li><a href="#experience" class="nav-link-item">Experience</a></li>
-            <li><a href="#certificates" class="nav-link-item">Certificates</a></li>
+            <li><a href="#projects" class="nav-link-item" id="nav-projects" style="display:none">Projects</a></li>
+            <li><a href="#experience" class="nav-link-item" id="nav-experience" style="display:none">Experience</a></li>
+            <li><a href="#certificates" class="nav-link-item" id="nav-certificates" style="display:none">Certificates</a></li>
             <li><a href="#contact" class="nav-link-item">Contact</a></li>
         </ul>
     </header>
@@ -77,8 +82,9 @@
                     <span id="typing"></span><span class="typing-cursor"></span>
                 </h2>
                 <p>
-                    I design and build premium, fast, and SEO-friendly websites using modern frameworks. 
-                    I also develop high-performance database engines and Power BI reporting models to turn analytical data into commercial growth.
+                    I design and build premium, fast, and SEO-friendly websites using modern frameworks.
+                    I also develop high-performance database engines and Power BI reporting models to turn analytical
+                    data into commercial growth.
                 </p>
                 <div class="hero-cta">
                     <a href="#contact" class="btn-primary">
@@ -90,23 +96,25 @@
                 </div>
                 <div class="hero-socials">
                     <span>Connect</span>
-                    <a href="https://www.linkedin.com/in/sumiksha-solanki-8b000b23a" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn Profile">
+                    <a href="https://www.linkedin.com/in/sumiksha-solanki-8b000b23a" target="_blank" rel="noopener"
+                        class="social-link" aria-label="LinkedIn Profile">
                         <i class="fa-brands fa-linkedin-in"></i>
                     </a>
                     <a href="mailto:sumikshasolnki@gmail.com" class="social-link" aria-label="Email Inbox">
                         <i class="fa-solid fa-envelope"></i>
                     </a>
-                    <a href="https://github.com" target="_blank" rel="noopener" class="social-link" aria-label="GitHub Profile">
+                    <a href="https://github.com" target="_blank" rel="noopener" class="social-link"
+                        aria-label="GitHub Profile">
                         <i class="fa-brands fa-github"></i>
                     </a>
                 </div>
             </div>
-            
+
             <div class="hero-graphic reveal reveal-up active">
                 <div class="graphic-wrapper">
                     <!-- Glow ring background effect -->
                     <div class="glow-ring"></div>
-                    
+
                     <!-- Floating Widget 1: Power BI Metric -->
                     <div class="floating-widget fw-1">
                         <div class="widget-icon">
@@ -117,7 +125,7 @@
                             <span class="widget-value">Visualizations</span>
                         </div>
                     </div>
-                    
+
                     <!-- Floating Widget 2: DB Engine -->
                     <div class="floating-widget fw-2">
                         <div class="widget-icon">
@@ -128,7 +136,7 @@
                             <span class="widget-value">MySQL / SQL</span>
                         </div>
                     </div>
-                    
+
                     <!-- Floating Widget 3: Live sparkline chart SVG -->
                     <div class="floating-widget fw-3">
                         <div class="widget-icon">
@@ -160,15 +168,18 @@
         <div class="about-grid">
             <div class="about-text">
                 <p>
-                    I'm <strong>Sumiksha Solanki</strong>, a passionate Web Developer and Data Analyst from India. 
-                    I create modern, responsive, and user-friendly websites using <strong>HTML, CSS, JavaScript, PHP, Python, and Firebase</strong>. 
-                    I also analyze data using <strong>SQL, Excel, Power BI, and Python</strong> to help businesses make better decisions.
+                    I'm <strong>Sumiksha Solanki</strong>, a passionate Web Developer and Data Analyst from India.
+                    I create modern, responsive, and user-friendly websites using <strong>HTML, CSS, JavaScript, PHP,
+                        Python, and Firebase</strong>.
+                    I also analyze data using <strong>SQL, Excel, Power BI, and Python</strong> to help businesses make
+                    better decisions.
                 </p>
                 <p>
-                    I enjoy building business websites, portfolio websites, eCommerce stores, admin dashboards, and custom web solutions. 
+                    I enjoy building business websites, portfolio websites, eCommerce stores, admin dashboards, and
+                    custom web solutions.
                     My goal is to deliver fast, attractive, and SEO-friendly websites that help businesses grow online.
                 </p>
-                
+
                 <!-- Stat counters -->
                 <div class="about-stats">
                     <div class="stat-item">
@@ -190,25 +201,29 @@
                 <div class="highlight-card glass-panel">
                     <i class="fa-solid fa-user-graduate highlight-icon"></i>
                     <h3>Education Focus</h3>
-                    <p>Pursuing BCA under YCMOU, cultivating knowledge in database systems, programming, and web solutions.</p>
+                    <p>Pursuing BCA under YCMOU, cultivating knowledge in database systems, programming, and web
+                        solutions.</p>
                 </div>
-                
+
                 <div class="highlight-card glass-panel">
                     <i class="fa-solid fa-chart-line highlight-icon"></i>
                     <h3>Data Intelligence</h3>
-                    <p>Fascinated by metrics, KPI tracking, database querying, data cleansing, and visual dashboard representations.</p>
+                    <p>Fascinated by metrics, KPI tracking, database querying, data cleansing, and visual dashboard
+                        representations.</p>
                 </div>
 
                 <div class="highlight-card glass-panel">
                     <i class="fa-solid fa-code highlight-icon"></i>
                     <h3>Full Stack Development</h3>
-                    <p>Hands-on development constructing custom database frameworks using PHP, HTML, CSS, JavaScript, and MySQL.</p>
+                    <p>Hands-on development constructing custom database frameworks using PHP, HTML, CSS, JavaScript,
+                        and MySQL.</p>
                 </div>
 
                 <div class="highlight-card glass-panel">
                     <i class="fa-solid fa-shield-halved highlight-icon"></i>
                     <h3>Virtual Experience</h3>
-                    <p>Completed practical simulated cases mimicking business analysts and technical operations at Deloitte.</p>
+                    <p>Completed practical simulated cases mimicking business analysts and technical operations at
+                        Deloitte.</p>
                 </div>
             </div>
         </div>
@@ -233,12 +248,15 @@
                     </div>
                 </div>
                 <p class="pillar-desc">
-                    Designing and deploying high-performance, responsive web applications with semantic SEO structure and elegant user experiences.
+                    Designing and deploying high-performance, responsive web applications with semantic SEO structure
+                    and elegant user experiences.
                 </p>
                 <ul class="pillar-features">
                     <li><i class="fa-solid fa-circle-check"></i> Custom Frontend Engineering (ES6+, Tailwind)</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Relational Database Systems & Backend Logic (PHP, MySQL)</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Real-time Serverless Architectures (Firebase Integrations)</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Relational Database Systems & Backend Logic (PHP,
+                        MySQL)</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Real-time Serverless Architectures (Firebase
+                        Integrations)</li>
                     <li><i class="fa-solid fa-circle-check"></i> Speed & SEO Audits (Semantic Markup, Lazy Loading)</li>
                 </ul>
                 <div class="pillar-footer">
@@ -264,13 +282,16 @@
                     </div>
                 </div>
                 <p class="pillar-desc">
-                    Transforming raw structured and unstructured data into interactive business dashboards, optimized queries, and predictive insights.
+                    Transforming raw structured and unstructured data into interactive business dashboards, optimized
+                    queries, and predictive insights.
                 </p>
                 <ul class="pillar-features">
                     <li><i class="fa-solid fa-circle-check"></i> Interactive Power BI Visualization Systems</li>
                     <li><i class="fa-solid fa-circle-check"></i> Query Tuning & Database Optimization (SQL Indexes)</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Advanced Spreadsheet Automation & Modeling (Excel Pivot)</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Data Cleaning Pipelines & Analytics (Python libraries)</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Advanced Spreadsheet Automation & Modeling (Excel
+                        Pivot)</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Data Cleaning Pipelines & Analytics (Python libraries)
+                    </li>
                 </ul>
                 <div class="pillar-footer">
                     <div class="pillar-metric">
@@ -318,7 +339,10 @@
                 <div class="skill-cards-grid">
                     <div class="skill-card-item glass-panel">
                         <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="95"/></svg>
+                            <svg class="skill-ring" viewBox="0 0 80 80">
+                                <circle class="ring-bg" cx="40" cy="40" r="34" />
+                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="95" />
+                            </svg>
                             <span class="ring-pct">95%</span>
                         </div>
                         <i class="fa-brands fa-html5 skill-card-icon" style="color:#e34f26"></i>
@@ -326,7 +350,10 @@
                     </div>
                     <div class="skill-card-item glass-panel">
                         <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="90"/></svg>
+                            <svg class="skill-ring" viewBox="0 0 80 80">
+                                <circle class="ring-bg" cx="40" cy="40" r="34" />
+                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="90" />
+                            </svg>
                             <span class="ring-pct">90%</span>
                         </div>
                         <i class="fa-brands fa-css3-alt skill-card-icon" style="color:#1572b6"></i>
@@ -334,7 +361,10 @@
                     </div>
                     <div class="skill-card-item glass-panel">
                         <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="85"/></svg>
+                            <svg class="skill-ring" viewBox="0 0 80 80">
+                                <circle class="ring-bg" cx="40" cy="40" r="34" />
+                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="85" />
+                            </svg>
                             <span class="ring-pct">85%</span>
                         </div>
                         <i class="fa-brands fa-js skill-card-icon" style="color:#f7df1e"></i>
@@ -342,7 +372,10 @@
                     </div>
                     <div class="skill-card-item glass-panel">
                         <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="80"/></svg>
+                            <svg class="skill-ring" viewBox="0 0 80 80">
+                                <circle class="ring-bg" cx="40" cy="40" r="34" />
+                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="80" />
+                            </svg>
                             <span class="ring-pct">80%</span>
                         </div>
                         <i class="fa-brands fa-php skill-card-icon" style="color:#8892be"></i>
@@ -350,7 +383,10 @@
                     </div>
                     <div class="skill-card-item glass-panel">
                         <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="85"/></svg>
+                            <svg class="skill-ring" viewBox="0 0 80 80">
+                                <circle class="ring-bg" cx="40" cy="40" r="34" />
+                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="85" />
+                            </svg>
                             <span class="ring-pct">85%</span>
                         </div>
                         <i class="fa-solid fa-wind skill-card-icon" style="color:#38bdf8"></i>
@@ -358,7 +394,10 @@
                     </div>
                     <div class="skill-card-item glass-panel">
                         <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="80"/></svg>
+                            <svg class="skill-ring" viewBox="0 0 80 80">
+                                <circle class="ring-bg" cx="40" cy="40" r="34" />
+                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="80" />
+                            </svg>
                             <span class="ring-pct">80%</span>
                         </div>
                         <i class="fa-solid fa-fire skill-card-icon" style="color:#ffca28"></i>
@@ -366,7 +405,10 @@
                     </div>
                     <div class="skill-card-item glass-panel">
                         <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="90"/></svg>
+                            <svg class="skill-ring" viewBox="0 0 80 80">
+                                <circle class="ring-bg" cx="40" cy="40" r="34" />
+                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="90" />
+                            </svg>
                             <span class="ring-pct">90%</span>
                         </div>
                         <i class="fa-solid fa-magnifying-glass skill-card-icon" style="color:#a78bfa"></i>
@@ -380,7 +422,10 @@
                 <div class="skill-cards-grid">
                     <div class="skill-card-item glass-panel">
                         <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="90"/></svg>
+                            <svg class="skill-ring" viewBox="0 0 80 80">
+                                <circle class="ring-bg" cx="40" cy="40" r="34" />
+                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="90" />
+                            </svg>
                             <span class="ring-pct">90%</span>
                         </div>
                         <i class="fa-solid fa-chart-pie skill-card-icon" style="color:#f59e0b"></i>
@@ -388,7 +433,10 @@
                     </div>
                     <div class="skill-card-item glass-panel">
                         <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="85"/></svg>
+                            <svg class="skill-ring" viewBox="0 0 80 80">
+                                <circle class="ring-bg" cx="40" cy="40" r="34" />
+                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="85" />
+                            </svg>
                             <span class="ring-pct">85%</span>
                         </div>
                         <i class="fa-solid fa-table skill-card-icon" style="color:#22c55e"></i>
@@ -396,7 +444,10 @@
                     </div>
                     <div class="skill-card-item glass-panel">
                         <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="80"/></svg>
+                            <svg class="skill-ring" viewBox="0 0 80 80">
+                                <circle class="ring-bg" cx="40" cy="40" r="34" />
+                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="80" />
+                            </svg>
                             <span class="ring-pct">80%</span>
                         </div>
                         <i class="fa-solid fa-database skill-card-icon" style="color:#60a5fa"></i>
@@ -404,7 +455,10 @@
                     </div>
                     <div class="skill-card-item glass-panel">
                         <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="75"/></svg>
+                            <svg class="skill-ring" viewBox="0 0 80 80">
+                                <circle class="ring-bg" cx="40" cy="40" r="34" />
+                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="75" />
+                            </svg>
                             <span class="ring-pct">75%</span>
                         </div>
                         <i class="fa-brands fa-python skill-card-icon" style="color:#3b82f6"></i>
@@ -412,7 +466,10 @@
                     </div>
                     <div class="skill-card-item glass-panel">
                         <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="85"/></svg>
+                            <svg class="skill-ring" viewBox="0 0 80 80">
+                                <circle class="ring-bg" cx="40" cy="40" r="34" />
+                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="85" />
+                            </svg>
                             <span class="ring-pct">85%</span>
                         </div>
                         <i class="fa-solid fa-filter skill-card-icon" style="color:#e879f9"></i>
@@ -420,7 +477,10 @@
                     </div>
                     <div class="skill-card-item glass-panel">
                         <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="80"/></svg>
+                            <svg class="skill-ring" viewBox="0 0 80 80">
+                                <circle class="ring-bg" cx="40" cy="40" r="34" />
+                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="80" />
+                            </svg>
                             <span class="ring-pct">80%</span>
                         </div>
                         <i class="fa-solid fa-chart-area skill-card-icon" style="color:#fb923c"></i>
@@ -434,7 +494,10 @@
                 <div class="skill-cards-grid">
                     <div class="skill-card-item glass-panel">
                         <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="90"/></svg>
+                            <svg class="skill-ring" viewBox="0 0 80 80">
+                                <circle class="ring-bg" cx="40" cy="40" r="34" />
+                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="90" />
+                            </svg>
                             <span class="ring-pct">90%</span>
                         </div>
                         <i class="fa-solid fa-code skill-card-icon" style="color:#007acc"></i>
@@ -442,7 +505,10 @@
                     </div>
                     <div class="skill-card-item glass-panel">
                         <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="85"/></svg>
+                            <svg class="skill-ring" viewBox="0 0 80 80">
+                                <circle class="ring-bg" cx="40" cy="40" r="34" />
+                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="85" />
+                            </svg>
                             <span class="ring-pct">85%</span>
                         </div>
                         <i class="fa-brands fa-git-alt skill-card-icon" style="color:#f05032"></i>
@@ -450,7 +516,10 @@
                     </div>
                     <div class="skill-card-item glass-panel">
                         <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="80"/></svg>
+                            <svg class="skill-ring" viewBox="0 0 80 80">
+                                <circle class="ring-bg" cx="40" cy="40" r="34" />
+                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="80" />
+                            </svg>
                             <span class="ring-pct">80%</span>
                         </div>
                         <i class="fa-solid fa-database skill-card-icon" style="color:#00758f"></i>
@@ -458,7 +527,10 @@
                     </div>
                     <div class="skill-card-item glass-panel">
                         <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="90"/></svg>
+                            <svg class="skill-ring" viewBox="0 0 80 80">
+                                <circle class="ring-bg" cx="40" cy="40" r="34" />
+                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="90" />
+                            </svg>
                             <span class="ring-pct">90%</span>
                         </div>
                         <i class="fa-solid fa-chart-pie skill-card-icon" style="color:#f59e0b"></i>
@@ -466,7 +538,10 @@
                     </div>
                     <div class="skill-card-item glass-panel">
                         <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="75"/></svg>
+                            <svg class="skill-ring" viewBox="0 0 80 80">
+                                <circle class="ring-bg" cx="40" cy="40" r="34" />
+                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="75" />
+                            </svg>
                             <span class="ring-pct">75%</span>
                         </div>
                         <i class="fa-brands fa-figma skill-card-icon" style="color:#a259ff"></i>
@@ -474,7 +549,10 @@
                     </div>
                     <div class="skill-card-item glass-panel">
                         <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="85"/></svg>
+                            <svg class="skill-ring" viewBox="0 0 80 80">
+                                <circle class="ring-bg" cx="40" cy="40" r="34" />
+                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="85" />
+                            </svg>
                             <span class="ring-pct">85%</span>
                         </div>
                         <i class="fa-brands fa-chrome skill-card-icon" style="color:#4caf50"></i>
@@ -488,7 +566,10 @@
                 <div class="skill-cards-grid">
                     <div class="skill-card-item glass-panel">
                         <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="95"/></svg>
+                            <svg class="skill-ring" viewBox="0 0 80 80">
+                                <circle class="ring-bg" cx="40" cy="40" r="34" />
+                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="95" />
+                            </svg>
                             <span class="ring-pct">95%</span>
                         </div>
                         <i class="fa-solid fa-lightbulb skill-card-icon" style="color:#facc15"></i>
@@ -496,7 +577,10 @@
                     </div>
                     <div class="skill-card-item glass-panel">
                         <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="90"/></svg>
+                            <svg class="skill-ring" viewBox="0 0 80 80">
+                                <circle class="ring-bg" cx="40" cy="40" r="34" />
+                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="90" />
+                            </svg>
                             <span class="ring-pct">90%</span>
                         </div>
                         <i class="fa-solid fa-brain skill-card-icon" style="color:#c084fc"></i>
@@ -504,7 +588,10 @@
                     </div>
                     <div class="skill-card-item glass-panel">
                         <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="85"/></svg>
+                            <svg class="skill-ring" viewBox="0 0 80 80">
+                                <circle class="ring-bg" cx="40" cy="40" r="34" />
+                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="85" />
+                            </svg>
                             <span class="ring-pct">85%</span>
                         </div>
                         <i class="fa-solid fa-comments skill-card-icon" style="color:#34d399"></i>
@@ -512,7 +599,10 @@
                     </div>
                     <div class="skill-card-item glass-panel">
                         <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="90"/></svg>
+                            <svg class="skill-ring" viewBox="0 0 80 80">
+                                <circle class="ring-bg" cx="40" cy="40" r="34" />
+                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="90" />
+                            </svg>
                             <span class="ring-pct">90%</span>
                         </div>
                         <i class="fa-solid fa-users skill-card-icon" style="color:#60a5fa"></i>
@@ -520,7 +610,10 @@
                     </div>
                     <div class="skill-card-item glass-panel">
                         <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="80"/></svg>
+                            <svg class="skill-ring" viewBox="0 0 80 80">
+                                <circle class="ring-bg" cx="40" cy="40" r="34" />
+                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="80" />
+                            </svg>
                             <span class="ring-pct">80%</span>
                         </div>
                         <i class="fa-solid fa-clock skill-card-icon" style="color:#fb923c"></i>
@@ -528,7 +621,10 @@
                     </div>
                     <div class="skill-card-item glass-panel">
                         <div class="skill-ring-wrap">
-                            <svg class="skill-ring" viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fill" cx="40" cy="40" r="34" data-percent="85"/></svg>
+                            <svg class="skill-ring" viewBox="0 0 80 80">
+                                <circle class="ring-bg" cx="40" cy="40" r="34" />
+                                <circle class="ring-fill" cx="40" cy="40" r="34" data-percent="85" />
+                            </svg>
                             <span class="ring-pct">85%</span>
                         </div>
                         <i class="fa-solid fa-list-check skill-card-icon" style="color:#f472b6"></i>
@@ -541,217 +637,33 @@
     </section>
 
 
-
-
-
-    <!-- 5. Projects Section -->
-    <section id="projects" class="reveal reveal-up">
+    <!-- 5. Projects Section (Admin-Managed) -->
+    <section id="projects" class="reveal reveal-up" style="display:none">
         <div class="section-header">
             <span class="section-subtitle">Portfolio</span>
-            <h2 class="section-title">Selected Projects</h2>
+            <h2 class="section-title">Projects</h2>
         </div>
 
-        <div class="project-filters">
+        <div class="project-filters" id="project-filter-btns">
             <button class="filter-btn active" data-filter="all">All</button>
             <button class="filter-btn" data-filter="web">Web Dev</button>
             <button class="filter-btn" data-filter="data">Data Analysis</button>
         </div>
 
-        <div class="projects-grid">
-            <!-- Project 1 (Web) -->
-            <div class="project-card-container" data-category="web">
-                <div class="project-card glass-panel">
-                    <div class="project-image">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                        <div class="project-overlay">
-                            <a href="#" class="project-btn" aria-label="Project Details"><i class="fa-solid fa-link"></i></a>
-                            <a href="https://github.com" target="_blank" rel="noopener" class="project-btn" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
-                        </div>
-                    </div>
-                    <div class="project-details">
-                        <h3>College ERP Management</h3>
-                        <p>A web-based ERP system that tracks records, structures student registrations, and implements administration modules. Developed using PHP, HTML/CSS, and MySQL database.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">PHP</span>
-                            <span class="project-tag">MySQL</span>
-                            <span class="project-tag">HTML5/CSS3</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 2 (Data) -->
-            <div class="project-card-container" data-category="data">
-                <div class="project-card glass-panel">
-                    <div class="project-image">
-                        <i class="fa-solid fa-chart-column"></i>
-                        <div class="project-overlay">
-                            <a href="#" class="project-btn" aria-label="Project Details"><i class="fa-solid fa-link"></i></a>
-                        </div>
-                    </div>
-                    <div class="project-details">
-                        <h3>Deloitte Analytics Dashboard</h3>
-                        <p>Simulation mimicking analytics operations at Deloitte. Cleaned unstructured source datasets, formulated visual analysis metrics, built dashboards, and crafted insights.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Power BI</span>
-                            <span class="project-tag">Data Cleaning</span>
-                            <span class="project-tag">Excel</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 3 (Web) -->
-            <div class="project-card-container" data-category="web">
-                <div class="project-card glass-panel">
-                    <div class="project-image">
-                        <i class="fa-solid fa-laptop-code"></i>
-                        <div class="project-overlay">
-                            <a href="#" class="project-btn" aria-label="Project Details"><i class="fa-solid fa-link"></i></a>
-                            <a href="https://github.com" target="_blank" rel="noopener" class="project-btn" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
-                        </div>
-                    </div>
-                    <div class="project-details">
-                        <h3>eCommerce Store Platform</h3>
-                        <p>Fully functional eCommerce catalog featuring products, user login states, shopping carts, and dynamic dashboard built with Bootstrap, Javascript and Firebase backend.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Firebase</span>
-                            <span class="project-tag">Bootstrap</span>
-                            <span class="project-tag">JavaScript</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 4 (Data) -->
-            <div class="project-card-container" data-category="data">
-                <div class="project-card glass-panel">
-                    <div class="project-image">
-                        <i class="fa-solid fa-magnifying-glass-chart"></i>
-                        <div class="project-overlay">
-                            <a href="#" class="project-btn" aria-label="Project Details"><i class="fa-solid fa-link"></i></a>
-                        </div>
-                    </div>
-                    <div class="project-details">
-                        <h3>Sales Tracking Report</h3>
-                        <p>Designed sales performance reports in Power BI, connecting to Excel tables and SQL databases. Filter reports dynamically by region, salesperson and product category.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Power BI</span>
-                            <span class="project-tag">SQL</span>
-                            <span class="project-tag">Data Modeling</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 5 (Web) -->
-            <div class="project-card-container" data-category="web">
-                <div class="project-card glass-panel">
-                    <div class="project-image">
-                        <i class="fa-solid fa-chart-line"></i>
-                        <div class="project-overlay">
-                            <a href="#" class="project-btn" aria-label="Project Details"><i class="fa-solid fa-link"></i></a>
-                            <a href="https://github.com" target="_blank" rel="noopener" class="project-btn" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
-                        </div>
-                    </div>
-                    <div class="project-details">
-                        <h3>Admin Operations Dashboard</h3>
-                        <p>PHP system visualizing backend records. Built custom charts mapping sales figures, database loads, and active user traffic for business managers.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">PHP</span>
-                            <span class="project-tag">MySQL</span>
-                            <span class="project-tag">ChartsJS</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 6 (Data) -->
-            <div class="project-card-container" data-category="data">
-                <div class="project-card glass-panel">
-                    <div class="project-image">
-                        <i class="fa-solid fa-database"></i>
-                        <div class="project-overlay">
-                            <a href="#" class="project-btn" aria-label="Project Details"><i class="fa-solid fa-link"></i></a>
-                        </div>
-                    </div>
-                    <div class="project-details">
-                        <h3>Customer Profiling & SQL Querying</h3>
-                        <p>Applied Python libraries for data cleaning and executed SQL query statements to segment customer purchase behaviors into targeted advertising campaigns.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">SQL Queries</span>
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">Data Science</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="projects-grid" id="public-projects-grid">
+            <!-- Projects rendered dynamically from admin dashboard -->
         </div>
     </section>
 
-    <!-- 6. Experience Section -->
-    <section id="experience" class="reveal reveal-up">
+    <!-- 6. Experience Section (Admin-Managed) -->
+    <section id="experience" class="reveal reveal-up" style="display:none">
         <div class="section-header">
             <span class="section-subtitle">Journey</span>
             <h2 class="section-title">Work Experience</h2>
         </div>
 
-        <div class="timeline">
-            <!-- Timeline Item 1 -->
-            <div class="timeline-item left">
-                <div class="timeline-content glass-panel">
-                    <div class="timeline-card-header">
-                        <div>
-                            <h3 class="timeline-role">Freelance Web Developer</h3>
-                            <span class="timeline-company">Self-Employed</span>
-                        </div>
-                        <span class="timeline-date">2024 - Present</span>
-                    </div>
-                    <p>Build custom business portfolios, eCommerce sites, and responsive landing pages. Maximize site speeds and incorporate SEO configurations to double client search rankings.</p>
-                </div>
-            </div>
-
-            <!-- Timeline Item 2 -->
-            <div class="timeline-item right">
-                <div class="timeline-content glass-panel">
-                    <div class="timeline-card-header">
-                        <div>
-                            <h3 class="timeline-role">Data Analyst Virtual Experience</h3>
-                            <span class="timeline-company">Deloitte / Forage</span>
-                        </div>
-                        <span class="timeline-date">2024</span>
-                    </div>
-                    <p>Cleaned complex analytical datasets. Engineered interactive Power BI dashboard reports and summarized visual metrics to highlight critical operational KPIs for management reviews.</p>
-                </div>
-            </div>
-
-            <!-- Timeline Item 3 -->
-            <div class="timeline-item left">
-                <div class="timeline-content glass-panel">
-                    <div class="timeline-card-header">
-                        <div>
-                            <h3 class="timeline-role">Technology Consultant Virtual Experience</h3>
-                            <span class="timeline-company">Deloitte / Forage</span>
-                        </div>
-                        <span class="timeline-date">2023</span>
-                    </div>
-                    <p>Simulated software systems analysis, database design, query logic scripts, and mapped technological integration structures matching enterprise needs.</p>
-                </div>
-            </div>
-
-            <!-- Timeline Item 4 -->
-            <div class="timeline-item right">
-                <div class="timeline-content glass-panel">
-                    <div class="timeline-card-header">
-                        <div>
-                            <h3 class="timeline-role">Cybersecurity Analyst Virtual Experience</h3>
-                            <span class="timeline-company">Deloitte / Forage</span>
-                        </div>
-                        <span class="timeline-date">2023</span>
-                    </div>
-                    <p>Reviewed security controls compliance models. Conducted network audit simulation runs, cataloged risks, and proposed safety response steps.</p>
-                </div>
-            </div>
+        <div class="timeline" id="public-experience-timeline">
+            <!-- Experience rendered dynamically from admin dashboard -->
         </div>
     </section>
 
@@ -762,36 +674,8 @@
             <h2 class="section-title">Certifications</h2>
         </div>
 
-        <div class="cert-grid">
-            <!-- Cert 1 -->
-            <div class="cert-card glass-panel">
-                <div class="cert-badge"><i class="fa-solid fa-chart-pie"></i></div>
-                <div class="cert-details">
-                    <h3>Data Analytics Experience</h3>
-                    <p>Deloitte Virtual Program - Forage</p>
-                </div>
-                <a href="https://www.theforage.com/" target="_blank" rel="noopener" class="cert-link">Verify Credentials <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-            </div>
-
-            <!-- Cert 2 -->
-            <div class="cert-card glass-panel">
-                <div class="cert-badge"><i class="fa-solid fa-code"></i></div>
-                <div class="cert-details">
-                    <h3>Technology Consulting Experience</h3>
-                    <p>Deloitte Virtual Program - Forage</p>
-                </div>
-                <a href="https://www.theforage.com/" target="_blank" rel="noopener" class="cert-link">Verify Credentials <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-            </div>
-
-            <!-- Cert 3 -->
-            <div class="cert-card glass-panel">
-                <div class="cert-badge"><i class="fa-solid fa-shield-halved"></i></div>
-                <div class="cert-details">
-                    <h3>Cybersecurity Program</h3>
-                    <p>Deloitte Virtual Program - Forage</p>
-                </div>
-                <a href="https://www.theforage.com/" target="_blank" rel="noopener" class="cert-link">Verify Credentials <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-            </div>
+        <div class="cert-grid" id="public-cert-grid">
+            <!-- Certificates rendered dynamically from admin dashboard -->
         </div>
     </section>
 
@@ -814,7 +698,9 @@
                         <div class="method-value">sumikshasolnki@gmail.com</div>
                     </div>
                     <div class="tooltip-container" id="email-copy-tip">
-                        <button class="method-action" onclick="copyToClipboard('sumikshasolnki@gmail.com', 'email-copy-tip')" aria-label="Copy Email">
+                        <button class="method-action"
+                            onclick="copyToClipboard('sumikshasolnki@gmail.com', 'email-copy-tip')"
+                            aria-label="Copy Email">
                             <i class="fa-regular fa-copy"></i>
                         </button>
                         <span class="tooltip-box">Copied!</span>
@@ -828,7 +714,9 @@
                         <div class="method-value">Mumbai, Maharashtra, India</div>
                     </div>
                     <div class="tooltip-container" id="loc-copy-tip">
-                        <button class="method-action" onclick="copyToClipboard('Mumbai, Maharashtra, India', 'loc-copy-tip')" aria-label="Copy Location">
+                        <button class="method-action"
+                            onclick="copyToClipboard('Mumbai, Maharashtra, India', 'loc-copy-tip')"
+                            aria-label="Copy Location">
                             <i class="fa-regular fa-copy"></i>
                         </button>
                         <span class="tooltip-box">Copied!</span>
@@ -841,7 +729,8 @@
                         <span class="method-label">LinkedIn</span>
                         <div class="method-value">Sumiksha Solanki</div>
                     </div>
-                    <a href="https://www.linkedin.com/in/sumiksha-solanki-8b000b23a" target="_blank" rel="noopener" class="method-action" aria-label="Visit LinkedIn Profile">
+                    <a href="https://www.linkedin.com/in/sumiksha-solanki-8b000b23a" target="_blank" rel="noopener"
+                        class="method-action" aria-label="Visit LinkedIn Profile">
                         <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
                 </div>
@@ -859,7 +748,9 @@
                 </div>
                 <div class="form-group">
                     <label for="message">Message</label>
-                    <textarea id="message" placeholder="Hi Sumiksha, I'd like to collaborate on building a new website..." required></textarea>
+                    <textarea id="message"
+                        placeholder="Hi Sumiksha, I'd like to collaborate on building a new website..."
+                        required></textarea>
                 </div>
                 <button type="submit" class="btn-submit">
                     Send Message <i class="fa-solid fa-paper-plane"></i>
@@ -880,20 +771,19 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#certificates">Certificates</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
 
             <div class="footer-socials">
-                <a href="https://www.linkedin.com/in/sumiksha-solanki-8b000b23a" target="_blank" rel="noopener" class="footer-social-link" aria-label="LinkedIn Profile">
+                <a href="https://www.linkedin.com/in/sumiksha-solanki-8b000b23a" target="_blank" rel="noopener"
+                    class="footer-social-link" aria-label="LinkedIn Profile">
                     <i class="fa-brands fa-linkedin-in"></i>
                 </a>
                 <a href="mailto:sumikshasolnki@gmail.com" class="footer-social-link" aria-label="Email Address">
                     <i class="fa-solid fa-envelope"></i>
                 </a>
-                <a href="https://github.com" target="_blank" rel="noopener" class="footer-social-link" aria-label="GitHub Profile">
+                <a href="https://github.com" target="_blank" rel="noopener" class="footer-social-link"
+                    aria-label="GitHub Profile">
                     <i class="fa-brands fa-github"></i>
                 </a>
             </div>
@@ -912,4 +802,5 @@
     <!-- External Script reference -->
     <script src="script.js"></script>
 </body>
+
 </html>
