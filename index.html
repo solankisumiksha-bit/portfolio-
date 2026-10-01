@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Sumiksha Solanki — High-Impact Data Analyst & Web Developer based in Mumbai. Explore projects, certifications, media gallery, and direct contact.">
+    <meta name="keywords"
+        content="Sumiksha Solanki, Data Analyst, Web Developer, Power BI, Python, SQL, Tableau, Excel, SolPark Tech, Mumbai, Portfolio">
+    <meta name="author" content="Sumiksha Solanki">
+
+    <title>Sumiksha Solanki | Data Analyst & Web Developer</title>
+
+    <!-- Google Fonts: Cabinet Grotesk + Plus Jakarta Sans + Fira Code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Sumiksha Solanki",
+        "url": "https://sumikshasolanki.com",
+        "telephone": "+919987436819",
+        "jobTitle": "Data Analyst & Web Developer",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Mumbai",
+            "addressCountry": "IN"
+        },
+        "sameAs": [
+            "https://www.linkedin.com/in/sumiksha-solanki-8b000b23a/",
+            "https://github.com/solankisumiksha-bit"
+        ]
+    }
+    </script>
+</head>
+
+<body class="dark-mode">
+
+    <!-- Background Cyber Mesh & Particles -->
+    <div class="cyber-background" aria-hidden="true">
+        <canvas id="starfieldCanvas" class="starfield-canvas"></canvas>
+        <div class="mesh-glow mesh-1"></div>
+        <div class="mesh-glow mesh-2"></div>
+        <div class="mesh-glow mesh-3"></div>
+        <div class="grid-lines"></div>
+    </div>
+
+    <!-- Mouse Spotlight -->
+    <div class="mouse-glow" id="mouseGlow"></div>
+
+    <!-- Toast Alert Container -->
+    <div id="toastBox" class="toast-box" aria-live="polite"></div>
+
+    <!-- Fullscreen Media Lightbox Modal -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="lightbox-overlay" id="lightboxOverlay"></div>
+        <div class="lightbox-dialog">
+            <button class="lightbox-close" id="lightboxClose" aria-label="Close Preview">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="lightbox-media" id="lightboxMedia">
+                <!-- Injected via JavaScript -->
+            </div>
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+        </div>
+    </div>
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="site-header" id="siteHeader">
+        <div class="container header-container">
+
+            <a href="#hero" class="site-logo">
+                <span class="logo-box">SS</span>
+                <span class="logo-title">Sumiksha<span class="dot-pink">.</span></span>
+            </a>
+
+            <nav class="nav-bar" id="navBar">
+                <a href="#hero" class="nav-btn active" data-target="hero">Home</a>
+                <a href="#about" class="nav-btn" data-target="about">About</a>
+                <a href="#skills" class="nav-btn" data-target="skills">Skills</a>
+                <a href="#projects" class="nav-btn" data-target="projects">Projects</a>
+                <a href="#certifications" class="nav-btn" data-target="certifications">Certificates</a>
+                <a href="#gallery" class="nav-btn" data-target="gallery">Gallery</a>
+                <a href="#services" class="nav-btn" data-target="services">Services</a>
+                <a href="#contact" class="nav-btn" data-target="contact">Contact</a>
+            </nav>
+
+            <div class="header-right">
+                <a href="assets/Sumiksha_Solanki_Resume.pdf" download class="btn-glow-sm">
+                    <i class="fa-solid fa-download"></i>
+                    <span>Resume</span>
+                </a>
+
+                <button id="themeSwitcher" class="icon-toggle" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+
+                <button id="mobileMenuBtn" class="mobile-toggle" aria-label="Open Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- HERO SECTION -->
+        <section id="hero" class="hero-section">
+            <div class="container hero-wrapper">
+
+                <div class="hero-text-col">
+
+                    <div class="live-status-pill">
+                        <span class="live-dot"></span>
+                        <span>Open for Data Analytics & Web Development Roles</span>
+                    </div>
+
+                    <span class="eyebrow-text">HELLO WORLD, I'M</span>
+
+                    <h1 class="main-hero-title">
+                        Sumiksha <span class="neon-gradient">Solanki</span>
+                    </h1>
+
+                    <div class="typing-box">
+                        <span class="typing-intro">Specializing in </span>
+                        <span id="typingRole" class="typed-role"></span>
+                        <span class="typing-pipe">|</span>
+                    </div>
+
+                    <p class="hero-paragraph">
+                        Bridging quantitative data intelligence and full-stack web engineering. Turning complex business metrics into intuitive Power BI/Tableau dashboards and responsive digital platforms.
+                    </p>
+
+                    <div class="hero-cta-buttons">
+                        <a href="#projects" class="btn-primary-gradient">
+                            <span>Explore Projects</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                        <a href="#contact" class="btn-glass-secondary">
+                            <span>Get In Touch</span>
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
+
+                        <a href="assets/Sumiksha_Solanki_Resume.pdf" download class="btn-outline-border">
+                            <i class="fa-solid fa-file-arrow-down"></i>
+                            <span>CV (PDF)</span>
+                        </a>
+                    </div>
+
+                    <div class="hero-social-row">
+                        <span class="social-title">Social Profiles:</span>
+                        <a href="https://www.linkedin.com/in/sumiksha-solanki-8b000b23a/" target="_blank" rel="noopener noreferrer" class="social-circle" aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/solankisumiksha-bit" target="_blank" rel="noopener noreferrer" class="social-circle" aria-label="GitHub">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <a href="mailto:sumikshasolnki@gmail.com" class="social-circle" aria-label="Email">
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- Profile Orbit Visual Card -->
+                <div class="hero-visual-col">
+                    <div class="glass-profile-card">
+                        <div class="profile-glow-halo"></div>
+
+                        <div class="avatar-ring-frame">
+                            <img src="assets/profile.jpg" alt="Sumiksha Solanki" class="avatar-image"
+                                onerror="this.style.display='none'; document.getElementById('initialsBox').style.display='flex';">
+                            <div class="initials-box" id="initialsBox">SS</div>
+                            <span class="badge-status" title="Active"></span>
+                        </div>
+
+                        <div class="profile-meta-info">
+                            <h2>Sumiksha Solanki</h2>
+                            <p class="profile-role-tag">Data Analyst • Web Engineer</p>
+                            <p class="profile-loc"><i class="fa-solid fa-location-dot"></i> Mumbai, Maharashtra, India</p>
+                        </div>
+
+                        <div class="profile-stats-grid">
+                            <div class="mini-stat-card">
+                                <strong>15+</strong>
+                                <span>Projects</span>
+                            </div>
+                            <div class="mini-stat-card">
+                                <strong>15+</strong>
+                                <span>Certificates</span>
+                            </div>
+                            <div class="mini-stat-card">
+                                <strong>BCA</strong>
+                                <span>YCMOU</span>
+                            </div>
+                        </div>
+
+                        <a href="#contact" class="btn-primary-gradient btn-block">
+                            <i class="fa-solid fa-bolt"></i>
+                            <span>Hire Me For Work</span>
+                        </a>
+
+                        <!-- Floating Tech Tags -->
+                        <div class="orbit-badge badge-top">
+                            <div class="orbit-icon bg-purple"><i class="fa-solid fa-chart-pie"></i></div>
+                            <div>
+                                <strong>Data Analytics</strong>
+                                <small>Power BI • SQL • Python</small>
+                            </div>
+                        </div>
+
+                        <div class="orbit-badge badge-bottom">
+                            <div class="orbit-icon bg-cyan"><i class="fa-solid fa-code"></i></div>
+                            <div>
+                                <strong>Web Engineering</strong>
+                                <small>HTML • CSS • JS • PHP</small>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="section-container">
+            <div class="container">
+
+                <div class="section-heading-box">
+                    <span class="section-tag-badge"><i class="fa-solid fa-user"></i> 01 // OVERVIEW</span>
+                    <h2 class="section-title-large">Data-Driven Vision & <span class="neon-gradient">Engineering</span></h2>
+                    <p class="section-description">Delivering clear analytical insights and crafting responsive web applications.</p>
+                </div>
+
+                <div class="about-flex-layout">
+
+                    <div class="glass-card about-story-box">
+                        <h3>About Sumiksha</h3>
+                        <p>
+                            I hold a <strong>Bachelor of Computer Applications (BCA)</strong> from Yashwantrao Chavan Maharashtra Open University (YCMOU). My passion is analyzing data, designing automated ETL scripts, and building executive dashboards using <strong>Python, SQL, Power BI, Tableau, and Excel</strong>.
+                        </p>
+                        <p>
+                            Alongside data analysis, I create responsive, modern websites and custom web tools using <strong>HTML5, CSS3, JavaScript, PHP, and MySQL</strong>.
+                        </p>
+                        <p>
+                            Through <strong>SolPark Tech</strong>, I collaborate with clients on freelance web development and data projects.
+                        </p>
+
+                        <div class="about-contact-points">
+                            <div class="point-item">
+                                <i class="fa-solid fa-briefcase"></i>
+                                <div>
+                                    <small>Consulting</small>
+                                    <strong>SolPark Tech</strong>
+                                </div>
+                            </div>
+                            <div class="point-item">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <div>
+                                    <small>Location</small>
+                                    <strong>Mumbai, India</strong>
+                                </div>
+                            </div>
+                            <div class="point-item">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                                <div>
+                                    <small>Degree</small>
+                                    <strong>BCA (YCMOU)</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-metrics-stack">
+                        <div class="glass-card metric-counter-box">
+                            <div class="metric-icon-wrap bg-purple"><i class="fa-solid fa-diagram-project"></i></div>
+                            <div class="metric-number-display">
+                                <span class="stat-count" data-target="15">0</span><span class="plus-symbol">+</span>
+                            </div>
+                            <h4>Completed Projects</h4>
+                            <p>Analytics dashboards, ETL scripts, and full-stack web platforms.</p>
+                        </div>
+
+                        <div class="glass-card metric-counter-box">
+                            <div class="metric-icon-wrap bg-cyan"><i class="fa-solid fa-certificate"></i></div>
+                            <div class="metric-number-display">
+                                <span class="stat-count" data-target="15">0</span><span class="plus-symbol">+</span>
+                            </div>
+                            <h4>Verified Credentials</h4>
+                            <p>Official certifications in Python, Data Science, and Web Tech.</p>
+                        </div>
+
+                        <div class="glass-card metric-counter-box">
+                            <div class="metric-icon-wrap bg-emerald"><i class="fa-solid fa-chart-line"></i></div>
+                            <div class="metric-number-display">
+                                <span class="stat-count" data-target="10">0</span><span class="plus-symbol">+</span>
+                            </div>
+                            <h4>Interactive Dashboards</h4>
+                            <p>Power BI and Tableau executive KPI models.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- SKILLS SECTION -->
+        <section id="skills" class="section-container section-dark-accent">
+            <div class="container">
+
+                <div class="section-heading-box">
+                    <span class="section-tag-badge"><i class="fa-solid fa-layer-group"></i> 02 // TECHNICAL MATRIX</span>
+                    <h2 class="section-title-large">Core Tech Stack & <span class="neon-gradient">Capabilities</span></h2>
+                    <p class="section-description">Proven tools and technologies used for data modeling, analytics, and software development.</p>
+                </div>
+
+                <div class="skills-card-grid">
+
+                    <!-- Skill 1 -->
+                    <div class="glass-card skill-matrix-card">
+                        <div class="matrix-head">
+                            <div class="matrix-icon bg-purple"><i class="fa-solid fa-chart-pie"></i></div>
+                            <div>
+                                <h3>Data Analytics & BI</h3>
+                                <p>Exploration, modeling & visualization</p>
+                            </div>
+                        </div>
+                        <div class="skill-chips-row">
+                            <span class="skill-pill"><i class="fa-brands fa-python"></i> Python (Pandas/NumPy)</span>
+                            <span class="skill-pill"><i class="fa-solid fa-database"></i> SQL Querying</span>
+                            <span class="skill-pill"><i class="fa-solid fa-chart-simple"></i> Power BI Dashboards</span>
+                            <span class="skill-pill"><i class="fa-solid fa-chart-column"></i> Tableau Visuals</span>
+                            <span class="skill-pill"><i class="fa-solid fa-file-excel"></i> Advanced Excel</span>
+                            <span class="skill-pill"><i class="fa-solid fa-calculator"></i> Statistical Modeling</span>
+                        </div>
+                    </div>
+
+                    <!-- Skill 2 -->
+                    <div class="glass-card skill-matrix-card">
+                        <div class="matrix-head">
+                            <div class="matrix-icon bg-cyan"><i class="fa-solid fa-code"></i></div>
+                            <div>
+                                <h3>Web Development</h3>
+                                <p>Frontend, responsive UI & APIs</p>
+                            </div>
+                        </div>
+                        <div class="skill-chips-row">
+                            <span class="skill-pill"><i class="fa-brands fa-html5"></i> Semantic HTML5</span>
+                            <span class="skill-pill"><i class="fa-brands fa-css3-alt"></i> Modern CSS3 Layouts</span>
+                            <span class="skill-pill"><i class="fa-brands fa-js"></i> JavaScript (ES6+)</span>
+                            <span class="skill-pill"><i class="fa-brands fa-php"></i> PHP Backend</span>
+                            <span class="skill-pill"><i class="fa-solid fa-mobile-screen"></i> Responsive UI/UX</span>
+                            <span class="skill-pill"><i class="fa-solid fa-bolt"></i> REST APIs & Integrations</span>
+                        </div>
+                    </div>
+
+                    <!-- Skill 3 -->
+                    <div class="glass-card skill-matrix-card">
+                        <div class="matrix-head">
+                            <div class="matrix-icon bg-emerald"><i class="fa-solid fa-cubes"></i></div>
+                            <div>
+                                <h3>Databases & Workflow</h3>
+                                <p>Storage, versioning & tools</p>
+                            </div>
+                        </div>
+                        <div class="skill-chips-row">
+                            <span class="skill-pill"><i class="fa-solid fa-server"></i> MySQL Relational DB</span>
+                            <span class="skill-pill"><i class="fa-brands fa-git-alt"></i> Git Version Control</span>
+                            <span class="skill-pill"><i class="fa-brands fa-github"></i> GitHub Repositories</span>
+                            <span class="skill-pill"><i class="fa-solid fa-terminal"></i> Command Line</span>
+                            <span class="skill-pill"><i class="fa-solid fa-laptop-code"></i> Jupyter & VS Code</span>
+                            <span class="skill-pill"><i class="fa-solid fa-filter"></i> Automated ETL Pipelines</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- FEATURED PROJECTS -->
+        <section id="projects" class="section-container">
+            <div class="container">
+
+                <div class="section-heading-box">
+                    <span class="section-tag-badge"><i class="fa-solid fa-laptop-code"></i> 03 // PORTFOLIO WORK</span>
+                    <h2 class="section-title-large">Featured <span class="neon-gradient">Projects</span></h2>
+                    <p class="section-description">Practical applications demonstrating data insights, business intelligence, and software engineering.</p>
+                </div>
+
+                <div class="projects-display-grid">
+
+                    <!-- Project 1 -->
+                    <div class="glass-card project-showcase-card">
+                        <div class="project-banner-wrap">
+                            <img src="photo/Screenshot%202026-08-04%20191944.png" alt="Sales Dashboard" loading="lazy">
+                            <span class="tag-floating bg-purple"><i class="fa-solid fa-chart-line"></i> Data Analytics</span>
+                        </div>
+                        <div class="project-content-body">
+                            <h3>Executive Sales & KPI Analytics Dashboard</h3>
+                            <p>
+                                Power BI and Python analytical dashboard displaying real-time revenue KPIs, customer retention rates, regional performance drill-downs, and predictive sales forecasts.
+                            </p>
+                            <div class="project-tech-badges">
+                                <span>Power BI</span>
+                                <span>Python</span>
+                                <span>SQL</span>
+                                <span>DAX</span>
+                            </div>
+                            <div class="project-card-btns">
+                                <a href="#gallery" class="btn-primary-gradient btn-sm">
+                                    <i class="fa-solid fa-expand"></i> View Media
+                                </a>
+                                <a href="https://github.com/solankisumiksha-bit" target="_blank" rel="noopener noreferrer" class="btn-glass-secondary btn-sm">
+                                    <i class="fa-brands fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="glass-card project-showcase-card">
+                        <div class="project-banner-wrap">
+                            <img src="photo/Screenshot%202026-09-03%20190133.png" alt="SolPark Tech Platform" loading="lazy">
+                            <span class="tag-floating bg-cyan"><i class="fa-solid fa-code"></i> Full-Stack Web</span>
+                        </div>
+                        <div class="project-content-body">
+                            <h3>SolPark Tech Commercial Web Platform</h3>
+                            <p>
+                                Modern commercial web application featuring interactive service portfolios, automated client inquiry routing, MySQL data storage, and dark UI styling.
+                            </p>
+                            <div class="project-tech-badges">
+                                <span>HTML5 / CSS3</span>
+                                <span>JavaScript</span>
+                                <span>PHP</span>
+                                <span>MySQL</span>
+                            </div>
+                            <div class="project-card-btns">
+                                <a href="#contact" class="btn-primary-gradient btn-sm">
+                                    <i class="fa-solid fa-paper-plane"></i> Discuss Build
+                                </a>
+                                <a href="https://github.com/solankisumiksha-bit" target="_blank" rel="noopener noreferrer" class="btn-glass-secondary btn-sm">
+                                    <i class="fa-brands fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="glass-card project-showcase-card">
+                        <div class="project-banner-wrap">
+                            <img src="photo/Screenshot%202026-08-27%20100919.png" alt="Data Pipeline" loading="lazy">
+                            <span class="tag-floating bg-emerald"><i class="fa-solid fa-database"></i> Data Engineering</span>
+                        </div>
+                        <div class="project-content-body">
+                            <h3>Automated Data Cleaning & ETL Pipeline</h3>
+                            <p>
+                                Python automated pipeline parsing heterogeneous CSV and Excel datasets, executing anomaly checks, handling missing values, and synchronizing structured relational tables.
+                            </p>
+                            <div class="project-tech-badges">
+                                <span>Python</span>
+                                <span>Pandas</span>
+                                <span>NumPy</span>
+                                <span>MySQL</span>
+                            </div>
+                            <div class="project-card-btns">
+                                <a href="#gallery" class="btn-primary-gradient btn-sm">
+                                    <i class="fa-solid fa-chart-line"></i> View Models
+                                </a>
+                                <a href="https://github.com/solankisumiksha-bit" target="_blank" rel="noopener noreferrer" class="btn-glass-secondary btn-sm">
+                                    <i class="fa-brands fa-github"></i> Repository
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- CERTIFICATIONS SECTION -->
+        <section id="certifications" class="section-container section-dark-accent">
+            <div class="container">
+
+                <div class="section-heading-box">
+                    <span class="section-tag-badge"><i class="fa-solid fa-award"></i> 04 // VERIFIED CREDENTIALS</span>
+                    <h2 class="section-title-large">15+ Official Certificates & <span class="neon-gradient">Letters</span></h2>
+                    <p class="section-description">Slide through verified course credentials, internship records, and official recommendation letters.</p>
+                </div>
+
+                <!-- Slider Controls Bar -->
+                <div class="slider-controls-bar">
+                    <div class="slider-indicator"><i class="fa-solid fa-sliders"></i> Slide to explore (12+ documents)</div>
+                    <div class="slider-arrows">
+                        <button class="slider-arrow-btn" id="certPrev" aria-label="Previous Certificate" title="Previous">
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </button>
+                        <button class="slider-arrow-btn" id="certNext" aria-label="Next Certificate" title="Next">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="slider-track certificates-showcase-grid" id="certSliderTrack">
+
+                    <!-- Cert 1 -->
+                    <a href="photo/certificate_TD-SUMI-PY-2119.pdf" target="_blank" class="glass-card cert-entry-card">
+                        <div class="cert-icon-box bg-purple"><i class="fa-solid fa-certificate"></i></div>
+                        <div class="cert-text-info">
+                            <span class="cert-category-label">Programming</span>
+                            <h4>Python Programming Specialist</h4>
+                            <p>ID: TD-SUMI-PY-2119</p>
+                        </div>
+                        <div class="cert-link-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+                    </a>
+
+                    <!-- Cert 2 -->
+                    <a href="photo/Sumiksha_Solanki_Internship_Certificate%20(3).pdf" target="_blank" class="glass-card cert-entry-card">
+                        <div class="cert-icon-box bg-cyan"><i class="fa-solid fa-award"></i></div>
+                        <div class="cert-text-info">
+                            <span class="cert-category-label">Internship</span>
+                            <h4>Data Analytics Internship Certificate</h4>
+                            <p>Official Performance Recognition</p>
+                        </div>
+                        <div class="cert-link-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+                    </a>
+
+                    <!-- Cert 3 -->
+                    <a href="photo/Sumiksha_Solanki_Letter_of_Recommendation%20(5).pdf" target="_blank" class="glass-card cert-entry-card">
+                        <div class="cert-icon-box bg-emerald"><i class="fa-solid fa-file-signature"></i></div>
+                        <div class="cert-text-info">
+                            <span class="cert-category-label">Recommendation</span>
+                            <h4>SolPark Tech Recommendation Letter</h4>
+                            <p>Official Leadership Letter</p>
+                        </div>
+                        <div class="cert-link-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+                    </a>
+
+                    <!-- Cert 4 -->
+                    <a href="photo/Sumiksha_Solanki_Offer_Letter%20(2).pdf" target="_blank" class="glass-card cert-entry-card">
+                        <div class="cert-icon-box bg-pink"><i class="fa-solid fa-file-contract"></i></div>
+                        <div class="cert-text-info">
+                            <span class="cert-category-label">Offer Letter</span>
+                            <h4>SolPark Tech Official Offer Letter</h4>
+                            <p>Appointment & Role Confirmation</p>
+                        </div>
+                        <div class="cert-link-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+                    </a>
+
+                    <!-- Cert 5 -->
+                    <a href="photo/certificate-GS-2026-94EF20.pdf" target="_blank" class="glass-card cert-entry-card">
+                        <div class="cert-icon-box bg-purple"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <div class="cert-text-info">
+                            <span class="cert-category-label">Competency</span>
+                            <h4>Graduate Skills Certification</h4>
+                            <p>ID: GS-2026-94EF20</p>
+                        </div>
+                        <div class="cert-link-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+                    </a>
+
+                    <!-- Cert 6 -->
+                    <a href="photo/UC-17b00b06-9726-4267-95e2-b7b3d3738906%20(2).pdf" target="_blank" class="glass-card cert-entry-card">
+                        <div class="cert-icon-box bg-cyan"><i class="fa-solid fa-stamp"></i></div>
+                        <div class="cert-text-info">
+                            <span class="cert-category-label">Course Completion</span>
+                            <h4>Udemy Verified Analytics Certificate</h4>
+                            <p>ID: UC-17b00b06-9726</p>
+                        </div>
+                        <div class="cert-link-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+                    </a>
+
+                    <!-- Cert 7 -->
+                    <a href="photo/NjynCWzGSaWXQCxSX_tMjbs76F526fF5v3G_bcB3e5yGEBhp3Pwwr_1779628354652_completion_certificate.pdf" target="_blank" class="glass-card cert-entry-card">
+                        <div class="cert-icon-box bg-emerald"><i class="fa-solid fa-file-circle-check"></i></div>
+                        <div class="cert-text-info">
+                            <span class="cert-category-label">Training Track</span>
+                            <h4>Advanced Tech Track Certificate 01</h4>
+                            <p>Verified Curriculum Mastery</p>
+                        </div>
+                        <div class="cert-link-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+                    </a>
+
+                    <!-- Cert 8 -->
+                    <a href="photo/Pchc5rEGyCeozqY5Z_SKZxezskWgmFjRvj9_bcB3e5yGEBhp3Pwwr_1779710181025_completion_certificate.pdf" target="_blank" class="glass-card cert-entry-card">
+                        <div class="cert-icon-box bg-pink"><i class="fa-solid fa-file-circle-check"></i></div>
+                        <div class="cert-text-info">
+                            <span class="cert-category-label">Training Track</span>
+                            <h4>Advanced Tech Track Certificate 02</h4>
+                            <p>Technical Assessment Cleared</p>
+                        </div>
+                        <div class="cert-link-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+                    </a>
+
+                    <!-- Cert 9 -->
+                    <a href="photo/gMTdCXwDdLYoXZ3wG_ifobHAoMjQs9s6bKS_bcB3e5yGEBhp3Pwwr_1782842095089_completion_certificate%20(2).pdf" target="_blank" class="glass-card cert-entry-card">
+                        <div class="cert-icon-box bg-purple"><i class="fa-solid fa-file-circle-check"></i></div>
+                        <div class="cert-text-info">
+                            <span class="cert-category-label">Training Track</span>
+                            <h4>Data & Development Credential 03</h4>
+                            <p>Practical Implementation Skills</p>
+                        </div>
+                        <div class="cert-link-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+                    </a>
+
+                    <!-- Cert 10 -->
+                    <a href="photo/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_bcB3e5yGEBhp3Pwwr_1779293303617_completion_certificate%20(2).pdf" target="_blank" class="glass-card cert-entry-card">
+                        <div class="cert-icon-box bg-cyan"><i class="fa-solid fa-file-circle-check"></i></div>
+                        <div class="cert-text-info">
+                            <span class="cert-category-label">Training Track</span>
+                            <h4>Applied Analytics Certificate 04</h4>
+                            <p>Verified Training Evaluation</p>
+                        </div>
+                        <div class="cert-link-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+                    </a>
+
+                    <!-- Cert 11 -->
+                    <a href="photo/km4rw7dihDr3etqom_skoQmxqhtgWmKv2pm_bcB3e5yGEBhp3Pwwr_1779701495668_completion_certificate%20(1).pdf" target="_blank" class="glass-card cert-entry-card">
+                        <div class="cert-icon-box bg-emerald"><i class="fa-solid fa-file-circle-check"></i></div>
+                        <div class="cert-text-info">
+                            <span class="cert-category-label">Training Track</span>
+                            <h4>Analytics & Database Certificate 05</h4>
+                            <p>Structured Examination Passed</p>
+                        </div>
+                        <div class="cert-link-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+                    </a>
+
+                    <!-- Cert 12 -->
+                    <a href="photo/km4rw7dihDr3etqom_skoQmxqhtgWmKv2pm_bcB3e5yGEBhp3Pwwr_1779701495668_completion_certificate.pdf" target="_blank" class="glass-card cert-entry-card">
+                        <div class="cert-icon-box bg-pink"><i class="fa-solid fa-file-circle-check"></i></div>
+                        <div class="cert-text-info">
+                            <span class="cert-category-label">Training Track</span>
+                            <h4>Web & Data Solutions Certificate 06</h4>
+                            <p>Official Verification Document</p>
+                        </div>
+                        <div class="cert-link-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+                    </a>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- MEDIA & PROJECT GALLERY -->
+        <section id="gallery" class="section-container">
+            <div class="container">
+
+                <div class="section-heading-box">
+                    <span class="section-tag-badge"><i class="fa-solid fa-images"></i> 05 // WORK GALLERY</span>
+                    <h2 class="section-title-large">21+ Screenshots & <span class="neon-gradient">Video Demos</span></h2>
+                    <p class="section-description">Click any visual or video to open fullscreen HD preview, or slide through.</p>
+                </div>
+
+                <div class="gallery-category-tabs">
+                    <button class="filter-tab active" data-filter="all">All Media (21)</button>
+                    <button class="filter-tab" data-filter="video">Video Walkthrough</button>
+                    <div class="gallery-slide-arrows">
+                        <button class="slider-arrow-btn" id="galleryPrev" aria-label="Previous Media" title="Previous">
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </button>
+                        <button class="slider-arrow-btn" id="galleryNext" aria-label="Next Media" title="Next">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="slider-track gallery-masonry-grid" id="gallerySliderTrack">
+
+                    <div class="glass-card gallery-item" data-category="web" data-type="image" data-src="photo/ChatGPT%20Image%20Jun%2029%2C%202026%2C%2008_34_49%20PM.png" data-title="UI Project Concept">
+                        <img src="photo/ChatGPT%20Image%20Jun%2029%2C%202026%2C%2008_34_49%20PM.png" alt="UI Architecture" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="badge-mini bg-cyan">Web Design</span>
+                            <h4>UI Project Architecture</h4>
+                            <span class="cue-zoom"><i class="fa-solid fa-expand"></i> Click to Enlarge</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card gallery-item" data-category="dashboards" data-type="image" data-src="photo/SUMIKSHA_SOLANKI.png" data-title="Sumiksha Solanki Portfolio Banner">
+                        <img src="photo/SUMIKSHA_SOLANKI.png" alt="Portfolio Banner" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="badge-mini bg-purple">Identity</span>
+                            <h4>Professional Portfolio Banner</h4>
+                            <span class="cue-zoom"><i class="fa-solid fa-expand"></i> Click to Enlarge</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card gallery-item" data-category="dashboards" data-type="image" data-src="photo/Screenshot%202026-08-04%20191944.png" data-title="Analytics KPI Dashboard">
+                        <img src="photo/Screenshot%202026-08-04%20191944.png" alt="Analytics Dashboard" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="badge-mini bg-purple">Analytics</span>
+                            <h4>KPI Metrics & Drilldown</h4>
+                            <span class="cue-zoom"><i class="fa-solid fa-expand"></i> Click to Enlarge</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card gallery-item" data-category="dashboards" data-type="image" data-src="photo/Screenshot%202026-08-05%20200537.png" data-title="Sales Trends & Breakdown">
+                        <img src="photo/Screenshot%202026-08-05%20200537.png" alt="Sales Trends" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="badge-mini bg-purple">Analytics</span>
+                            <h4>Sales Trends & Forecasting</h4>
+                            <span class="cue-zoom"><i class="fa-solid fa-expand"></i> Click to Enlarge</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card gallery-item" data-category="web" data-type="image" data-src="photo/Screenshot%202026-08-07%20223121.png" data-title="Interactive Web Interface">
+                        <img src="photo/Screenshot%202026-08-07%20223121.png" alt="Web UI" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="badge-mini bg-cyan">Web App</span>
+                            <h4>Interactive User Layout</h4>
+                            <span class="cue-zoom"><i class="fa-solid fa-expand"></i> Click to Enlarge</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card gallery-item" data-category="web" data-type="image" data-src="photo/Screenshot%202026-08-07%20223136.png" data-title="Modular UI Components">
+                        <img src="photo/Screenshot%202026-08-07%20223136.png" alt="Components" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="badge-mini bg-cyan">Components</span>
+                            <h4>Modular UI Components</h4>
+                            <span class="cue-zoom"><i class="fa-solid fa-expand"></i> Click to Enlarge</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card gallery-item" data-category="web" data-type="image" data-src="photo/Screenshot%202026-08-07%20223150.png" data-title="Feature Management Module">
+                        <img src="photo/Screenshot%202026-08-07%20223150.png" alt="Feature Management" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="badge-mini bg-cyan">Web App</span>
+                            <h4>Feature Management Module</h4>
+                            <span class="cue-zoom"><i class="fa-solid fa-expand"></i> Click to Enlarge</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card gallery-item" data-category="web" data-type="image" data-src="photo/Screenshot%202026-08-07%20223200.png" data-title="Interactive Data Tables">
+                        <img src="photo/Screenshot%202026-08-07%20223200.png" alt="Data Tables" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="badge-mini bg-emerald">Data UI</span>
+                            <h4>Interactive Data Tables</h4>
+                            <span class="cue-zoom"><i class="fa-solid fa-expand"></i> Click to Enlarge</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card gallery-item" data-category="web" data-type="image" data-src="photo/Screenshot%202026-08-07%20223223.png" data-title="System Administration Panel">
+                        <img src="photo/Screenshot%202026-08-07%20223223.png" alt="Admin View" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="badge-mini bg-cyan">Admin Panel</span>
+                            <h4>System Administration View</h4>
+                            <span class="cue-zoom"><i class="fa-solid fa-expand"></i> Click to Enlarge</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card gallery-item" data-category="dashboards" data-type="image" data-src="photo/Screenshot%202026-08-26%20140322.png" data-title="Statistical Graph Analysis">
+                        <img src="photo/Screenshot%202026-08-26%20140322.png" alt="Statistical Graph" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="badge-mini bg-purple">Analytics</span>
+                            <h4>Correlation & Plots</h4>
+                            <span class="cue-zoom"><i class="fa-solid fa-expand"></i> Click to Enlarge</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card gallery-item" data-category="dashboards" data-type="image" data-src="photo/Screenshot%202026-08-27%20100919.png" data-title="Business Performance Summary">
+                        <img src="photo/Screenshot%202026-08-27%20100919.png" alt="Performance Summary" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="badge-mini bg-purple">Analytics</span>
+                            <h4>KPI Summary Dashboard</h4>
+                            <span class="cue-zoom"><i class="fa-solid fa-expand"></i> Click to Enlarge</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card gallery-item" data-category="dashboards" data-type="image" data-src="photo/Screenshot%202026-08-27%20100937.png" data-title="Interactive Data Slicers">
+                        <img src="photo/Screenshot%202026-08-27%20100937.png" alt="Data Slicers" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="badge-mini bg-purple">Dashboards</span>
+                            <h4>Interactive Data Slicers</h4>
+                            <span class="cue-zoom"><i class="fa-solid fa-expand"></i> Click to Enlarge</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card gallery-item" data-category="dashboards" data-type="image" data-src="photo/Screenshot%202026-08-27%20100942.png" data-title="Hierarchical Deep Dive">
+                        <img src="photo/Screenshot%202026-08-27%20100942.png" alt="Hierarchical Drilldown" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="badge-mini bg-purple">Dashboards</span>
+                            <h4>Hierarchical Deep Dive</h4>
+                            <span class="cue-zoom"><i class="fa-solid fa-expand"></i> Click to Enlarge</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card gallery-item" data-category="web" data-type="image" data-src="photo/Screenshot%202026-09-03%20190133.png" data-title="Client Landing Platform">
+                        <img src="photo/Screenshot%202026-09-03%20190133.png" alt="Landing Platform" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="badge-mini bg-cyan">Web App</span>
+                            <h4>Landing Platform Architecture</h4>
+                            <span class="cue-zoom"><i class="fa-solid fa-expand"></i> Click to Enlarge</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card gallery-item" data-category="web" data-type="image" data-src="photo/Screenshot%202026-09-03%20190146.png" data-title="Dynamic Catalog View">
+                        <img src="photo/Screenshot%202026-09-03%20190146.png" alt="Service Catalog" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="badge-mini bg-cyan">Web App</span>
+                            <h4>Dynamic Catalog View</h4>
+                            <span class="cue-zoom"><i class="fa-solid fa-expand"></i> Click to Enlarge</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card gallery-item" data-category="web" data-type="image" data-src="photo/Screenshot%202026-09-03%20190210.png" data-title="Form Validation Workflow">
+                        <img src="photo/Screenshot%202026-09-03%20190210.png" alt="Form Validation" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="badge-mini bg-emerald">Forms</span>
+                            <h4>Validation & Processing</h4>
+                            <span class="cue-zoom"><i class="fa-solid fa-expand"></i> Click to Enlarge</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card gallery-item" data-category="dashboards" data-type="image" data-src="photo/Screenshot%202026-09-04%20152845.png" data-title="Predictive Trendline Models">
+                        <img src="photo/Screenshot%202026-09-04%20152845.png" alt="Revenue Trendlines" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="badge-mini bg-purple">Analytics</span>
+                            <h4>Predictive Trendline Models</h4>
+                            <span class="cue-zoom"><i class="fa-solid fa-expand"></i> Click to Enlarge</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card gallery-item" data-category="web" data-type="image" data-src="photo/Screenshot%202026-09-04%20210845.png" data-title="Dark Mode Styling Flow">
+                        <img src="photo/Screenshot%202026-09-04%20210845.png" alt="Dark Mode Flow" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="badge-mini bg-pink">UI/UX</span>
+                            <h4>Dark Mode Styling Flow</h4>
+                            <span class="cue-zoom"><i class="fa-solid fa-expand"></i> Click to Enlarge</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card gallery-item" data-category="web" data-type="image" data-src="photo/Screenshot%202026-09-04%20211218.png" data-title="Adaptive Mobile Viewports">
+                        <img src="photo/Screenshot%202026-09-04%20211218.png" alt="Mobile UI" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="badge-mini bg-cyan">Mobile UI</span>
+                            <h4>Adaptive Mobile Viewports</h4>
+                            <span class="cue-zoom"><i class="fa-solid fa-expand"></i> Click to Enlarge</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card gallery-item" data-category="web" data-type="image" data-src="photo/Screenshot%202026-09-11%20185257.png" data-title="Production Build Snapshot">
+                        <img src="photo/Screenshot%202026-09-11%20185257.png" alt="Production Release" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="badge-mini bg-cyan">Release</span>
+                            <h4>Production Build Snapshot</h4>
+                            <span class="cue-zoom"><i class="fa-solid fa-expand"></i> Click to Enlarge</span>
+                        </div>
+                    </div>
+
+                    <!-- Video Item -->
+                    <div class="glass-card gallery-item video-gallery-item" data-category="video" data-type="video" data-src="photo/WhatsApp%20Video%202026-09-16%20at%201.48.47%20PM.mp4" data-title="Live Demo Walkthrough Video">
+                        <video src="photo/WhatsApp%20Video%202026-09-16%20at%201.48.47%20PM.mp4" muted loop playsinline></video>
+                        <div class="gallery-overlay">
+                            <span class="badge-mini bg-pink"><i class="fa-solid fa-play"></i> Video Demo</span>
+                            <h4>Live Interactive Video Demo</h4>
+                            <span class="cue-zoom"><i class="fa-solid fa-circle-play"></i> Click to Watch Video</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- SERVICES SECTION -->
+        <section id="services" class="section-container section-dark-accent">
+            <div class="container">
+
+                <div class="section-heading-box">
+                    <span class="section-tag-badge"><i class="fa-solid fa-briefcase"></i> 06 // SERVICES OFFERED</span>
+                    <h2 class="section-title-large">Professional <span class="neon-gradient">Consulting</span></h2>
+                    <p class="section-description">High-performance analytics and full-stack software solutions for growing businesses.</p>
+                </div>
+
+                <div class="services-columns-grid">
+
+                    <div class="glass-card service-entry-card">
+                        <div class="service-icon-box bg-purple"><i class="fa-solid fa-chart-pie"></i></div>
+                        <h3>Data Analytics & BI Dashboards</h3>
+                        <p>Turn raw spreadsheets into real-time Power BI & Tableau dashboards with automated KPIs and visual intelligence.</p>
+                        <ul class="service-points-list">
+                            <li><i class="fa-solid fa-check"></i> Power BI / Tableau Dashboards</li>
+                            <li><i class="fa-solid fa-check"></i> Python & SQL Data Pipelines</li>
+                            <li><i class="fa-solid fa-check"></i> KPI Metrics & Drilldowns</li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-card service-entry-card">
+                        <div class="service-icon-box bg-cyan"><i class="fa-solid fa-code"></i></div>
+                        <h3>Custom Web Development</h3>
+                        <p>Design and build ultra-responsive, mobile-optimized modern websites and web applications with seamless UX.</p>
+                        <ul class="service-points-list">
+                            <li><i class="fa-solid fa-check"></i> HTML5, CSS3, JavaScript (ES6+)</li>
+                            <li><i class="fa-solid fa-check"></i> PHP & MySQL Backend Logic</li>
+                            <li><i class="fa-solid fa-check"></i> 100% Mobile & Cross-Device Ready</li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-card service-entry-card">
+                        <div class="service-icon-box bg-emerald"><i class="fa-solid fa-database"></i></div>
+                        <h3>Database Architecture & SQL</h3>
+                        <p>Create robust database schemas, write optimized complex queries, and build automated ETL cleaning pipelines.</p>
+                        <ul class="service-points-list">
+                            <li><i class="fa-solid fa-check"></i> Relational Database Schema Design</li>
+                            <li><i class="fa-solid fa-check"></i> Query Optimization & Indexing</li>
+                            <li><i class="fa-solid fa-check"></i> Automated Data Validation</li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-card service-entry-card">
+                        <div class="service-icon-box bg-pink"><i class="fa-solid fa-briefcase"></i></div>
+                        <h3>SolPark Tech Freelance Consulting</h3>
+                        <p>Direct project delivery for businesses looking to scale their digital presence or build customized digital tools.</p>
+                        <ul class="service-points-list">
+                            <li><i class="fa-solid fa-check"></i> End-to-End Project Delivery</li>
+                            <li><i class="fa-solid fa-check"></i> Direct WhatsApp & Call Support</li>
+                            <li><i class="fa-solid fa-check"></i> Transparent Milestones</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="section-container">
+            <div class="container">
+
+                <div class="section-heading-box">
+                    <span class="section-tag-badge"><i class="fa-solid fa-envelope"></i> 07 // DIRECT CONTACT</span>
+                    <h2 class="section-title-large">Let's Connect & <span class="neon-gradient">Collaborate</span></h2>
+                    <p class="section-description">Reach out directly via Phone, WhatsApp, LinkedIn or Email.</p>
+                </div>
+
+                <div class="contact-wrapper-grid">
+
+                    <!-- Direct Reach Stack -->
+                    <div class="contact-links-stack">
+
+                        <!-- Phone -->
+                        <div class="glass-card contact-link-card">
+                            <div class="contact-icon-bubble bg-purple"><i class="fa-solid fa-phone"></i></div>
+                            <div class="contact-card-info">
+                                <span class="info-label">Direct Phone Call</span>
+                                <strong>+91 99874 36819</strong>
+                                <div class="action-buttons-row">
+                                    <a href="tel:+919987436819" class="pill-btn-action call-color"><i class="fa-solid fa-phone-volume"></i> Call Now</a>
+                                    <button type="button" class="pill-btn-action copy-trigger" data-copy="+919987436819"><i class="fa-regular fa-copy"></i> Copy</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- WhatsApp -->
+                        <div class="glass-card contact-link-card">
+                            <div class="contact-icon-bubble bg-emerald"><i class="fa-brands fa-whatsapp"></i></div>
+                            <div class="contact-card-info">
+                                <span class="info-label">WhatsApp Direct</span>
+                                <strong>+91 99874 36819</strong>
+                                <div class="action-buttons-row">
+                                    <a href="https://wa.me/919987436819?text=Hi%20Sumiksha,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect!" target="_blank" rel="noopener noreferrer" class="pill-btn-action whatsapp-color"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- LinkedIn -->
+                        <div class="glass-card contact-link-card">
+                            <div class="contact-icon-bubble bg-cyan"><i class="fa-brands fa-linkedin-in"></i></div>
+                            <div class="contact-card-info">
+                                <span class="info-label">LinkedIn Profile</span>
+                                <strong>Sumiksha Solanki</strong>
+                                <div class="action-buttons-row">
+                                    <a href="https://www.linkedin.com/in/sumiksha-solanki-8b000b23a/" target="_blank" rel="noopener noreferrer" class="pill-btn-action linkedin-color"><i class="fa-solid fa-arrow-up-right-from-square"></i> Open LinkedIn</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="glass-card contact-link-card">
+                            <div class="contact-icon-bubble bg-pink"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="contact-card-info">
+                                <span class="info-label">Email Address</span>
+                                <strong>sumikshasolnki@gmail.com</strong>
+                                <div class="action-buttons-row">
+                                    <a href="mailto:sumikshasolnki@gmail.com" class="pill-btn-action email-color"><i class="fa-solid fa-paper-plane"></i> Send Mail</a>
+                                    <button type="button" class="pill-btn-action copy-trigger" data-copy="sumikshasolnki@gmail.com"><i class="fa-regular fa-copy"></i> Copy</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Contact Form Box -->
+                    <div class="glass-card contact-form-card">
+                        <form id="contactForm" class="contact-form-box" action="https://api.web3forms.com/submit" method="POST">
+
+                            <h3>Send a Message</h3>
+                            <p>Have a project, full-time role, or inquiry? Leave a message below.</p>
+
+                            <!-- Web3Forms Config -->
+                            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+                            <input type="hidden" name="subject" value="New Portfolio Inquiry for Sumiksha">
+                            <input type="hidden" name="from_name" value="Sumiksha Portfolio">
+                            <input type="checkbox" name="botcheck" class="hidden" style="display:none">
+
+                            <div class="form-inputs-dual">
+                                <div class="form-control-group">
+                                    <label for="formName"><i class="fa-regular fa-user"></i> Full Name *</label>
+                                    <input type="text" id="formName" name="name" placeholder="John Doe" autocomplete="name" required>
+                                </div>
+                                <div class="form-control-group">
+                                    <label for="formEmail"><i class="fa-regular fa-envelope"></i> Email Address *</label>
+                                    <input type="email" id="formEmail" name="email" placeholder="john@example.com" autocomplete="email" required>
+                                </div>
+                            </div>
+
+                            <div class="form-inputs-dual">
+                                <div class="form-control-group">
+                                    <label for="formPhone"><i class="fa-solid fa-phone"></i> Phone Number</label>
+                                    <input type="tel" id="formPhone" name="phone" placeholder="+91 XXXXX XXXXX" autocomplete="tel">
+                                </div>
+                                <div class="form-control-group">
+                                    <label for="formSubject"><i class="fa-solid fa-briefcase"></i> Subject *</label>
+                                    <input type="text" id="formSubject" name="form_subject" placeholder="Project Opportunity / Hiring" required>
+                                </div>
+                            </div>
+
+                            <div class="form-control-group">
+                                <label for="formMessage"><i class="fa-regular fa-comment"></i> Your Message *</label>
+                                <textarea id="formMessage" name="message" rows="5" placeholder="Tell me about your project, team, or requirements..." required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn-primary-gradient btn-block" id="submitBtn">
+                                <span>Send Message</span>
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+
+                            <p id="formStatus" class="form-status-msg"></p>
+
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container footer-layout-grid">
+
+            <div class="footer-brand-column">
+                <a href="#hero" class="site-logo">
+                    <span class="logo-box">SS</span>
+                    <span class="logo-title">Sumiksha<span class="dot-pink">.</span></span>
+                </a>
+                <p class="footer-summary">
+                    Data Analyst & Web Developer based in Mumbai. Turning raw datasets into visual clarity and engineering responsive digital experiences.
+                </p>
+                <div class="footer-contact-row">
+                    <i class="fa-solid fa-phone"></i>
+                    <a href="tel:+919987436819">+91 99874 36819</a>
+                </div>
+                <div class="footer-contact-row">
+                    <i class="fa-solid fa-envelope"></i>
+                    <a href="mailto:sumikshasolnki@gmail.com">sumikshasolnki@gmail.com</a>
+                </div>
+            </div>
+
+            <div class="footer-nav-column">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#skills">Skills & Toolkit</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-nav-column">
+                <h4>Credentials</h4>
+                <ul>
+                    <li><a href="#certifications">15+ Certificates</a></li>
+                    <li><a href="#gallery">21+ Media Gallery</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="assets/Sumiksha_Solanki_Resume.pdf" download>Resume (PDF)</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-social-column">
+                <h4>Connect</h4>
+                <p>Feel free to reach out online:</p>
+                <div class="footer-social-row">
+                    <a href="https://www.linkedin.com/in/sumiksha-solanki-8b000b23a/" target="_blank" rel="noopener noreferrer" class="social-circle" aria-label="LinkedIn">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/solankisumiksha-bit" target="_blank" rel="noopener noreferrer" class="social-circle" aria-label="GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="https://wa.me/919987436819" target="_blank" rel="noopener noreferrer" class="social-circle" aria-label="WhatsApp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                    <a href="tel:+919987436819" class="social-circle" aria-label="Phone">
+                        <i class="fa-solid fa-phone"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom-strip">
+            <div class="container footer-bottom-flex">
+                <p>&copy; <span id="currentYear"></span> <strong>Sumiksha Solanki</strong>. All rights reserved.</p>
+                <p>Designed with High Precision, Performance & Clean Code.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Floating Quick Buttons -->
+    <div class="floating-quick-actions">
+        <a href="https://wa.me/919987436819?text=Hi%20Sumiksha,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect!" target="_blank" rel="noopener noreferrer" class="fab-circle fab-whatsapp" title="WhatsApp Chat">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <button id="scrollTopBtn" class="fab-circle fab-scroll" aria-label="Scroll to Top" title="Scroll to Top">
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
+    </div>
+
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
