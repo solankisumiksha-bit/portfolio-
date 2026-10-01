@@ -6,7 +6,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     /* =========================================================
-       1. BACKGROUND CANVAS PARTICLES
+       1. BACKGROUND CANVAS PARTICLES 
     ========================================================= */
     const canvas = document.getElementById("starfieldCanvas");
     if (canvas) {
